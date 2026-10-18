@@ -1,0 +1,789 @@
+{
+ "id": "c14",
+ "num": 14,
+ "stage": 5,
+ "title": {
+  "en": "Secure and govern Power BI items",
+  "zh": "保护和治理 Power BI 项目"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-power-bi-security",
+ "sections": [
+  {
+   "id": "roles",
+   "heading": {
+    "en": "Workspace roles",
+    "zh": "工作区角色"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces",
+   "takeaways": [
+    {
+     "en": "Four workspace roles: Admin, Member, Contributor, Viewer — each includes the rights of the ones below it.",
+     "zh": "四种工作区角色：管理员、成员、参与者、查看者——每种都包含下级角色的权限。"
+    },
+    {
+     "en": "Contributors can create and edit content but cannot share or manage access; Viewers can only view.",
+     "zh": "参与者可以建立和编辑内容，但不能分享或管理访问权限；查看者只能查看。"
+    },
+    {
+     "en": "Row-level security applies only to Viewers (and people given read access); Admin, Member and Contributor see all data.",
+     "zh": "行级别安全性只对查看者（以及被授予读取权限的人）生效；管理员、成员和参与者能看到所有数据。"
+    }
+   ],
+   "terms": [
+    "workspace-role",
+    "rls"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Capability",
+       "zh": "能力"
+      },
+      {
+       "en": "Admin",
+       "zh": "管理员"
+      },
+      {
+       "en": "Member",
+       "zh": "成员"
+      },
+      {
+       "en": "Contributor",
+       "zh": "参与者"
+      },
+      {
+       "en": "Viewer",
+       "zh": "查看者"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "View content",
+        "zh": "查看内容"
+       },
+       "✓",
+       "✓",
+       "✓",
+       "✓"
+      ],
+      [
+       {
+        "en": "Create, edit, delete content; publish reports",
+        "zh": "建立、编辑、删除内容；发布报表"
+       },
+       "✓",
+       "✓",
+       "✓",
+       "—"
+      ],
+      [
+       {
+        "en": "Schedule refresh, configure semantic model",
+        "zh": "计划刷新、配置语义模型"
+       },
+       "✓",
+       "✓",
+       "✓",
+       "—"
+      ],
+      [
+       {
+        "en": "Share items, add others with lower roles",
+        "zh": "分享项目，添加较低角色的成员"
+       },
+       "✓",
+       "✓",
+       "—",
+       "—"
+      ],
+      [
+       {
+        "en": "Publish and update the app",
+        "zh": "发布和更新应用"
+       },
+       "✓",
+       "✓",
+       {
+        "en": "Only if allowed",
+        "zh": "需获准"
+       },
+       "—"
+      ],
+      [
+       {
+        "en": "Add/remove Admins, delete workspace, change settings",
+        "zh": "添加/移除管理员、删除工作区、更改设置"
+       },
+       "✓",
+       "—",
+       "—",
+       "—"
+      ],
+      [
+       {
+        "en": "Subject to RLS",
+        "zh": "受 RLS 限制"
+       },
+       "—",
+       "—",
+       "—",
+       "✓"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Assign roles in the workspace's <b>Manage access</b> to users, Microsoft Entra security groups, Microsoft 365 groups or distribution lists. Using groups makes access easier to manage as people join and leave.",
+      "zh": "在工作区的<b>管理访问权限</b>中，把角色分配给用户、Microsoft Entra 安全组、Microsoft 365 组或通讯组列表。使用组可以让人员加入和离开时更容易管理访问权限。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "The classic trap: RLS is tested by a colleague who is a Member of the workspace and sees everything. RLS does not apply to Admin, Member or Contributor. Give report consumers the Viewer role or an app.",
+      "zh": "经典陷阱：由工作区「成员」同事测试 RLS，结果看到全部数据。RLS 对管理员、成员和参与者无效。应给报表读者「查看者」角色或通过应用分发。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Analysts must publish and edit reports in a workspace but must not be able to share content or add people. Which role?",
+      "zh": "分析师需要在工作区中发布和编辑报表，但不能分享内容或添加人员。用哪个角色？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Contributor",
+        "zh": "参与者"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Viewer",
+        "zh": "查看者"
+       },
+       "correct": false,
+       "why": {
+        "en": "Viewers cannot publish.",
+        "zh": "查看者不能发布。"
+       }
+      },
+      {
+       "html": {
+        "en": "Admin",
+        "zh": "管理员"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Member",
+        "zh": "成员"
+       },
+       "correct": false,
+       "why": {
+        "en": "Members can share and add people.",
+        "zh": "成员可以分享和添加人员。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "RLS restricts sales reps to their region, but a sales rep who is a workspace Member sees all regions. Why?",
+      "zh": "RLS 限制销售代表只能看自己的区域，但一位身为工作区「成员」的销售代表却看到所有区域。为什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "The semantic model is not certified",
+        "zh": "语义模型未经认证"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "The report needs a refresh",
+        "zh": "报表需要刷新"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "RLS does not apply to Admin, Member or Contributor roles",
+        "zh": "RLS 对管理员、成员和参与者角色无效"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: give that person the Viewer role or app access.",
+        "zh": "对：应给此人「查看者」角色或应用访问权限。"
+       }
+      },
+      {
+       "html": {
+        "en": "The role filter uses USERPRINCIPALNAME",
+        "zh": "角色筛选使用了 USERPRINCIPALNAME"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "item-access",
+   "heading": {
+    "en": "Item-level and semantic model access",
+    "zh": "项目级与语义模型访问"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-permissions",
+   "takeaways": [
+    {
+     "en": "You can share a single report or dashboard without giving workspace access, choosing whether recipients can reshare or build.",
+     "zh": "可以只分享单一报表或仪表板而不提供工作区访问权限，并选择收件人能否重新分享或生成内容。"
+    },
+    {
+     "en": "Semantic model permissions: Read, Build, Reshare and Write.",
+     "zh": "语义模型权限：读取、生成、重新分享和写入。"
+    },
+    {
+     "en": "Build permission lets people create their own reports, use Analyze in Excel, and connect live to the model.",
+     "zh": "生成（Build）权限让人可以制作自己的报表、使用「在 Excel 中分析」，并实时连接到模型。"
+    }
+   ],
+   "terms": [
+    "build-permission",
+    "analyze-in-excel"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Sharing an item",
+      "zh": "分享项目"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "On a report or dashboard select <b>Share</b>. Choose who the link works for (people in your organisation, people with existing access, or specific people) and tick <b>Allow recipients to share</b> and <b>Allow recipients to build content with the data associated with this report</b> as needed. <b>Manage permissions</b> shows and removes direct access and links.",
+      "zh": "在报表或仪表板上选择<b>分享</b>。选择链接对谁有效（组织中的人员、已有访问权限的人员或特定人员），并按需要勾选<b>允许收件人分享</b>和<b>允许收件人使用与此报表关联的数据生成内容</b>。<b>管理权限</b>可查看和移除直接访问权限及链接。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Semantic model permission",
+       "zh": "语义模型权限"
+      },
+      {
+       "en": "Lets the user",
+       "zh": "让用户可以"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Read",
+        "zh": "读取"
+       },
+       {
+        "en": "View reports that use the model",
+        "zh": "查看使用该模型的报表"
+       }
+      ],
+      [
+       {
+        "en": "Build",
+        "zh": "生成"
+       },
+       {
+        "en": "Create new reports, Analyze in Excel, live connect from Desktop, query with DAX",
+        "zh": "制作新报表、在 Excel 中分析、从 Desktop 实时连接、用 DAX 查询"
+       }
+      ],
+      [
+       {
+        "en": "Reshare",
+        "zh": "重新分享"
+       },
+       {
+        "en": "Share the model with others",
+        "zh": "把模型分享给其他人"
+       }
+      ],
+      [
+       {
+        "en": "Write",
+        "zh": "写入"
+       },
+       {
+        "en": "Edit the model (comes with Admin, Member, Contributor roles)",
+        "zh": "编辑模型（管理员、成员、参与者角色自带）"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Manage these on the semantic model: <b>More options → Manage permissions</b>. Granting Build through an app is also possible (\"allow everyone with app access to build content\").",
+      "zh": "在语义模型上管理：<b>更多选项 → 管理权限</b>。也可以通过应用授予生成权限（「允许所有有应用访问权限的人生成内容」）。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A business analyst should create new reports from the certified Sales model but not edit the model. Which permission?",
+      "zh": "某业务分析师应该能基于认证的 Sales 模型制作新报表，但不能编辑模型。用哪个权限？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Reshare",
+        "zh": "重新分享"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Viewer role in the workspace",
+        "zh": "工作区的「查看者」角色"
+       },
+       "correct": false,
+       "why": {
+        "en": "Viewer alone gives Read, not Build.",
+        "zh": "仅「查看者」角色只给读取权限，没有生成权限。"
+       }
+      },
+      {
+       "html": {
+        "en": "Write on the semantic model",
+        "zh": "语义模型的「写入」权限"
+       },
+       "correct": false,
+       "why": {
+        "en": "Write allows changing the model.",
+        "zh": "写入权限允许修改模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "Build on the semantic model",
+        "zh": "语义模型的「生成」权限"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rls",
+   "heading": {
+    "en": "Row-level security",
+    "zh": "行级别安全性"
+   },
+   "min": 10,
+   "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-rls",
+   "takeaways": [
+    {
+     "en": "RLS roles are defined in Desktop with DAX filters on tables; filters flow to related tables through relationships.",
+     "zh": "RLS 角色在 Desktop 中定义，用 DAX 筛选表；筛选会通过关系传递到相关的表。"
+    },
+    {
+     "en": "Static RLS hard-codes values (Region = \"West\"); dynamic RLS uses USERPRINCIPALNAME() to filter by the signed-in user.",
+     "zh": "静态 RLS 把值写死（Region = \"West\"）；动态 RLS 用 USERPRINCIPALNAME() 按登录用户筛选。"
+    },
+    {
+     "en": "Test with View as in Desktop or Test as role in the service; assign users or groups to roles in the service.",
+     "zh": "在 Desktop 中用「以角色身份查看」测试，或在服务中用「以角色身份测试」；在服务中把用户或组分配给角色。"
+    }
+   ],
+   "terms": [
+    "rls",
+    "dynamic-rls",
+    "userprincipalname",
+    "ols"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>Row-level security (RLS)</b> restricts which rows a user can see in the same report. One report and one model serve every region, but each manager sees only their own.",
+      "zh": "<b>行级别安全性（RLS）</b>限制用户在同一份报表中能看到哪些行。一份报表和一个模型服务所有区域，但每位经理只看到自己的区域。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "en": "Desktop: <b>Modeling → Manage roles → New</b>. Name the role, select a table and enter a DAX filter (or use the default rules editor).",
+       "zh": "Desktop：<b>建模 → 管理角色 → 新建</b>。为角色命名，选择表并输入 DAX 筛选（或使用默认的规则编辑器）。"
+      },
+      {
+       "en": "<b>Modeling → View as</b> to test the role (and \"Other user\" to test dynamic rules).",
+       "zh": "<b>建模 → 以角色身份查看</b>来测试角色（用「其他用户」测试动态规则）。"
+      },
+      {
+       "en": "Publish. In the service open the semantic model → <b>Security</b>, and add users or security groups to each role.",
+       "zh": "发布。在服务中打开语义模型 → <b>安全性</b>，为每个角色添加用户或安全组。"
+      },
+      {
+       "en": "Use <b>Test as role</b> in the service to check.",
+       "zh": "在服务中使用<b>以角色身份测试</b>来检查。"
+      }
+     ]
+    },
+    {
+     "type": "code",
+     "text": "-- Static role \"West\" on the Store table\n[Region] = \"West\"\n\n-- Dynamic role on the Employee table: each user sees rows for their own email\n[Email] = USERPRINCIPALNAME ()\n\n-- Dynamic, through a mapping table UserRegion(Email, Region) related to Store\n-- role filter on UserRegion:\n[Email] = USERPRINCIPALNAME ()"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Static RLS",
+       "zh": "静态 RLS"
+      },
+      {
+       "en": "Dynamic RLS",
+       "zh": "动态 RLS"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Filter",
+        "zh": "筛选"
+       },
+       {
+        "en": "Fixed values per role",
+        "zh": "每个角色固定的值"
+       },
+       {
+        "en": "Based on who signs in: USERPRINCIPALNAME()",
+        "zh": "根据登录者：USERPRINCIPALNAME()"
+       }
+      ],
+      [
+       {
+        "en": "Roles",
+        "zh": "角色数量"
+       },
+       {
+        "en": "One per region/team",
+        "zh": "每个区域/团队一个"
+       },
+       {
+        "en": "Usually one role for everyone",
+        "zh": "通常所有人共用一个角色"
+       }
+      ],
+      [
+       {
+        "en": "Maintenance",
+        "zh": "维护"
+       },
+       {
+        "en": "New region = new role",
+        "zh": "新区域 = 新角色"
+       },
+       {
+        "en": "Edit the mapping table data only",
+        "zh": "只需修改对照表的数据"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "key",
+     "html": {
+      "en": "If the filter is on a dimension that must restrict another dimension through a fact table, tick <b>Apply security filter in both directions</b> on that relationship. A user in several roles sees the union of their roles' rows.",
+      "zh": "如果筛选位于一个维度表上，又必须通过事实表去限制另一个维度表，就要在该关系上勾选<b>在两个方向上应用安全筛选器</b>。同时属于多个角色的用户，会看到这些角色可见行的并集。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Group membership",
+      "zh": "组成员资格"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Assign <b>Microsoft Entra security groups</b> (or mail-enabled security groups) to roles instead of individuals. When someone moves to another team, IT changes the group and the report follows automatically.",
+      "zh": "把 <b>Microsoft Entra 安全组</b>（或启用邮件的安全组）分配给角色，而不是分配给个人。当有人调到别的团队时，IT 只要修改组，报表就会自动跟上。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Each of 300 salespeople must see only their own customers, and new hires join every month. Which RLS design is easiest to maintain?",
+      "zh": "300 名销售人员每人只能看到自己的客户，而且每月都有新员工加入。哪种 RLS 设计最容易维护？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "One report per salesperson",
+        "zh": "每位销售人员一份报表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Hidden page-level filters",
+        "zh": "隐藏的页面级筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "Filters are not security.",
+        "zh": "筛选器不是安全措施。"
+       }
+      },
+      {
+       "html": {
+        "en": "One dynamic role filtering on [Email] = USERPRINCIPALNAME()",
+        "zh": "一个动态角色，筛选 [Email] = USERPRINCIPALNAME()"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: new people only need a row in the data and membership of the role (or a group).",
+        "zh": "对：新员工只需要在数据中加一行，并加入该角色（或某个组）。"
+       }
+      },
+      {
+       "html": {
+        "en": "One static role per salesperson",
+        "zh": "每位销售人员一个静态角色"
+       },
+       "correct": false,
+       "why": {
+        "en": "300 roles that must change every month.",
+        "zh": "300 个角色，每月都要修改。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Where do you add users to an RLS role after publishing?",
+      "zh": "发布后在哪里把用户添加到 RLS 角色？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Workspace → Manage access",
+        "zh": "工作区 → 管理访问权限"
+       },
+       "correct": false,
+       "why": {
+        "en": "That sets workspace roles, not RLS roles.",
+        "zh": "那里设定的是工作区角色，不是 RLS 角色。"
+       }
+      },
+      {
+       "html": {
+        "en": "Modeling → Manage roles in Desktop",
+        "zh": "Desktop 中的 建模 → 管理角色"
+       },
+       "correct": false,
+       "why": {
+        "en": "Roles and their filters are defined there; membership is set in the service.",
+        "zh": "那里定义角色和筛选；成员资格在服务中设定。"
+       }
+      },
+      {
+       "html": {
+        "en": "The app's audience settings",
+        "zh": "应用的受众设置"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Semantic model → Security in the Power BI service",
+        "zh": "Power BI 服务中的 语义模型 → 安全性"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sensitivity",
+   "heading": {
+    "en": "Sensitivity labels",
+    "zh": "敏感度标签"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-security-sensitivity-label-overview",
+   "takeaways": [
+    {
+     "en": "Sensitivity labels from Microsoft Purview Information Protection classify content as Public, General, Confidential and so on.",
+     "zh": "来自 Microsoft Purview 信息保护的敏感度标签，会把内容分类为公开、一般、机密等。"
+    },
+    {
+     "en": "Labels can be applied in Desktop or the service and are inherited by downstream items (semantic model → report → dashboard).",
+     "zh": "标签可以在 Desktop 或服务中套用，并由下游项目继承（语义模型 → 报表 → 仪表板）。"
+    },
+    {
+     "en": "When data is exported to Excel, PowerPoint or PDF, the label and its protection travel with the file.",
+     "zh": "数据导出到 Excel、PowerPoint 或 PDF 时，标签及其保护会随文件一起带走。"
+    }
+   ],
+   "terms": [
+    "sensitivity-label"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>Sensitivity labels</b> tell people how sensitive content is and can enforce protection. They are defined by the organisation in Microsoft Purview, then enabled for Power BI by the admin.",
+      "zh": "<b>敏感度标签</b>告诉大家内容有多敏感，也可以强制执行保护。它们由组织在 Microsoft Purview 中定义，再由管理员为 Power BI 启用。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Apply a label from the <b>Sensitivity</b> button in Desktop, or in an item's settings / the header in the service.",
+       "zh": "在 Desktop 中通过<b>敏感度</b>按钮套用标签，或在服务中通过项目设置/标头套用。"
+      },
+      {
+       "en": "<b>Downstream inheritance</b>: a label on a semantic model flows to new reports and dashboards built on it.",
+       "zh": "<b>下游继承</b>：语义模型上的标签会传递到基于它建立的新报表和仪表板。"
+      },
+      {
+       "en": "<b>Export</b>: Excel, PowerPoint and PDF exports keep the label and any encryption, so a \"Confidential\" file stays protected outside Power BI.",
+       "zh": "<b>导出</b>：导出的 Excel、PowerPoint 和 PDF 会保留标签和加密，所以「机密」文件离开 Power BI 后仍受保护。"
+      },
+      {
+       "en": "Admins can set a <b>default label</b> and require <b>mandatory labelling</b>.",
+       "zh": "管理员可以设定<b>默认标签</b>，并要求<b>强制标记</b>。"
+      },
+      {
+       "en": "A label does not limit who can open the item inside Power BI — workspace roles, sharing and RLS do that.",
+       "zh": "标签并不限制谁能在 Power BI 中打开项目——那是工作区角色、分享和 RLS 的工作。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Data exported from a report to Excel must remain encrypted and marked Confidential outside Power BI. What provides this?",
+      "zh": "从报表导出到 Excel 的数据，离开 Power BI 后必须保持加密并标示为「机密」。什么能做到？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Row-level security",
+        "zh": "行级别安全性"
+       },
+       "correct": false,
+       "why": {
+        "en": "RLS controls rows seen, not protection of exported files.",
+        "zh": "RLS 控制可见的行，不保护导出的文件。"
+       }
+      },
+      {
+       "html": {
+        "en": "Certification",
+        "zh": "认证"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A sensitivity label with protection applied to the report or semantic model",
+        "zh": "对报表或语义模型套用带保护设置的敏感度标签"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A Viewer role",
+        "zh": "查看者角色"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

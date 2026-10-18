@@ -1,0 +1,747 @@
+{
+ "id": "c04",
+ "num": 4,
+ "stage": 2,
+ "title": {
+  "en": "Transform the data",
+  "zh": "转换数据"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-query/power-query-ui",
+ "sections": [
+  {
+   "id": "types-columns",
+   "heading": {
+    "en": "Data types and new columns",
+    "zh": "数据类型与新增列"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-query/data-types",
+   "takeaways": [
+    {
+     "en": "Set the right data type early: it decides sorting, aggregation, relationships and model size.",
+     "zh": "尽早设定正确的数据类型：它决定排序、汇总、关系和模型大小。"
+    },
+    {
+     "en": "Fixed decimal number suits currency (four decimal places, no rounding errors); Whole number suits keys and counts.",
+     "zh": "定点小数适合货币（四位小数，无舍入误差）；整数适合键和计数。"
+    },
+    {
+     "en": "Add columns with Column from Examples, Conditional column, Custom column, Index column, Split and Merge.",
+     "zh": "可用「示例中的列」「条件列」「自定义列」「索引列」「拆分」和「合并」来新增列。"
+    }
+   ],
+   "terms": [
+    "data-type",
+    "custom-column"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Type",
+       "zh": "类型"
+      },
+      {
+       "en": "Use for",
+       "zh": "用途"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Whole number",
+        "zh": "整数"
+       },
+       {
+        "en": "Keys, counts, quantities",
+        "zh": "键、计数、数量"
+       }
+      ],
+      [
+       {
+        "en": "Decimal number",
+        "zh": "小数"
+       },
+       {
+        "en": "Measurements, ratios",
+        "zh": "测量值、比率"
+       }
+      ],
+      [
+       {
+        "en": "Fixed decimal number",
+        "zh": "定点小数"
+       },
+       {
+        "en": "Money: stored with exactly four decimal places",
+        "zh": "金额：精确存储四位小数"
+       }
+      ],
+      [
+       {
+        "en": "Percentage",
+        "zh": "百分比"
+       },
+       {
+        "en": "Rates stored as 0–1",
+        "zh": "以 0–1 存储的比率"
+       }
+      ],
+      [
+       {
+        "en": "Date / Date/Time / Date/Time/Timezone / Time / Duration",
+        "zh": "日期 / 日期/时间 / 日期/时间/时区 / 时间 / 持续时间"
+       },
+       {
+        "en": "Use Date when you do not need the time — fewer distinct values, smaller model",
+        "zh": "不需要时间就用「日期」——非重复值更少、模型更小"
+       }
+      ],
+      [
+       {
+        "en": "Text",
+        "zh": "文本"
+       },
+       {
+        "en": "Names, codes that are not numbers (postcodes with leading zeros)",
+        "zh": "名称、不是数字的代码（以 0 开头的邮编）"
+       }
+      ],
+      [
+       {
+        "en": "True/False",
+        "zh": "True/False"
+       },
+       {
+        "en": "Flags",
+        "zh": "标记"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "key",
+     "html": {
+      "en": "Splitting a Date/Time column into a Date column and a Time column can shrink a model a lot: two columns with few distinct values compress far better than one with millions.",
+      "zh": "把「日期/时间」列拆成日期列和时间列，可以大幅缩小模型：两个非重复值少的列，比一个有数百万个不同值的列压缩效果好得多。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Ways to add columns",
+      "zh": "新增列的方法"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Feature",
+       "zh": "功能"
+      },
+      {
+       "en": "Good for",
+       "zh": "适合"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Column from Examples",
+        "zh": "示例中的列"
+       },
+       {
+        "en": "Type a few results; Power Query writes the formula (extract, combine, format)",
+        "zh": "输入几个结果，Power Query 自动写出公式（提取、组合、格式化）"
+       }
+      ],
+      [
+       {
+        "en": "Conditional column",
+        "zh": "条件列"
+       },
+       {
+        "en": "If-then-else rules without code, e.g. Amount &gt; 1000 → \"Large\"",
+        "zh": "不用写代码的 if-then-else 规则，例如 金额 &gt; 1000 → 「大单」"
+       }
+      ],
+      [
+       {
+        "en": "Custom column",
+        "zh": "自定义列"
+       },
+       {
+        "en": "Any M expression, e.g. <code>[Quantity] * [Unit Price]</code>",
+        "zh": "任何 M 表达式，例如 <code>[Quantity] * [Unit Price]</code>"
+       }
+      ],
+      [
+       {
+        "en": "Index column",
+        "zh": "索引列"
+       },
+       {
+        "en": "Row numbers from 0 or 1 — a simple surrogate key",
+        "zh": "从 0 或 1 开始的行号——简单的代理键"
+       }
+      ],
+      [
+       {
+        "en": "Split column",
+        "zh": "拆分列"
+       },
+       {
+        "en": "By delimiter, number of characters, positions, case or digit changes",
+        "zh": "按分隔符、字符数、位置、大小写或数字变化来拆分"
+       }
+      ],
+      [
+       {
+        "en": "Merge columns",
+        "zh": "合并列"
+       },
+       {
+        "en": "Join text columns with a separator, e.g. a composite key",
+        "zh": "用分隔符把文字列合并，例如组合键"
+       }
+      ],
+      [
+       {
+        "en": "Extract",
+        "zh": "提取"
+       },
+       {
+        "en": "Length, first/last characters, text between delimiters",
+        "zh": "长度、前/后几个字符、分隔符之间的文字"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "code",
+     "text": "// Custom column: a price band, written in M\n= if [Unit Price] >= 100 then \"Premium\"\n  else if [Unit Price] >= 20 then \"Standard\"\n  else \"Budget\""
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A column of US ZIP codes such as 02134 loses its leading zero after loading. What is the fix?",
+      "zh": "美国邮编（如 02134）这一列载入后少了前面的 0。怎么修正？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Apply a custom format in the report",
+        "zh": "在报表中套用自定义格式"
+       },
+       "correct": false,
+       "why": {
+        "en": "The stored value is already wrong.",
+        "zh": "存储的值已经错了。"
+       }
+      },
+      {
+       "html": {
+        "en": "Set it to Fixed decimal number",
+        "zh": "设为定点小数"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Set the column type to Text",
+        "zh": "把列类型设为文本"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: a ZIP code is an identifier, not a number to add up.",
+        "zh": "对：邮编是标识符，不是要加总的数字。"
+       }
+      },
+      {
+       "html": {
+        "en": "Set it to Whole number",
+        "zh": "设为整数"
+       },
+       "correct": false,
+       "why": {
+        "en": "Numbers drop leading zeros.",
+        "zh": "数字会去掉前面的 0。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which data type should you use for a currency amount to avoid floating-point rounding errors?",
+      "zh": "货币金额应该用哪种数据类型，才能避免浮点数舍入误差？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Percentage",
+        "zh": "百分比"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Decimal number",
+        "zh": "小数"
+       },
+       "correct": false,
+       "why": {
+        "en": "Decimal number is floating point.",
+        "zh": "小数是浮点数。"
+       }
+      },
+      {
+       "html": {
+        "en": "Text",
+        "zh": "文本"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Fixed decimal number",
+        "zh": "定点小数"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: stored with exactly four decimal places.",
+        "zh": "对：精确存储四位小数。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-pivot",
+   "heading": {
+    "en": "Group, aggregate, pivot, unpivot and transpose",
+    "zh": "分组、聚合、透视、逆透视与转置"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-query/unpivot-column",
+   "takeaways": [
+    {
+     "en": "Group By summarises rows (sum, average, count rows, count distinct) by one or more columns, reducing the row count.",
+     "zh": "「分组依据」按一列或多列汇总行（求和、平均、计数、非重复计数），减少行数。"
+    },
+    {
+     "en": "Unpivot turns columns (Jan, Feb, Mar…) into rows (Month, Value) — the shape Power BI needs.",
+     "zh": "「逆透视」把列（一月、二月、三月……）变成行（月份、值）——这是 Power BI 需要的形状。"
+    },
+    {
+     "en": "Prefer \"Unpivot Other Columns\": new month columns added later are unpivoted automatically.",
+     "zh": "优先用「逆透视其他列」：之后新增的月份列也会自动被逆透视。"
+    }
+   ],
+   "terms": [
+    "unpivot",
+    "granularity"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Spreadsheets are built for people to read: one column per month, one row per product. Power BI's engine works best with <b>long, narrow</b> tables: one row per fact. Pivot and unpivot move between the two shapes.",
+      "zh": "电子表格是为人阅读而设计的：每月一列，每个产品一行。Power BI 的引擎最适合<b>长而窄</b>的表：每个事实一行。透视和逆透视就是在这两种形状之间转换。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Product",
+       "zh": "Product"
+      },
+      {
+       "en": "Jan",
+       "zh": "Jan"
+      },
+      {
+       "en": "Feb",
+       "zh": "Feb"
+      },
+      {
+       "en": "Mar",
+       "zh": "Mar"
+      }
+     ],
+     "rows": [
+      [
+       "Bike",
+       "120",
+       "135",
+       "150"
+      ],
+      [
+       "Helmet",
+       "80",
+       "75",
+       "90"
+      ]
+     ],
+     "caption": {
+      "en": "Wide (as typed in Excel)",
+      "zh": "宽表（Excel 中的样子）"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Product",
+       "zh": "Product"
+      },
+      {
+       "en": "Month",
+       "zh": "Month"
+      },
+      {
+       "en": "Units",
+       "zh": "Units"
+      }
+     ],
+     "rows": [
+      [
+       "Bike",
+       "Jan",
+       "120"
+      ],
+      [
+       "Bike",
+       "Feb",
+       "135"
+      ],
+      [
+       "Bike",
+       "Mar",
+       "150"
+      ],
+      [
+       "Helmet",
+       "Jan",
+       "80"
+      ],
+      [
+       "…",
+       "…",
+       "…"
+      ]
+     ],
+     "caption": {
+      "en": "Long (after Unpivot Other Columns on Product)",
+      "zh": "长表（选取 Product 后执行「逆透视其他列」）"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Transformation",
+       "zh": "转换"
+      },
+      {
+       "en": "What it does",
+       "zh": "作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<b>Unpivot columns</b> / <b>Unpivot other columns</b>",
+        "zh": "<b>逆透视列</b> / <b>逆透视其他列</b>"
+       },
+       {
+        "en": "Columns → attribute/value rows. \"Other columns\" keeps the selected ones and unpivots the rest, including future columns.",
+        "zh": "列 → 属性/值行。「其他列」保留选中的列、逆透视其余列，包括将来新增的列。"
+       }
+      ],
+      [
+       {
+        "en": "<b>Pivot column</b>",
+        "zh": "<b>透视列</b>"
+       },
+       {
+        "en": "Rows → columns, with an aggregation (sum, count…) for the values",
+        "zh": "行 → 列，并对值进行聚合（求和、计数……）"
+       }
+      ],
+      [
+       {
+        "en": "<b>Transpose</b>",
+        "zh": "<b>转置</b>"
+       },
+       {
+        "en": "Swap rows and columns entirely; usually followed by Use First Row as Headers",
+        "zh": "整张表行列互换；通常接着执行「将第一行用作标题」"
+       }
+      ],
+      [
+       {
+        "en": "<b>Group By</b>",
+        "zh": "<b>分组依据</b>"
+       },
+       {
+        "en": "Basic: one grouping column, one aggregation. Advanced: several of each. Operations: Sum, Average, Median, Min, Max, Count Rows, Count Distinct Rows, All Rows",
+        "zh": "基本：一个分组列、一个聚合。高级：多个分组列和多个聚合。运算：求和、平均值、中值、最小值、最大值、对行进行计数、非重复行计数、所有行"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "\"New columns are added to the source every month and the query must keep working\" → <b>Unpivot Other Columns</b>, not Unpivot Columns (which hard-codes the selected column names).",
+      "zh": "「源数据每个月都会新增列，查询必须继续正常运作」→ 用<b>逆透视其他列</b>，而不是「逆透视列」（后者会把选中的列名写死）。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A budget sheet has Region in column A and one column per month. New months are added each month. Which step keeps the query working?",
+      "zh": "预算表 A 列是 Region，之后每月一列，而且每月都会新增一列。哪个步骤能让查询持续正常运作？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Select Region, then Unpivot Other Columns",
+        "zh": "选取 Region，然后「逆透视其他列」"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: every column except Region is unpivoted, including new months.",
+        "zh": "对：除 Region 以外的列都会被逆透视，包括新月份。"
+       }
+      },
+      {
+       "html": {
+        "en": "Select the month columns, then Unpivot Columns",
+        "zh": "选取月份列，然后「逆透视列」"
+       },
+       "correct": false,
+       "why": {
+        "en": "The step lists those exact columns; new months are left out.",
+        "zh": "这个步骤会列出那几个固定列名，新月份会被漏掉。"
+       }
+      },
+      {
+       "html": {
+        "en": "Transpose",
+        "zh": "转置"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Pivot Column on Region",
+        "zh": "对 Region 执行透视列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You need daily sales instead of one row per transaction to make the table smaller. Which transformation?",
+      "zh": "为了让表变小，你需要每天一行的销售数据，而不是每笔交易一行。用哪个转换？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Group By Date with Sum of Amount",
+        "zh": "按日期「分组依据」，金额求和"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: grouping reduces granularity and row count.",
+        "zh": "对：分组可降低粒度和行数。"
+       }
+      },
+      {
+       "html": {
+        "en": "Unpivot",
+        "zh": "逆透视"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Transpose",
+        "zh": "转置"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Remove Duplicates on Date",
+        "zh": "对日期删除重复项"
+       },
+       "correct": false,
+       "why": {
+        "en": "That keeps one random transaction per day and loses the rest.",
+        "zh": "这只会保留每天随机一笔交易，其余都丢了。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "semi-structured",
+   "heading": {
+    "en": "Turning semi-structured data into tables",
+    "zh": "把半结构化数据变成表"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-query/connectors/json",
+   "takeaways": [
+    {
+     "en": "JSON and XML arrive as nested Records and Lists; expand them step by step into columns and rows.",
+     "zh": "JSON 和 XML 会以嵌套的记录（Record）和列表（List）形式出现，需要逐步展开成列和行。"
+    },
+    {
+     "en": "A List becomes a table with \"To Table\"; a column of Records is expanded with the expand (↔) button.",
+     "zh": "列表用「到表」变成表；记录列用展开（↔）按钮展开。"
+    },
+    {
+     "en": "Report-style Excel sheets need Remove Rows, Use First Row as Headers, Fill Down and Unpivot.",
+     "zh": "报表格式的 Excel 工作表需要「删除行」「将第一行用作标题」「向下填充」和「逆透视」。"
+    }
+   ],
+   "terms": [
+    "record-list"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Not all data comes in neat rows. Web APIs return JSON, some systems export XML, and many Excel files are designed as printed reports with titles, merged headers and subtotals. Power Query shows nested data as clickable <b>Record</b>, <b>List</b> and <b>Table</b> values.",
+      "zh": "不是所有数据都整整齐齐。Web API 返回 JSON，有些系统导出 XML，很多 Excel 文件则设计成带标题、合并表头和小计的打印报表。Power Query 会把嵌套数据显示为可以点击的 <b>Record</b>、<b>List</b> 和 <b>Table</b> 值。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "en": "Open the JSON file: you get a Record or a List.",
+       "zh": "打开 JSON 文件：得到一个 Record 或 List。"
+      },
+      {
+       "en": "For a List of records choose <b>To Table</b>.",
+       "zh": "如果是记录组成的 List，选择<b>到表</b>。"
+      },
+      {
+       "en": "Click the <b>expand</b> icon in the column header and pick the fields you need (untick \"Use original column name as prefix\" for cleaner names).",
+       "zh": "点列标题上的<b>展开</b>图标，选择需要的字段（取消勾选「使用原始列名作为前缀」，名称会更简洁）。"
+      },
+      {
+       "en": "A nested List inside a column expands to <b>new rows</b>; a nested Record expands to <b>new columns</b>.",
+       "zh": "列中的嵌套 List 会展开成<b>新行</b>；嵌套 Record 会展开成<b>新列</b>。"
+      },
+      {
+       "en": "Set data types last.",
+       "zh": "最后设定数据类型。"
+      }
+     ]
+    },
+    {
+     "type": "code",
+     "text": "let\n    Source  = Json.Document(Web.Contents(\"https://example.com/api/orders\")),\n    ToTable = Table.FromList(Source, Splitter.SplitByNothing(), {\"Order\"}),\n    Orders  = Table.ExpandRecordColumn(ToTable, \"Order\", {\"id\", \"date\", \"lines\"}),\n    Lines   = Table.ExpandListColumn(Orders, \"lines\")   // one row per order line\nin\n    Lines"
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "After expanding a JSON column you get a column whose cells say \"List\". Expanding it will…",
+      "zh": "展开 JSON 列后，得到一列单元格显示「List」。展开它会……"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Concatenate the items into text",
+        "zh": "把各项串成文字"
+       },
+       "correct": false,
+       "why": {
+        "en": "Only if you choose Extract Values instead.",
+        "zh": "只有选择「提取值」才会这样。"
+       }
+      },
+      {
+       "html": {
+        "en": "Create one new row per list item",
+        "zh": "为列表中的每一项新增一行"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: Lists expand to rows, Records to columns.",
+        "zh": "对：List 展开成行，Record 展开成列。"
+       }
+      },
+      {
+       "html": {
+        "en": "Remove the column",
+        "zh": "删除该列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Create one new column per list item",
+        "zh": "为列表中的每一项新增一列"
+       },
+       "correct": false,
+       "why": {
+        "en": "That is what expanding a Record does.",
+        "zh": "那是展开 Record 的效果。"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

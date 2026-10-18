@@ -1,0 +1,1667 @@
+[
+ {
+  "id": "aggregations",
+  "name": {
+   "en": "Aggregations",
+   "zh": "聚合"
+  },
+  "def": {
+   "en": [
+    "Summary tables (often imported) that answer most queries quickly, while detailed queries still go to a large DirectQuery table."
+   ],
+   "zh": [
+    "汇总表（通常是导入的），用来快速回答大多数查询，而明细查询仍会发送到大型 DirectQuery 表。"
+   ]
+  }
+ },
+ {
+  "id": "allselected",
+  "name": {
+   "en": "ALLSELECTED",
+   "zh": "ALLSELECTED"
+  },
+  "def": {
+   "en": [
+    "A DAX function that removes filters coming from inside the visual but keeps the user's slicer and filter-pane selections — used for \"% of what is selected\"."
+   ],
+   "zh": [
+    "DAX 函数，移除来自视觉对象内部的筛选，但保留用户在切片器和筛选器窗格中的选择——用于「占所选范围的百分比」。"
+   ]
+  }
+ },
+ {
+  "id": "analytics-pane",
+  "name": {
+   "en": "Analytics pane",
+   "zh": "「分析」窗格"
+  },
+  "def": {
+   "en": [
+    "The pane that adds reference lines, trend lines, error bars, forecasts and anomaly detection to a visual."
+   ],
+   "zh": [
+    "为视觉对象加入参考线、趋势线、误差线、预测和异常检测的窗格。"
+   ]
+  }
+ },
+ {
+  "id": "analyze-in-excel",
+  "name": {
+   "en": "Analyze in Excel",
+   "zh": "在 Excel 中分析"
+  },
+  "def": {
+   "en": [
+    "Opens an Excel PivotTable connected live to a Power BI semantic model. Needs Build permission."
+   ],
+   "zh": [
+    "打开一个实时连接到 Power BI 语义模型的 Excel 数据透视表。需要生成权限。"
+   ]
+  }
+ },
+ {
+  "id": "anomaly-detection",
+  "name": {
+   "en": "Anomaly detection",
+   "zh": "异常检测"
+  },
+  "def": {
+   "en": [
+    "A line-chart feature that marks points outside the expected range of a time series and suggests explanations."
+   ],
+   "zh": [
+    "折线图功能，标出时间序列中超出预期范围的点，并提出可能的解释。"
+   ]
+  }
+ },
+ {
+  "id": "app",
+  "name": {
+   "en": "App",
+   "zh": "应用"
+  },
+  "def": {
+   "en": [
+    "A packaged, read-only bundle of a workspace's reports and dashboards for a wide audience; updated when the publisher updates the app."
+   ],
+   "zh": [
+    "把工作区的报表和仪表板打包成只读集合，分发给大量读者；发布者更新应用后才会更新。"
+   ]
+  }
+ },
+ {
+  "id": "append-queries",
+  "name": {
+   "en": "Append queries",
+   "zh": "追加查询"
+  },
+  "def": {
+   "en": [
+    "Stacks the rows of two or more tables with the same columns into one table (like SQL UNION ALL)."
+   ],
+   "zh": [
+    "把两张或多张列相同的表的行叠成一张表（类似 SQL 的 UNION ALL）。"
+   ]
+  }
+ },
+ {
+  "id": "applied-steps",
+  "name": {
+   "en": "Applied steps",
+   "zh": "应用的步骤"
+  },
+  "def": {
+   "en": [
+    "The list of transformations in a Power Query query, run in order at every refresh. Each step can be renamed, edited, reordered or deleted."
+   ],
+   "zh": [
+    "Power Query 查询中的转换列表，每次刷新时按顺序执行。每个步骤都可以重命名、编辑、调整顺序或删除。"
+   ]
+  }
+ },
+ {
+  "id": "audience",
+  "name": {
+   "en": "App audience",
+   "zh": "应用受众"
+  },
+  "def": {
+   "en": [
+    "A group of app users who see a chosen subset of the app's content."
+   ],
+   "zh": [
+    "一组应用用户，只看到应用中被选定的部分内容。"
+   ]
+  }
+ },
+ {
+  "id": "auto-date-time",
+  "name": {
+   "en": "Auto date/time",
+   "zh": "自动日期/时间"
+  },
+  "def": {
+   "en": [
+    "A Desktop option that creates a hidden date table for every date column. Convenient for small models; turn it off when you have your own date table."
+   ],
+   "zh": [
+    "Desktop 的一个选项，为每个日期列建立一张隐藏的日期表。小模型时很方便；有自己的日期表时应关闭。"
+   ]
+  }
+ },
+ {
+  "id": "binning",
+  "name": {
+   "en": "Binning",
+   "zh": "装箱"
+  },
+  "def": {
+   "en": [
+    "Grouping a numeric or date column into equal-size ranges (bins), for example ages 0–9, 10–19."
+   ],
+   "zh": [
+    "把数值或日期列分成大小相同的范围（箱），例如年龄 0–9、10–19。"
+   ]
+  }
+ },
+ {
+  "id": "bookmark",
+  "name": {
+   "en": "Bookmark",
+   "zh": "书签"
+  },
+  "def": {
+   "en": [
+    "A saved state of a report page: filters, slicers, sort, drill and visibility of visuals. Used for navigation and storytelling."
+   ],
+   "zh": [
+    "报表页的已保存状态：筛选器、切片器、排序、钻取和视觉对象的可见性。用于导航和叙事。"
+   ]
+  }
+ },
+ {
+  "id": "build-permission",
+  "name": {
+   "en": "Build permission",
+   "zh": "生成权限"
+  },
+  "def": {
+   "en": [
+    "Permission on a semantic model that lets a user create new reports, use Analyze in Excel and connect live to it."
+   ],
+   "zh": [
+    "语义模型上的权限，让用户可以制作新报表、使用「在 Excel 中分析」并实时连接到它。"
+   ]
+  }
+ },
+ {
+  "id": "calculate",
+  "name": {
+   "en": "CALCULATE",
+   "zh": "CALCULATE"
+  },
+  "def": {
+   "en": [
+    "The DAX function that evaluates an expression in a modified filter context."
+   ],
+   "zh": [
+    "在修改后的筛选上下文中计算表达式的 DAX 函数。"
+   ]
+  }
+ },
+ {
+  "id": "calculated-column",
+  "name": {
+   "en": "Calculated column",
+   "zh": "计算列"
+  },
+  "def": {
+   "en": [
+    "A column added with DAX, computed row by row at refresh and stored in the model."
+   ],
+   "zh": [
+    "用 DAX 新增的列，刷新时逐行计算并存储在模型中。"
+   ]
+  }
+ },
+ {
+  "id": "calculated-table",
+  "name": {
+   "en": "Calculated table",
+   "zh": "计算表"
+  },
+  "def": {
+   "en": [
+    "A table created with a DAX expression, such as CALENDAR for a date table or a copy of a dimension."
+   ],
+   "zh": [
+    "用 DAX 表达式建立的表，例如用 CALENDAR 建立日期表，或复制一张维度表。"
+   ]
+  }
+ },
+ {
+  "id": "calculation-group",
+  "name": {
+   "en": "Calculation group",
+   "zh": "计算组"
+  },
+  "def": {
+   "en": [
+    "A model object whose calculation items (YTD, PY, YoY %) apply to any measure through SELECTEDMEASURE()."
+   ],
+   "zh": [
+    "一种模型对象，其计算项（年初至今、去年、同比 %）通过 SELECTEDMEASURE() 套用到任何度量值。"
+   ]
+  }
+ },
+ {
+  "id": "capacity",
+  "name": {
+   "en": "Capacity",
+   "zh": "容量"
+  },
+  "def": {
+   "en": [
+    "Dedicated compute bought by an organisation (Fabric F SKUs or Power BI Premium). From F64 up, free users can view content stored in it."
+   ],
+   "zh": [
+    "组织购买的专用计算资源（Fabric F SKU 或 Power BI Premium）。从 F64 起，免费用户可以查看存放其中的内容。"
+   ]
+  }
+ },
+ {
+  "id": "cardinality",
+  "name": {
+   "en": "Cardinality (relationship)",
+   "zh": "基数（关系）"
+  },
+  "def": {
+   "en": [
+    "How rows match across a relationship: one-to-many, one-to-one or many-to-many."
+   ],
+   "zh": [
+    "关系两端的行如何对应：一对多、一对一或多对多。"
+   ]
+  }
+ },
+ {
+  "id": "cardinality-column",
+  "name": {
+   "en": "Cardinality (column)",
+   "zh": "基数（列）"
+  },
+  "def": {
+   "en": [
+    "The number of distinct values in a column. High-cardinality columns compress poorly and make models larger."
+   ],
+   "zh": [
+    "列中不同值的数量。高基数的列压缩效果差，会让模型变大。"
+   ]
+  }
+ },
+ {
+  "id": "clustering",
+  "name": {
+   "en": "Clustering",
+   "zh": "聚类"
+  },
+  "def": {
+   "en": [
+    "Automatically finding groups of similar points in a scatter chart; the result is a new cluster column."
+   ],
+   "zh": [
+    "在散点图中自动找出相似点的群组；结果是一个新的聚类列。"
+   ]
+  }
+ },
+ {
+  "id": "column-profile",
+  "name": {
+   "en": "Column profile",
+   "zh": "列配置文件"
+  },
+  "def": {
+   "en": [
+    "Power Query's per-column statistics and value distribution, with Column quality and Column distribution as summaries."
+   ],
+   "zh": [
+    "Power Query 中针对单列的统计数据和值分布；「列质量」和「列分布」是其摘要。"
+   ]
+  }
+ },
+ {
+  "id": "composite-model",
+  "name": {
+   "en": "Composite model",
+   "zh": "组合模型"
+  },
+  "def": {
+   "en": [
+    "A model that mixes storage modes or sources, such as DirectQuery fact tables with Dual dimensions, or a shared semantic model extended with local tables."
+   ],
+   "zh": [
+    "混合多种存储模式或数据源的模型，例如 DirectQuery 事实表配上双重维度表，或用本地表扩展的共享语义模型。"
+   ]
+  }
+ },
+ {
+  "id": "conditional-formatting",
+  "name": {
+   "en": "Conditional formatting",
+   "zh": "条件格式"
+  },
+  "def": {
+   "en": [
+    "Formatting (colours, data bars, icons, links) that changes with the value, set by gradient, rules or field value."
+   ],
+   "zh": [
+    "随数值改变的格式（颜色、数据条、图标、链接），可按渐变、规则或字段值设定。"
+   ]
+  }
+ },
+ {
+  "id": "connector",
+  "name": {
+   "en": "Connector",
+   "zh": "连接器"
+  },
+  "def": {
+   "en": [
+    "The component of Get data that connects to one kind of source, such as Excel, SQL Server or SharePoint folder."
+   ],
+   "zh": [
+    "「获取数据」中连接某一类数据源的组件，例如 Excel、SQL Server 或 SharePoint 文件夹。"
+   ]
+  }
+ },
+ {
+  "id": "context-transition",
+  "name": {
+   "en": "Context transition",
+   "zh": "上下文转换"
+  },
+  "def": {
+   "en": [
+    "When CALCULATE (or a measure reference) turns the current row context into an equivalent filter context."
+   ],
+   "zh": [
+    "CALCULATE（或引用度量值）把当前的行上下文转换为等效筛选上下文的过程。"
+   ]
+  }
+ },
+ {
+  "id": "copilot",
+  "name": {
+   "en": "Copilot in Power BI",
+   "zh": "Power BI 中的 Copilot"
+  },
+  "def": {
+   "en": [
+    "Generative AI that can summarise a semantic model, suggest or create report pages, write narrative summaries and help with DAX. Needs a paid capacity and admin enablement."
+   ],
+   "zh": [
+    "生成式 AI，可以总结语义模型、建议或建立报表页面、撰写叙述摘要并协助编写 DAX。需要付费容量并由管理员启用。"
+   ]
+  }
+ },
+ {
+  "id": "cross-filter-direction",
+  "name": {
+   "en": "Cross-filter direction",
+   "zh": "交叉筛选方向"
+  },
+  "def": {
+   "en": [
+    "Whether filters flow one way across a relationship (Single, from the one side to the many side) or both ways (Both)."
+   ],
+   "zh": [
+    "筛选在关系中是单向流动（单向，从「一」端到「多」端）还是双向流动（双向）。"
+   ]
+  }
+ },
+ {
+  "id": "custom-column",
+  "name": {
+   "en": "Custom column",
+   "zh": "自定义列"
+  },
+  "def": {
+   "en": [
+    "A Power Query column defined with an M formula."
+   ],
+   "zh": [
+    "用 M 公式定义的 Power Query 列。"
+   ]
+  }
+ },
+ {
+  "id": "dashboard",
+  "name": {
+   "en": "Dashboard",
+   "zh": "仪表板"
+  },
+  "def": {
+   "en": [
+    "A one-page canvas in the Power BI service made of tiles pinned from one or more reports. Supports data alerts."
+   ],
+   "zh": [
+    "Power BI 服务中的单页画布，由从一份或多份报表固定的磁贴组成。支持数据警报。"
+   ]
+  }
+ },
+ {
+  "id": "data-alert",
+  "name": {
+   "en": "Data alert",
+   "zh": "数据警报"
+  },
+  "def": {
+   "en": [
+    "A notification when a dashboard tile (card, KPI or gauge) crosses a threshold you set."
+   ],
+   "zh": [
+    "当仪表板磁贴（卡片、KPI 或仪表）超过你设定的阈值时发出的通知。"
+   ]
+  }
+ },
+ {
+  "id": "data-category",
+  "name": {
+   "en": "Data category",
+   "zh": "数据类别"
+  },
+  "def": {
+   "en": [
+    "A column property telling Power BI what the values are — City, Country, Latitude, Web URL, Image URL — so maps and links work."
+   ],
+   "zh": [
+    "列属性，告诉 Power BI 这些值是什么——城市、国家/地区、纬度、Web URL、图像 URL——让地图和链接正常运作。"
+   ]
+  }
+ },
+ {
+  "id": "data-type",
+  "name": {
+   "en": "Data type",
+   "zh": "数据类型"
+  },
+  "def": {
+   "en": [
+    "The kind of value a column holds: whole number, decimal, fixed decimal, date, text, true/false and others."
+   ],
+   "zh": [
+    "列中存放的值的种类：整数、小数、定点小数、日期、文本、True/False 等。"
+   ]
+  }
+ },
+ {
+  "id": "date-table",
+  "name": {
+   "en": "Date table",
+   "zh": "日期表"
+  },
+  "def": {
+   "en": [
+    "A dimension with one row per day, no gaps, covering whole years; required for reliable time intelligence."
+   ],
+   "zh": [
+    "每天一行、没有缺口、涵盖完整年份的维度表；可靠的时间智能需要它。"
+   ]
+  }
+ },
+ {
+  "id": "dax",
+  "name": {
+   "en": "DAX",
+   "zh": "DAX"
+  },
+  "def": {
+   "en": [
+    "Data Analysis Expressions: the formula language for measures, calculated columns, calculated tables and RLS rules."
+   ],
+   "zh": [
+    "数据分析表达式：用于度量值、计算列、计算表和 RLS 规则的公式语言。"
+   ]
+  }
+ },
+ {
+  "id": "dax-query-view",
+  "name": {
+   "en": "DAX query view",
+   "zh": "DAX 查询视图"
+  },
+  "def": {
+   "en": [
+    "A view in Power BI Desktop for writing and running DAX queries (EVALUATE) against the model, and testing measures."
+   ],
+   "zh": [
+    "Power BI Desktop 中的视图，用于针对模型编写和执行 DAX 查询（EVALUATE），并测试度量值。"
+   ]
+  }
+ },
+ {
+  "id": "decomposition-tree",
+  "name": {
+   "en": "Decomposition tree",
+   "zh": "分解树"
+  },
+  "def": {
+   "en": [
+    "An AI visual that breaks a measure down across dimensions in any order, with AI splits to the highest or lowest value."
+   ],
+   "zh": [
+    "一种 AI 视觉对象，可按任意顺序把度量值按维度拆解，并用 AI 拆分找出最高或最低值。"
+   ]
+  }
+ },
+ {
+  "id": "default-summarization",
+  "name": {
+   "en": "Default summarization",
+   "zh": "默认汇总"
+  },
+  "def": {
+   "en": [
+    "How a numeric column is aggregated when dragged into a visual (Sum, Average…, or Don't summarize)."
+   ],
+   "zh": [
+    "数值列被拖进视觉对象时的聚合方式（求和、平均值……或不汇总）。"
+   ]
+  }
+ },
+ {
+  "id": "deployment-pipeline",
+  "name": {
+   "en": "Deployment pipeline",
+   "zh": "部署管道"
+  },
+  "def": {
+   "en": [
+    "A feature that promotes content between Development, Test and Production workspaces."
+   ],
+   "zh": [
+    "在开发、测试和正式工作区之间推进内容的功能。"
+   ]
+  }
+ },
+ {
+  "id": "dimension-table",
+  "name": {
+   "en": "Dimension table",
+   "zh": "维度表"
+  },
+  "def": {
+   "en": [
+    "A table that describes business entities (product, customer, date) and is used to filter and group facts."
+   ],
+   "zh": [
+    "描述业务实体（产品、客户、日期）的表，用来筛选和分组事实数据。"
+   ]
+  }
+ },
+ {
+  "id": "direct-lake",
+  "name": {
+   "en": "Direct Lake",
+   "zh": "Direct Lake"
+  },
+  "def": {
+   "en": [
+    "A storage mode that reads Delta tables in Microsoft Fabric OneLake directly, with import-like speed and no data copy."
+   ],
+   "zh": [
+    "直接读取 Microsoft Fabric OneLake 中 Delta 表的存储模式，速度接近导入，又无需复制数据。"
+   ]
+  }
+ },
+ {
+  "id": "directquery",
+  "name": {
+   "en": "DirectQuery",
+   "zh": "DirectQuery"
+  },
+  "def": {
+   "en": [
+    "A storage mode that leaves data in the source and sends queries to it each time a visual needs data."
+   ],
+   "zh": [
+    "把数据留在源中的存储模式，每次视觉对象需要数据时都向源发送查询。"
+   ]
+  }
+ },
+ {
+  "id": "distinct-unique",
+  "name": {
+   "en": "Distinct vs unique",
+   "zh": "非重复值与唯一值"
+  },
+  "def": {
+   "en": [
+    "Distinct: how many different values appear. Unique: how many values appear exactly once."
+   ],
+   "zh": [
+    "非重复值：出现过多少种不同的值。唯一值：恰好只出现一次的值有多少个。"
+   ]
+  }
+ },
+ {
+  "id": "drill-through",
+  "name": {
+   "en": "Drill-through",
+   "zh": "钻取"
+  },
+  "def": {
+   "en": [
+    "Right-click a data point to open a detail page filtered to that item."
+   ],
+   "zh": [
+    "右键单击数据点，打开已按该项目筛选的明细页。"
+   ]
+  }
+ },
+ {
+  "id": "dual-mode",
+  "name": {
+   "en": "Dual storage mode",
+   "zh": "双重存储模式"
+  },
+  "def": {
+   "en": [
+    "A table that can act as Import or DirectQuery depending on the query; used for dimensions in composite models."
+   ],
+   "zh": [
+    "根据查询可充当导入或 DirectQuery 的表；用于组合模型中的维度表。"
+   ]
+  }
+ },
+ {
+  "id": "dynamic-rls",
+  "name": {
+   "en": "Dynamic RLS",
+   "zh": "动态 RLS"
+  },
+  "def": {
+   "en": [
+    "Row-level security that filters by the signed-in user, usually with USERPRINCIPALNAME()."
+   ],
+   "zh": [
+    "按登录用户进行筛选的行级别安全性，通常使用 USERPRINCIPALNAME()。"
+   ]
+  }
+ },
+ {
+  "id": "edit-interactions",
+  "name": {
+   "en": "Edit interactions",
+   "zh": "编辑交互"
+  },
+  "def": {
+   "en": [
+    "Sets whether selecting in one visual filters, highlights or does not affect each other visual on the page."
+   ],
+   "zh": [
+    "设定在一个视觉对象中选择时，对页面上其他每个视觉对象是筛选、突出显示还是不影响。"
+   ]
+  }
+ },
+ {
+  "id": "enable-load",
+  "name": {
+   "en": "Enable load",
+   "zh": "启用加载"
+  },
+  "def": {
+   "en": [
+    "A query setting; when off, the query only feeds other queries and is not loaded into the model."
+   ],
+   "zh": [
+    "查询设置；关闭时，该查询只供应其他查询，不会加载到模型中。"
+   ]
+  }
+ },
+ {
+  "id": "endorsement",
+  "name": {
+   "en": "Endorsement",
+   "zh": "认可"
+  },
+  "def": {
+   "en": [
+    "Promoted, Certified or Master data labels that show which content can be trusted."
+   ],
+   "zh": [
+    "「已提升」「已认证」或「主数据」标签，表明哪些内容值得信赖。"
+   ]
+  }
+ },
+ {
+  "id": "fact-table",
+  "name": {
+   "en": "Fact table",
+   "zh": "事实表"
+  },
+  "def": {
+   "en": [
+    "A table of events or measurements (sales lines, transactions) with keys to dimensions and numbers to aggregate."
+   ],
+   "zh": [
+    "存放事件或测量值（销售明细、交易）的表，包含指向维度表的键和要汇总的数字。"
+   ]
+  }
+ },
+ {
+  "id": "filter-context",
+  "name": {
+   "en": "Filter context",
+   "zh": "筛选上下文"
+  },
+  "def": {
+   "en": [
+    "The set of filters applied when a DAX expression is evaluated: from visuals, slicers, filters, RLS and CALCULATE."
+   ],
+   "zh": [
+    "计算 DAX 表达式时所套用的筛选条件：来自视觉对象、切片器、筛选器、RLS 和 CALCULATE。"
+   ]
+  }
+ },
+ {
+  "id": "filters-pane",
+  "name": {
+   "en": "Filters pane",
+   "zh": "「筛选器」窗格"
+  },
+  "def": {
+   "en": [
+    "The pane holding visual-, page-, report-level and drill-through filters; filters can be locked or hidden."
+   ],
+   "zh": [
+    "存放视觉对象级、页面级、报表级和钻取筛选器的窗格；筛选器可以锁定或隐藏。"
+   ]
+  }
+ },
+ {
+  "id": "forecast",
+  "name": {
+   "en": "Forecast",
+   "zh": "预测"
+  },
+  "def": {
+   "en": [
+    "An Analytics pane option that projects a line chart's future values with a confidence interval."
+   ],
+   "zh": [
+    "「分析」窗格中的选项，带置信区间推算折线图的未来值。"
+   ]
+  }
+ },
+ {
+  "id": "gateway",
+  "name": {
+   "en": "On-premises data gateway",
+   "zh": "本地数据网关"
+  },
+  "def": {
+   "en": [
+    "Software that lets the Power BI service reach on-premises data. Standard mode is shared; personal mode is for one user and Import only."
+   ],
+   "zh": [
+    "让 Power BI 服务访问本地数据的软件。标准模式可共享；个人模式只供一人使用且只支持导入。"
+   ]
+  }
+ },
+ {
+  "id": "granularity",
+  "name": {
+   "en": "Granularity (grain)",
+   "zh": "粒度"
+  },
+  "def": {
+   "en": [
+    "What one row of a table represents: a transaction, a day per product, a month per store."
+   ],
+   "zh": [
+    "表中一行所代表的内容：一笔交易、每个产品每天、每家门店每月。"
+   ]
+  }
+ },
+ {
+  "id": "hierarchy",
+  "name": {
+   "en": "Hierarchy",
+   "zh": "层次结构"
+  },
+  "def": {
+   "en": [
+    "An ordered set of columns (Year → Quarter → Month) that visuals can drill up and down."
+   ],
+   "zh": [
+    "一组有顺序的列（年 → 季度 → 月），视觉对象可以在其中向上和向下钻取。"
+   ]
+  }
+ },
+ {
+  "id": "implicit-measure",
+  "name": {
+   "en": "Implicit measure",
+   "zh": "隐式度量值"
+  },
+  "def": {
+   "en": [
+    "An aggregation Power BI creates when a numeric column is dropped into a visual. Explicit DAX measures are preferred."
+   ],
+   "zh": [
+    "把数值列拖进视觉对象时 Power BI 自动产生的聚合。最好使用显式的 DAX 度量值。"
+   ]
+  }
+ },
+ {
+  "id": "import-mode",
+  "name": {
+   "en": "Import mode",
+   "zh": "导入模式"
+  },
+  "def": {
+   "en": [
+    "A storage mode that copies data into the model's compressed in-memory engine; fastest, refreshed on a schedule."
+   ],
+   "zh": [
+    "把数据复制到模型压缩的内存引擎中的存储模式；最快，按计划刷新。"
+   ]
+  }
+ },
+ {
+  "id": "inactive-relationship",
+  "name": {
+   "en": "Inactive relationship",
+   "zh": "非活动关系"
+  },
+  "def": {
+   "en": [
+    "A second relationship between two tables, shown dashed; used in a calculation with USERELATIONSHIP."
+   ],
+   "zh": [
+    "两张表之间的第二个关系，以虚线显示；在计算中通过 USERELATIONSHIP 使用。"
+   ]
+  }
+ },
+ {
+  "id": "incremental-refresh",
+  "name": {
+   "en": "Incremental refresh",
+   "zh": "增量刷新"
+  },
+  "def": {
+   "en": [
+    "Refreshing only recent partitions of a large table, using the RangeStart and RangeEnd parameters."
+   ],
+   "zh": [
+    "只刷新大表中最近的分区，使用 RangeStart 和 RangeEnd 参数。"
+   ]
+  }
+ },
+ {
+  "id": "iterator",
+  "name": {
+   "en": "Iterator",
+   "zh": "迭代器"
+  },
+  "def": {
+   "en": [
+    "A DAX function (SUMX, AVERAGEX, RANKX, FILTER…) that evaluates an expression for each row of a table."
+   ],
+   "zh": [
+    "为表的每一行计算表达式的 DAX 函数（SUMX、AVERAGEX、RANKX、FILTER……）。"
+   ]
+  }
+ },
+ {
+  "id": "key-influencers",
+  "name": {
+   "en": "Key influencers",
+   "zh": "关键影响因素"
+  },
+  "def": {
+   "en": [
+    "An AI visual that ranks the factors that raise or lower a metric and finds top segments."
+   ],
+   "zh": [
+    "一种 AI 视觉对象，对提高或降低指标的因素进行排名，并找出主要细分群体。"
+   ]
+  }
+ },
+ {
+  "id": "kpi-visual",
+  "name": {
+   "en": "KPI visual",
+   "zh": "KPI 视觉对象"
+  },
+  "def": {
+   "en": [
+    "A visual that shows a value, its target and a trend, coloured by whether the target is met."
+   ],
+   "zh": [
+    "显示数值、目标和趋势的视觉对象，并按是否达成目标着色。"
+   ]
+  }
+ },
+ {
+  "id": "live-connection",
+  "name": {
+   "en": "Live connection",
+   "zh": "实时连接"
+  },
+  "def": {
+   "en": [
+    "A report connected to a published semantic model (or Analysis Services) without its own model; only report-level measures can be added."
+   ],
+   "zh": [
+    "连接到已发布语义模型（或 Analysis Services）、本身没有模型的报表；只能新增报表级度量值。"
+   ]
+  }
+ },
+ {
+  "id": "m-language",
+  "name": {
+   "en": "M (Power Query formula language)",
+   "zh": "M（Power Query 公式语言）"
+  },
+  "def": {
+   "en": [
+    "The functional language behind every Power Query step, visible in the Advanced Editor."
+   ],
+   "zh": [
+    "每个 Power Query 步骤背后的函数式语言，可在高级编辑器中看到。"
+   ]
+  }
+ },
+ {
+  "id": "mark-as-date-table",
+  "name": {
+   "en": "Mark as date table",
+   "zh": "标记为日期表"
+  },
+  "def": {
+   "en": [
+    "Tells Power BI which table and column is the date table, validating it for time intelligence."
+   ],
+   "zh": [
+    "告诉 Power BI 哪张表和哪个列是日期表，并为时间智能进行验证。"
+   ]
+  }
+ },
+ {
+  "id": "measure",
+  "name": {
+   "en": "Measure",
+   "zh": "度量值"
+  },
+  "def": {
+   "en": [
+    "A DAX calculation evaluated at query time in the current filter context, such as Total Sales."
+   ],
+   "zh": [
+    "在查询时按当前筛选上下文计算的 DAX 计算，例如 Total Sales。"
+   ]
+  }
+ },
+ {
+  "id": "merge-queries",
+  "name": {
+   "en": "Merge queries",
+   "zh": "合并查询"
+  },
+  "def": {
+   "en": [
+    "Joins two tables on matching key columns, adding columns (like SQL JOIN). Six join kinds."
+   ],
+   "zh": [
+    "按匹配的键列连接两张表，增加列（类似 SQL JOIN）。有六种联接类型。"
+   ]
+  }
+ },
+ {
+  "id": "mobile-layout",
+  "name": {
+   "en": "Mobile layout",
+   "zh": "移动布局"
+  },
+  "def": {
+   "en": [
+    "A phone-shaped canvas where you rearrange a page's visuals for portrait viewing."
+   ],
+   "zh": [
+    "手机形状的画布，用来为竖屏查看重新排列页面上的视觉对象。"
+   ]
+  }
+ },
+ {
+  "id": "ols",
+  "name": {
+   "en": "Object-level security (OLS)",
+   "zh": "对象级安全性（OLS）"
+  },
+  "def": {
+   "en": [
+    "Hides whole tables or columns from users in a role; set up with external tools such as Tabular Editor."
+   ],
+   "zh": [
+    "对某个角色的用户隐藏整张表或整个列；需使用 Tabular Editor 等外部工具设置。"
+   ]
+  }
+ },
+ {
+  "id": "paginated-report",
+  "name": {
+   "en": "Paginated report",
+   "zh": "分页报表"
+  },
+  "def": {
+   "en": [
+    "A pixel-perfect, printable report (.rdl) built in Power BI Report Builder that flows over as many pages as needed."
+   ],
+   "zh": [
+    "用 Power BI 报表生成器制作、像素级精确、可打印的报表（.rdl），可按需要延伸到多页。"
+   ]
+  }
+ },
+ {
+  "id": "parameter",
+  "name": {
+   "en": "Parameter (Power Query)",
+   "zh": "参数（Power Query）"
+  },
+  "def": {
+   "en": [
+    "A named, typed value used in queries, such as a server name, changeable in Desktop or in the service."
+   ],
+   "zh": [
+    "在查询中使用、有名称和类型的值，例如服务器名称，可在 Desktop 或服务中修改。"
+   ]
+  }
+ },
+ {
+  "id": "performance-analyzer",
+  "name": {
+   "en": "Performance Analyzer",
+   "zh": "性能分析器"
+  },
+  "def": {
+   "en": [
+    "A Desktop tool that records how long each visual spends on its DAX query, display and waiting."
+   ],
+   "zh": [
+    "Desktop 工具，记录每个视觉对象在 DAX 查询、显示和等待上各花了多少时间。"
+   ]
+  }
+ },
+ {
+  "id": "power-query",
+  "name": {
+   "en": "Power Query",
+   "zh": "Power Query"
+  },
+  "def": {
+   "en": [
+    "The data connection and transformation engine in Power BI (also in Excel and Fabric dataflows)."
+   ],
+   "zh": [
+    "Power BI 中的数据连接和转换引擎（Excel 和 Fabric 数据流中也有）。"
+   ]
+  }
+ },
+ {
+  "id": "privacy-level",
+  "name": {
+   "en": "Privacy level",
+   "zh": "隐私级别"
+  },
+  "def": {
+   "en": [
+    "Private, Organizational or Public; controls whether data from one source may be sent to another when queries combine them."
+   ],
+   "zh": [
+    "私有、组织或公共；控制在查询合并时，一个来源的数据能否发送到另一个来源。"
+   ]
+  }
+ },
+ {
+  "id": "publish-to-web",
+  "name": {
+   "en": "Publish to web",
+   "zh": "发布到 Web"
+  },
+  "def": {
+   "en": [
+    "Creates a public embed code anyone on the internet can view without signing in. Never use it for confidential data."
+   ],
+   "zh": [
+    "建立公开嵌入代码，互联网上任何人无需登录即可查看。绝不能用于机密数据。"
+   ]
+  }
+ },
+ {
+  "id": "qna",
+  "name": {
+   "en": "Q&A",
+   "zh": "问答"
+  },
+  "def": {
+   "en": [
+    "Natural-language questions answered with visuals; improved with synonyms and Q&A setup."
+   ],
+   "zh": [
+    "用视觉对象回答的自然语言提问；可通过同义词和问答设置来改进。"
+   ]
+  }
+ },
+ {
+  "id": "query-folding",
+  "name": {
+   "en": "Query folding",
+   "zh": "查询折叠"
+  },
+  "def": {
+   "en": [
+    "Power Query translating its steps into one native query (such as SQL) so the source does the work."
+   ],
+   "zh": [
+    "Power Query 把步骤翻译成一个本机查询（如 SQL），让数据源来完成工作。"
+   ]
+  }
+ },
+ {
+  "id": "quick-measure",
+  "name": {
+   "en": "Quick measure",
+   "zh": "快速度量值"
+  },
+  "def": {
+   "en": [
+    "A dialog that generates DAX for common calculations such as running totals and year-over-year change."
+   ],
+   "zh": [
+    "为累计总计、同比变化等常见计算生成 DAX 的对话框。"
+   ]
+  }
+ },
+ {
+  "id": "record-list",
+  "name": {
+   "en": "Record and List",
+   "zh": "记录与列表"
+  },
+  "def": {
+   "en": [
+    "Power Query's nested values from JSON/XML: a Record expands to columns, a List expands to rows."
+   ],
+   "zh": [
+    "Power Query 中来自 JSON/XML 的嵌套值：Record 展开成列，List 展开成行。"
+   ]
+  }
+ },
+ {
+  "id": "reference-query",
+  "name": {
+   "en": "Reference query",
+   "zh": "引用查询"
+  },
+  "def": {
+   "en": [
+    "A new query that starts from the output of another, so changes to the original flow through."
+   ],
+   "zh": [
+    "以另一个查询的输出为起点的新查询，原查询的修改会一路传下去。"
+   ]
+  }
+ },
+ {
+  "id": "report-page-tooltip",
+  "name": {
+   "en": "Report page tooltip",
+   "zh": "报表页工具提示"
+  },
+  "def": {
+   "en": [
+    "A small report page shown when hovering over a data point, filtered to that point."
+   ],
+   "zh": [
+    "悬停在数据点上时显示的小报表页，已按该数据点筛选。"
+   ]
+  }
+ },
+ {
+  "id": "rls",
+  "name": {
+   "en": "Row-level security (RLS)",
+   "zh": "行级别安全性（RLS）"
+  },
+  "def": {
+   "en": [
+    "Roles with DAX filters that limit which rows a user can see. Applies to Viewers, not to Admin, Member or Contributor."
+   ],
+   "zh": [
+    "用 DAX 筛选限制用户可见行的角色。对查看者有效，对管理员、成员和参与者无效。"
+   ]
+  }
+ },
+ {
+  "id": "role-playing-dimension",
+  "name": {
+   "en": "Role-playing dimension",
+   "zh": "角色扮演维度"
+  },
+  "def": {
+   "en": [
+    "One dimension related to a fact table several times for different roles, such as Order Date and Ship Date."
+   ],
+   "zh": [
+    "同一个维度表为了不同角色多次与事实表关联，例如订单日期和发货日期。"
+   ]
+  }
+ },
+ {
+  "id": "row-context",
+  "name": {
+   "en": "Row context",
+   "zh": "行上下文"
+  },
+  "def": {
+   "en": [
+    "\"The current row\" in a calculated column or an iterator."
+   ],
+   "zh": [
+    "计算列或迭代器中的「当前行」。"
+   ]
+  }
+ },
+ {
+  "id": "scheduled-refresh",
+  "name": {
+   "en": "Scheduled refresh",
+   "zh": "计划刷新"
+  },
+  "def": {
+   "en": [
+    "Automatic refresh of an Import semantic model in the service: up to 8 a day with Pro, 48 with Premium, PPU or Fabric capacity."
+   ],
+   "zh": [
+    "在服务中自动刷新导入型语义模型：Pro 每天最多 8 次，Premium、PPU 或 Fabric 容量每天最多 48 次。"
+   ]
+  }
+ },
+ {
+  "id": "scorecard",
+  "name": {
+   "en": "Scorecard (Metrics)",
+   "zh": "记分卡（指标）"
+  },
+  "def": {
+   "en": [
+    "A Power BI service item that tracks metrics against targets, with owners, statuses, rules and check-ins."
+   ],
+   "zh": [
+    "Power BI 服务中的项目，把指标与目标对比跟踪，包含负责人、状态、规则和签到。"
+   ]
+  }
+ },
+ {
+  "id": "selection-pane",
+  "name": {
+   "en": "Selection pane",
+   "zh": "选择窗格"
+  },
+  "def": {
+   "en": [
+    "Lists the visuals on a page to show, hide, group and layer them and to set tab order."
+   ],
+   "zh": [
+    "列出页面上的视觉对象，可显示、隐藏、分组、调整层次，并设定 Tab 键顺序。"
+   ]
+  }
+ },
+ {
+  "id": "semantic-model",
+  "name": {
+   "en": "Semantic model",
+   "zh": "语义模型"
+  },
+  "def": {
+   "en": [
+    "The tables, relationships, measures and security that reports query. Called a dataset before 2023."
+   ],
+   "zh": [
+    "供报表查询的表、关系、度量值和安全设置。2023 年以前称为「数据集」。"
+   ]
+  }
+ },
+ {
+  "id": "semi-additive",
+  "name": {
+   "en": "Semi-additive measure",
+   "zh": "半累加度量值"
+  },
+  "def": {
+   "en": [
+    "A measure that can be summed across some dimensions but not across time, such as a balance or stock level."
+   ],
+   "zh": [
+    "可以跨某些维度加总、但不能跨时间加总的度量值，例如余额或库存。"
+   ]
+  }
+ },
+ {
+  "id": "sensitivity-label",
+  "name": {
+   "en": "Sensitivity label",
+   "zh": "敏感度标签"
+  },
+  "def": {
+   "en": [
+    "A Microsoft Purview label (Public, Confidential…) applied to Power BI items; it travels with exported files."
+   ],
+   "zh": [
+    "套用在 Power BI 项目上的 Microsoft Purview 标签（公开、机密……），会随导出的文件一起带走。"
+   ]
+  }
+ },
+ {
+  "id": "slicer",
+  "name": {
+   "en": "Slicer",
+   "zh": "切片器"
+  },
+  "def": {
+   "en": [
+    "A visual on the canvas that users click to filter other visuals."
+   ],
+   "zh": [
+    "画布上的视觉对象，用户点击它来筛选其他视觉对象。"
+   ]
+  }
+ },
+ {
+  "id": "snowflake",
+  "name": {
+   "en": "Snowflake schema",
+   "zh": "雪花型架构"
+  },
+  "def": {
+   "en": [
+    "A design where dimensions are split into chained tables (Product → Subcategory → Category). Usually flattened in Power BI."
+   ],
+   "zh": [
+    "维度表被拆成一串相连表格的设计（Product → Subcategory → Category）。在 Power BI 中通常会被展平。"
+   ]
+  }
+ },
+ {
+  "id": "sort-by-column",
+  "name": {
+   "en": "Sort by column",
+   "zh": "按列排序"
+  },
+  "def": {
+   "en": [
+    "Sorts a column by another column, such as Month name by Month number."
+   ],
+   "zh": [
+    "让一列按另一列排序，例如月份名称按月份编号排序。"
+   ]
+  }
+ },
+ {
+  "id": "staging-query",
+  "name": {
+   "en": "Staging query",
+   "zh": "暂存查询"
+  },
+  "def": {
+   "en": [
+    "A query that prepares data for other queries, with Enable load turned off."
+   ],
+   "zh": [
+    "为其他查询准备数据、并关闭「启用加载」的查询。"
+   ]
+  }
+ },
+ {
+  "id": "star-schema",
+  "name": {
+   "en": "Star schema",
+   "zh": "星型架构"
+  },
+  "def": {
+   "en": [
+    "A model with fact tables in the centre and dimension tables around them, related one-to-many."
+   ],
+   "zh": [
+    "事实表在中心、维度表围绕四周，以一对多关系连接的模型。"
+   ]
+  }
+ },
+ {
+  "id": "subscription",
+  "name": {
+   "en": "Subscription",
+   "zh": "订阅"
+  },
+  "def": {
+   "en": [
+    "A scheduled email with a snapshot of a report page or dashboard."
+   ],
+   "zh": [
+    "按计划发送的邮件，附有报表页或仪表板的快照。"
+   ]
+  }
+ },
+ {
+  "id": "surrogate-key",
+  "name": {
+   "en": "Surrogate key",
+   "zh": "代理键"
+  },
+  "def": {
+   "en": [
+    "A whole-number key added to a dimension (for example with an Index column) instead of a natural key from the source."
+   ],
+   "zh": [
+    "为维度表新增的整数键（例如用索引列），取代来自源系统的自然键。"
+   ]
+  }
+ },
+ {
+  "id": "sync-slicers",
+  "name": {
+   "en": "Sync slicers",
+   "zh": "同步切片器"
+  },
+  "def": {
+   "en": [
+    "Makes a slicer filter, and optionally appear on, several report pages."
+   ],
+   "zh": [
+    "让切片器筛选多个报表页，并可选择是否在这些页面上显示。"
+   ]
+  }
+ },
+ {
+  "id": "synonyms",
+  "name": {
+   "en": "Synonyms",
+   "zh": "同义词"
+  },
+  "def": {
+   "en": [
+    "Alternative words for tables and columns that help Q&A and Copilot understand users."
+   ],
+   "zh": [
+    "表和列的替代用词，帮助问答和 Copilot 理解用户。"
+   ]
+  }
+ },
+ {
+  "id": "theme",
+  "name": {
+   "en": "Report theme",
+   "zh": "报表主题"
+  },
+  "def": {
+   "en": [
+    "Colours, fonts and visual defaults for the whole report, saved and shared as a JSON file."
+   ],
+   "zh": [
+    "整份报表的颜色、字体和视觉对象默认值，以 JSON 文件保存和分享。"
+   ]
+  }
+ },
+ {
+  "id": "tile",
+  "name": {
+   "en": "Tile",
+   "zh": "磁贴"
+  },
+  "def": {
+   "en": [
+    "One pinned visual (or live page) on a dashboard."
+   ],
+   "zh": [
+    "仪表板上一个已固定的视觉对象（或实时页面）。"
+   ]
+  }
+ },
+ {
+  "id": "time-intelligence",
+  "name": {
+   "en": "Time intelligence",
+   "zh": "时间智能"
+  },
+  "def": {
+   "en": [
+    "DAX functions that compare periods: TOTALYTD, SAMEPERIODLASTYEAR, DATEADD, DATESINPERIOD and others."
+   ],
+   "zh": [
+    "比较不同期间的 DAX 函数：TOTALYTD、SAMEPERIODLASTYEAR、DATEADD、DATESINPERIOD 等。"
+   ]
+  }
+ },
+ {
+  "id": "unpivot",
+  "name": {
+   "en": "Unpivot",
+   "zh": "逆透视"
+  },
+  "def": {
+   "en": [
+    "Turns columns into attribute–value rows, making wide spreadsheet layouts long."
+   ],
+   "zh": [
+    "把列变成「属性–值」行，把宽的电子表格格式变长。"
+   ]
+  }
+ },
+ {
+  "id": "userprincipalname",
+  "name": {
+   "en": "USERPRINCIPALNAME()",
+   "zh": "USERPRINCIPALNAME()"
+  },
+  "def": {
+   "en": [
+    "DAX function returning the signed-in user's sign-in name (usually their email), used in dynamic RLS."
+   ],
+   "zh": [
+    "返回登录用户登录名（通常是电子邮件）的 DAX 函数，用于动态 RLS。"
+   ]
+  }
+ },
+ {
+  "id": "variable",
+  "name": {
+   "en": "Variable (VAR)",
+   "zh": "变量（VAR）"
+  },
+  "def": {
+   "en": [
+    "A named intermediate result in a DAX expression (VAR … RETURN), evaluated once."
+   ],
+   "zh": [
+    "DAX 表达式中有名称的中间结果（VAR … RETURN），只计算一次。"
+   ]
+  }
+ },
+ {
+  "id": "vertipaq",
+  "name": {
+   "en": "VertiPaq",
+   "zh": "VertiPaq"
+  },
+  "def": {
+   "en": [
+    "The in-memory columnar engine that compresses and queries Import data."
+   ],
+   "zh": [
+    "压缩和查询导入数据的内存列式引擎。"
+   ]
+  }
+ },
+ {
+  "id": "visual",
+  "name": {
+   "en": "Visual",
+   "zh": "视觉对象"
+  },
+  "def": {
+   "en": [
+    "A chart, table, card, map or other element on a report page."
+   ],
+   "zh": [
+    "报表页上的图表、表格、卡片、地图或其他元素。"
+   ]
+  }
+ },
+ {
+  "id": "visual-calculation",
+  "name": {
+   "en": "Visual calculation",
+   "zh": "视觉计算"
+  },
+  "def": {
+   "en": [
+    "A DAX calculation defined on one visual and computed on that visual's own data (RUNNINGSUM, MOVINGAVERAGE…)."
+   ],
+   "zh": [
+    "在单个视觉对象上定义、基于该视觉对象自身数据计算的 DAX（RUNNINGSUM、MOVINGAVERAGE……）。"
+   ]
+  }
+ },
+ {
+  "id": "workspace",
+  "name": {
+   "en": "Workspace",
+   "zh": "工作区"
+  },
+  "def": {
+   "en": [
+    "A container in the Power BI service where a team creates and manages items."
+   ],
+   "zh": [
+    "Power BI 服务中的容器，团队在其中建立和管理项目。"
+   ]
+  }
+ },
+ {
+  "id": "workspace-role",
+  "name": {
+   "en": "Workspace role",
+   "zh": "工作区角色"
+  },
+  "def": {
+   "en": [
+    "Admin, Member, Contributor or Viewer — the access a person or group has to a workspace."
+   ],
+   "zh": [
+    "管理员、成员、参与者或查看者——个人或组对工作区的访问权限。"
+   ]
+  }
+ }
+]

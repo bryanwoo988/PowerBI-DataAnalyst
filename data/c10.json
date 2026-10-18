@@ -1,0 +1,1224 @@
+{
+ "id": "c10",
+ "num": 10,
+ "stage": 4,
+ "title": {
+  "en": "Create reports",
+  "zh": "创建报表"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/",
+ "sections": [
+  {
+   "id": "choose-visual",
+   "heading": {
+    "en": "Selecting an appropriate visual",
+    "zh": "选择合适的视觉对象"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a",
+   "takeaways": [
+    {
+     "en": "Start from the question: compare categories (bar/column), show change over time (line), part of a whole (stacked bar, treemap, few-slice pie), relationship (scatter).",
+     "zh": "从问题出发：比较类别（条形/柱形图）、显示随时间的变化（折线图）、部分与整体（堆积条形图、树状图、扇区少的饼图）、关系（散点图）。"
+    },
+    {
+     "en": "Cards and KPI visuals show single numbers; KPI and gauge compare a value with a target.",
+     "zh": "卡片和 KPI 视觉对象显示单一数字；KPI 和仪表把数值与目标比较。"
+    },
+    {
+     "en": "Tables and matrices show detail; a matrix adds row/column groups, subtotals and drill-down.",
+     "zh": "表格和矩阵显示明细；矩阵还有行/列分组、小计和向下钻取。"
+    }
+   ],
+   "terms": [
+    "visual",
+    "kpi-visual"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Question",
+       "zh": "问题"
+      },
+      {
+       "en": "Visual",
+       "zh": "视觉对象"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "How do categories compare?",
+        "zh": "各类别相比如何？"
+       },
+       {
+        "en": "Clustered bar or column chart",
+        "zh": "簇状条形图或柱形图"
+       }
+      ],
+      [
+       {
+        "en": "How did a value change over time?",
+        "zh": "数值随时间如何变化？"
+       },
+       {
+        "en": "Line chart (area chart to stress volume)",
+        "zh": "折线图（强调量时用面积图）"
+       }
+      ],
+      [
+       {
+        "en": "Two measures with different scales over time",
+        "zh": "两个尺度不同的度量值随时间变化"
+       },
+       {
+        "en": "Line and clustered column chart (combo)",
+        "zh": "折线和簇状柱形图（组合图）"
+       }
+      ],
+      [
+       {
+        "en": "What makes up the total?",
+        "zh": "总计由什么组成？"
+       },
+       {
+        "en": "Stacked bar/column, treemap; pie or donut only for a few slices",
+        "zh": "堆积条形/柱形图、树状图；只有少数扇区时才用饼图或环形图"
+       }
+      ],
+      [
+       {
+        "en": "How did we get from start to end?",
+        "zh": "如何从起点到终点？"
+       },
+       {
+        "en": "Waterfall chart",
+        "zh": "瀑布图"
+       }
+      ],
+      [
+       {
+        "en": "Where do we lose people in a process?",
+        "zh": "流程中在哪里流失？"
+       },
+       {
+        "en": "Funnel chart",
+        "zh": "漏斗图"
+       }
+      ],
+      [
+       {
+        "en": "Is there a relationship between two measures?",
+        "zh": "两个度量值之间有关系吗？"
+       },
+       {
+        "en": "Scatter chart (bubble size = third measure; play axis = time)",
+        "zh": "散点图（气泡大小 = 第三个度量值；播放轴 = 时间）"
+       }
+      ],
+      [
+       {
+        "en": "How did rankings change?",
+        "zh": "排名如何变化？"
+       },
+       {
+        "en": "Ribbon chart",
+        "zh": "丝带图"
+       }
+      ],
+      [
+       {
+        "en": "One headline number",
+        "zh": "一个重点数字"
+       },
+       {
+        "en": "Card (or multi-row card)",
+        "zh": "卡片（或多行卡）"
+       }
+      ],
+      [
+       {
+        "en": "Value vs target with trend",
+        "zh": "数值与目标比较并显示趋势"
+       },
+       {
+        "en": "KPI visual",
+        "zh": "KPI 视觉对象"
+       }
+      ],
+      [
+       {
+        "en": "Value within a range toward a goal",
+        "zh": "数值在范围中朝目标前进"
+       },
+       {
+        "en": "Gauge",
+        "zh": "仪表"
+       }
+      ],
+      [
+       {
+        "en": "Where is it?",
+        "zh": "在哪里？"
+       },
+       {
+        "en": "Map, filled map, Azure Maps, shape map",
+        "zh": "地图、着色地图、Azure Maps、形状地图"
+       }
+      ],
+      [
+       {
+        "en": "Exact numbers, many columns",
+        "zh": "精确数字、很多列"
+       },
+       {
+        "en": "Table; matrix for groups and subtotals",
+        "zh": "表格；需要分组和小计时用矩阵"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Beyond the built-in visuals you can import certified custom visuals from <b>AppSource</b>, or use R and Python visuals (they need R/Python installed in Desktop and have limits in the service).",
+      "zh": "除了内置的视觉对象，还可以从 <b>AppSource</b> 导入经过认证的自定义视觉对象，或使用 R 和 Python 视觉对象（Desktop 中需要安装 R/Python，在服务中也有限制）。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Avoid pies with many slices and 3-D effects: people compare lengths far more accurately than angles or areas.",
+      "zh": "避免扇区很多的饼图和 3D 效果：人们比较长度远比比较角度或面积准确。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You must show how revenue moved from last year's total to this year's, with the positive and negative contribution of each region. Which visual?",
+      "zh": "你要显示收入如何从去年的总额变成今年的总额，并呈现每个区域的正负贡献。用哪个视觉对象？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Funnel chart",
+        "zh": "漏斗图"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Pie chart",
+        "zh": "饼图"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Waterfall chart",
+        "zh": "瀑布图"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it shows the running effect of increases and decreases.",
+        "zh": "对：它能显示增加和减少的累积效果。"
+       }
+      },
+      {
+       "html": {
+        "en": "Gauge",
+        "zh": "仪表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Sales (millions) and margin % must share one time axis. Which visual fits?",
+      "zh": "销售额（百万）和利润率 % 要共用同一个时间轴。哪个视觉对象合适？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Line and clustered column chart",
+        "zh": "折线和簇状柱形图"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: columns for sales, a line on a secondary axis for margin %.",
+        "zh": "对：用柱形表示销售额，次坐标轴上的折线表示利润率 %。"
+       }
+      },
+      {
+       "html": {
+        "en": "Stacked area chart",
+        "zh": "堆积面积图"
+       },
+       "correct": false,
+       "why": {
+        "en": "Stacking a percentage on money is meaningless.",
+        "zh": "把百分比堆在金额上没有意义。"
+       }
+      },
+      {
+       "html": {
+        "en": "Treemap",
+        "zh": "树状图"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Two cards",
+        "zh": "两张卡片"
+       },
+       "correct": false,
+       "why": {
+        "en": "Cards lose the time trend.",
+        "zh": "卡片会失去时间趋势。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "format-theme",
+   "heading": {
+    "en": "Formatting visuals and themes",
+    "zh": "设置视觉对象格式与主题"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes",
+   "takeaways": [
+    {
+     "en": "The Format pane controls each visual: titles, axes, data labels, legend, colours, borders and spacing.",
+     "zh": "「格式」窗格控制每个视觉对象：标题、轴、数据标签、图例、颜色、边框和间距。"
+    },
+    {
+     "en": "A report theme sets colours, fonts and visual defaults for every page at once; customise it or import a JSON theme file.",
+     "zh": "报表主题一次性为所有页面设定颜色、字体和视觉对象默认值；可以自定义，或导入 JSON 主题文件。"
+    },
+    {
+     "en": "Use the theme for consistency; format individual visuals only for exceptions.",
+     "zh": "用主题保持一致；只有特殊情况才单独设置个别视觉对象的格式。"
+    }
+   ],
+   "terms": [
+    "theme"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Select a visual and open <b>Format your visual</b>. Settings are split into <b>Visual</b> (axes, data labels, legend, bars, lines) and <b>General</b> (title, effects, size, alt text, header icons). Use <b>Format painter</b> to copy formatting from one visual to another.",
+      "zh": "选取视觉对象，打开<b>设置视觉对象格式</b>。设置分为<b>视觉对象</b>（轴、数据标签、图例、条形、线条）和<b>常规</b>（标题、效果、大小、替代文字、标头图标）。用<b>格式刷</b>把一个视觉对象的格式复制到另一个。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Themes",
+      "zh": "主题"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>View → Themes</b>: pick a built-in theme, browse the theme gallery, or <b>Customize current theme</b> (name and colours, text, visuals, page, filter pane).",
+       "zh": "<b>视图 → 主题</b>：选择内置主题、浏览主题库，或<b>自定义当前主题</b>（名称和颜色、文本、视觉对象、页面、筛选器窗格）。"
+      },
+      {
+       "en": "<b>Browse for themes</b> imports a JSON file; <b>Save current theme</b> exports one so other reports match your corporate style.",
+       "zh": "<b>浏览主题</b>可导入 JSON 文件；<b>保存当前主题</b>可导出，让其他报表符合公司风格。"
+      },
+      {
+       "en": "Theme colours are used by every visual unless a visual overrides them.",
+       "zh": "除非个别视觉对象另行设定，所有视觉对象都会使用主题颜色。"
+      }
+     ]
+    },
+    {
+     "type": "code",
+     "text": "{\n  \"name\": \"Contoso\",\n  \"dataColors\": [\"#1E7BE6\", \"#E5484D\", \"#F5B700\", \"#2FB36E\"],\n  \"background\": \"#FFFFFF\",\n  \"foreground\": \"#1E2638\",\n  \"tableAccent\": \"#1E7BE6\"\n}"
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Twenty reports must follow the corporate colour palette and fonts, and future changes should be quick. What is best?",
+      "zh": "二十份报表必须符合公司的配色和字体，而且以后的修改要很快。最好的方法是什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Use bookmarks",
+        "zh": "使用书签"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Use Format painter on every visual",
+        "zh": "对每个视觉对象使用格式刷"
+       },
+       "correct": false,
+       "why": {
+        "en": "Slow and easy to miss visuals.",
+        "zh": "又慢又容易漏掉。"
+       }
+      },
+      {
+       "html": {
+        "en": "Set conditional formatting",
+        "zh": "设置条件格式"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Create a JSON theme and import it into each report",
+        "zh": "建立 JSON 主题，导入到每份报表"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: one file defines colours and fonts for every visual.",
+        "zh": "对：一个文件就能为所有视觉对象定义颜色和字体。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conditional-formatting",
+   "heading": {
+    "en": "Conditional formatting",
+    "zh": "条件格式"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-conditional-table-formatting",
+   "takeaways": [
+    {
+     "en": "Conditional formatting changes background colour, font colour, data bars, icons or links based on values.",
+     "zh": "条件格式根据值改变背景色、字体颜色、数据条、图标或链接。"
+    },
+    {
+     "en": "Three ways to set it: gradient (colour scale), rules (if value is between…), or field value (a measure that returns a colour).",
+     "zh": "三种设定方式：渐变（色阶）、规则（如果值介于……）或字段值（返回颜色的度量值）。"
+    },
+    {
+     "en": "A measure returning a hex colour lets one rule drive many visuals, including titles.",
+     "zh": "返回十六进制颜色的度量值，可以让同一个规则驱动多个视觉对象，包括标题。"
+    }
+   ],
+   "terms": [
+    "conditional-formatting"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "In a table or matrix, open the field's menu (or Format → Cell elements) and turn on <b>Background color</b>, <b>Font color</b>, <b>Data bars</b>, <b>Icons</b> or <b>Web URL</b>. Many charts also accept conditional colours for bars and titles through the <b>fx</b> button.",
+      "zh": "在表格或矩阵中，打开字段菜单（或「格式 → 单元格元素」），开启<b>背景色</b>、<b>字体颜色</b>、<b>数据条</b>、<b>图标</b>或 <b>Web URL</b>。许多图表也可以通过 <b>fx</b> 按钮为条形和标题设定条件颜色。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Format style",
+       "zh": "格式样式"
+      },
+      {
+       "en": "Use",
+       "zh": "用途"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Gradient",
+        "zh": "渐变"
+       },
+       {
+        "en": "Colour scale from lowest to highest value",
+        "zh": "从最低值到最高值的色阶"
+       }
+      ],
+      [
+       {
+        "en": "Rules",
+        "zh": "规则"
+       },
+       {
+        "en": "Explicit ranges: &lt; 0 red, 0–10% amber, &gt; 10% green",
+        "zh": "明确的范围：&lt; 0 红色、0–10% 琥珀色、&gt; 10% 绿色"
+       }
+      ],
+      [
+       {
+        "en": "Field value",
+        "zh": "字段值"
+       },
+       {
+        "en": "A column or measure that returns a colour name or hex code",
+        "zh": "返回颜色名称或十六进制代码的列或度量值"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "code",
+     "text": "Margin Colour =\nSWITCH ( TRUE (),\n    [Margin %] < 0,    \"#E5484D\",\n    [Margin %] < 0.10, \"#F5B700\",\n    \"#2FB36E\" )"
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Bars in a column chart must turn red when the margin is negative, using the same rule as a table elsewhere in the report. What is the most maintainable approach?",
+      "zh": "柱形图中利润为负时柱子要变红，而且要和报表中另一个表格使用同一规则。最容易维护的做法是什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A measure returning a colour, used with Format style: Field value",
+        "zh": "一个返回颜色的度量值，配合格式样式「字段值」"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: change the measure once and both visuals follow.",
+        "zh": "对：只要修改度量值一次，两个视觉对象都会跟着改。"
+       }
+      },
+      {
+       "html": {
+        "en": "Gradient formatting on each visual",
+        "zh": "在每个视觉对象上设置渐变格式"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A theme",
+        "zh": "主题"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Manually colour each bar",
+        "zh": "手动给每个柱子上色"
+       },
+       "correct": false,
+       "why": {
+        "en": "Manual colours do not react to data.",
+        "zh": "手动颜色不会随数据变化。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "filter-slicer",
+   "heading": {
+    "en": "Slicing and filtering",
+    "zh": "切片和筛选"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-add-filter",
+   "takeaways": [
+    {
+     "en": "The Filters pane has three scopes: this visual, this page, all pages — plus drill-through filters on target pages.",
+     "zh": "「筛选器」窗格有三种范围：此视觉对象、此页、所有页——另外还有目标页上的钻取筛选器。"
+    },
+    {
+     "en": "Filter types include basic, advanced, Top N and relative date/time.",
+     "zh": "筛选类型包括基本、高级、前 N 个和相对日期/时间。"
+    },
+    {
+     "en": "Slicers are filters on the canvas that users see and click; lock or hide filters in the pane to control what users can change.",
+     "zh": "切片器是放在画布上、用户能看到和点击的筛选器；可在窗格中锁定或隐藏筛选器，控制用户能改动什么。"
+    }
+   ],
+   "terms": [
+    "slicer",
+    "filters-pane",
+    "sync-slicers"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Scope",
+       "zh": "范围"
+      },
+      {
+       "en": "Affects",
+       "zh": "作用于"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Filters on this visual",
+        "zh": "此视觉对象上的筛选器"
+       },
+       {
+        "en": "One visual",
+        "zh": "单个视觉对象"
+       }
+      ],
+      [
+       {
+        "en": "Filters on this page",
+        "zh": "此页上的筛选器"
+       },
+       {
+        "en": "Every visual on the page",
+        "zh": "该页的所有视觉对象"
+       }
+      ],
+      [
+       {
+        "en": "Filters on all pages",
+        "zh": "所有页上的筛选器"
+       },
+       {
+        "en": "Every page of the report",
+        "zh": "报表的每一页"
+       }
+      ],
+      [
+       {
+        "en": "Drill through",
+        "zh": "钻取"
+       },
+       {
+        "en": "The target page when a user drills through to it",
+        "zh": "用户钻取到目标页时作用于该页"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Filter type",
+       "zh": "筛选类型"
+      },
+      {
+       "en": "Example",
+       "zh": "例子"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Basic",
+        "zh": "基本"
+       },
+       {
+        "en": "Tick Category = Bikes, Helmets",
+        "zh": "勾选 Category = Bikes、Helmets"
+       }
+      ],
+      [
+       {
+        "en": "Advanced",
+        "zh": "高级"
+       },
+       {
+        "en": "Name contains \"Pro\" and does not start with \"X\"",
+        "zh": "名称包含「Pro」且不以「X」开头"
+       }
+      ],
+      [
+       {
+        "en": "Top N",
+        "zh": "前 N 个"
+       },
+       {
+        "en": "Top 10 products by [Total Sales]",
+        "zh": "按 [Total Sales] 的前 10 个产品"
+       }
+      ],
+      [
+       {
+        "en": "Relative date",
+        "zh": "相对日期"
+       },
+       {
+        "en": "Is in the last 12 calendar months",
+        "zh": "在最近 12 个日历月内"
+       }
+      ],
+      [
+       {
+        "en": "Measure filter (visual level)",
+        "zh": "度量值筛选（视觉对象级）"
+       },
+       {
+        "en": "Show items when [Total Sales] is greater than 1,000",
+        "zh": "当 [Total Sales] 大于 1,000 时显示项目"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Slicers",
+      "zh": "切片器"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Slicer styles include vertical list, tile/button, dropdown, between (range), relative date and hierarchy. Single-select, \"Select all\" and search can be switched on. A slicer filters the visuals on its page by default; use <b>Edit interactions</b> to exclude some, and <b>Sync slicers</b> to carry it to other pages.",
+      "zh": "切片器样式包括垂直列表、磁贴/按钮、下拉、介于（范围）、相对日期和层次结构。可以开启单选、「全选」和搜索。切片器默认筛选所在页面的视觉对象；用<b>编辑交互</b>排除部分视觉对象，用<b>同步切片器</b>延伸到其他页面。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Lock filter</b>: users see the filter but cannot change it.",
+       "zh": "<b>锁定筛选器</b>：用户看得到筛选器但不能修改。"
+      },
+      {
+       "en": "<b>Hide filter</b>: users do not see it in reading view (it still applies — it is not security).",
+       "zh": "<b>隐藏筛选器</b>：阅读视图中用户看不到它（仍然生效——但这不是安全措施）。"
+      },
+      {
+       "en": "Filters on a measure (\"Total Sales is not blank\") are only available at visual level.",
+       "zh": "对度量值的筛选（「Total Sales 不为空」）只能在视觉对象级使用。"
+      }
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "Hidden filters are not security: users with Build permission or Analyze in Excel can still reach the data. To restrict data per user, use row-level security.",
+      "zh": "隐藏的筛选器不是安全措施：有生成权限或使用「在 Excel 中分析」的用户仍能取得数据。要按用户限制数据，应使用行级别安全性。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A report must always show only the last 6 months, updating automatically each day. Which filter?",
+      "zh": "某报表必须始终只显示最近 6 个月，并每天自动更新。用哪种筛选器？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Relative date filter: in the last 6 months",
+        "zh": "相对日期筛选：在最近 6 个月内"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it moves with today's date.",
+        "zh": "对：它会随着今天的日期移动。"
+       }
+      },
+      {
+       "html": {
+        "en": "A hidden slicer",
+        "zh": "隐藏的切片器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Basic filter ticking the six months",
+        "zh": "基本筛选，勾选那六个月"
+       },
+       "correct": false,
+       "why": {
+        "en": "It stays on the same months forever.",
+        "zh": "会永远停留在那几个月。"
+       }
+      },
+      {
+       "html": {
+        "en": "Top N 6 by date",
+        "zh": "按日期的前 N 个 6"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A filter on Region must apply to every page of a 12-page report. Where do you add it?",
+      "zh": "Region 筛选器必须作用于 12 页报表的每一页。应该加在哪里？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A drill-through filter",
+        "zh": "钻取筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Filters on this page, on each page",
+        "zh": "在每一页的「此页上的筛选器」"
+       },
+       "correct": false,
+       "why": {
+        "en": "Works, but twelve copies to maintain.",
+        "zh": "可行，但要维护十二份。"
+       }
+      },
+      {
+       "html": {
+        "en": "A visual-level filter",
+        "zh": "视觉对象级筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Filters on all pages",
+        "zh": "所有页上的筛选器"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "page-paginated",
+   "heading": {
+    "en": "Report pages and paginated reports",
+    "zh": "报表页面与分页报表"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/paginated-reports/paginated-reports-report-builder-power-bi",
+   "takeaways": [
+    {
+     "en": "Page settings control canvas size (16:9, 4:3, Letter, custom, Tooltip), background, wallpaper and whether the page is hidden.",
+     "zh": "页面设置控制画布大小（16:9、4:3、Letter、自定义、工具提示）、背景、壁纸，以及页面是否隐藏。"
+    },
+    {
+     "en": "Paginated reports (.rdl) are pixel-perfect, print-ready reports that run over many pages, built with Power BI Report Builder.",
+     "zh": "分页报表（.rdl）是像素级精确、可直接打印、可跨越多页的报表，用 Power BI 报表生成器制作。"
+    },
+    {
+     "en": "Choose paginated when users need to print, export every row to PDF/Excel, or produce invoices and statements.",
+     "zh": "当用户需要打印、把所有行导出为 PDF/Excel，或制作发票和对账单时，选择分页报表。"
+    }
+   ],
+   "terms": [
+    "paginated-report"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Configuring the report page",
+      "zh": "配置报表页面"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Canvas settings</b>: type (16:9, 4:3, Letter, Tooltip, Custom), height and width, vertical alignment.",
+       "zh": "<b>画布设置</b>：类型（16:9、4:3、Letter、工具提示、自定义）、高度和宽度、垂直对齐。"
+      },
+      {
+       "en": "<b>Canvas background</b> (inside the page) and <b>Wallpaper</b> (around it).",
+       "zh": "<b>画布背景</b>（页面内）和<b>壁纸</b>（页面外围）。"
+      },
+      {
+       "en": "<b>Page information</b>: name, \"Allow use as tooltip\", drill-through settings.",
+       "zh": "<b>页面信息</b>：名称、「允许用作工具提示」、钻取设置。"
+      },
+      {
+       "en": "<b>Hide page</b> for drill-through targets and tooltip pages, so they do not appear as tabs.",
+       "zh": "<b>隐藏页面</b>：用于钻取目标页和工具提示页，不让它们显示为选项卡。"
+      },
+      {
+       "en": "<b>Page view</b>: Fit to page, Fit to width, Actual size.",
+       "zh": "<b>页面视图</b>：调整到页面大小、适应宽度、实际大小。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Paginated reports",
+      "zh": "分页报表"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Power BI report",
+       "zh": "Power BI 报表"
+      },
+      {
+       "en": "Paginated report",
+       "zh": "分页报表"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Made with",
+        "zh": "制作工具"
+       },
+       {
+        "en": "Power BI Desktop (.pbix)",
+        "zh": "Power BI Desktop（.pbix）"
+       },
+       {
+        "en": "Power BI Report Builder (.rdl)",
+        "zh": "Power BI 报表生成器（.rdl）"
+       }
+      ],
+      [
+       {
+        "en": "Best for",
+        "zh": "最适合"
+       },
+       {
+        "en": "Interactive exploration on screen",
+        "zh": "在屏幕上交互探索"
+       },
+       {
+        "en": "Printing, PDF, every row of a long table, fixed layouts",
+        "zh": "打印、PDF、长表格的每一行、固定版式"
+       }
+      ],
+      [
+       {
+        "en": "Layout",
+        "zh": "版式"
+       },
+       {
+        "en": "One canvas per page; visuals scroll",
+        "zh": "每页一个画布；视觉对象内滚动"
+       },
+       {
+        "en": "Grows over as many pages as the data needs; headers and footers repeat",
+        "zh": "数据有多少就延伸多少页；页眉页脚会重复"
+       }
+      ],
+      [
+       {
+        "en": "Typical output",
+        "zh": "典型输出"
+       },
+       {
+        "en": "Dashboards, analysis",
+        "zh": "仪表板、分析"
+       },
+       {
+        "en": "Invoices, statements, operational lists, regulatory filings",
+        "zh": "发票、对账单、操作清单、监管报表"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Finance needs a 40-page printable list of every transaction with page headers and totals, exported to PDF each month. What do you build?",
+      "zh": "财务部门每月需要一份 40 页、列出所有交易、带页眉和合计、可导出 PDF 打印的清单。应该制作什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A mobile layout",
+        "zh": "移动布局"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A paginated report in Power BI Report Builder",
+        "zh": "用 Power BI 报表生成器制作分页报表"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: paginated reports flow over pages and print exactly.",
+        "zh": "对：分页报表会跨页延伸，打印效果精确。"
+       }
+      },
+      {
+       "html": {
+        "en": "A table visual exported to PDF",
+        "zh": "把表格视觉对象导出为 PDF"
+       },
+       "correct": false,
+       "why": {
+        "en": "A Power BI report page exports only what fits on the canvas.",
+        "zh": "Power BI 报表页只会导出画布上显示得下的内容。"
+       }
+      },
+      {
+       "html": {
+        "en": "A dashboard",
+        "zh": "仪表板"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "visual-calcs",
+   "heading": {
+    "en": "Visual calculations",
+    "zh": "视觉计算"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-visual-calculations-overview",
+   "takeaways": [
+    {
+     "en": "A visual calculation is DAX defined on one visual and calculated on the data that visual already shows.",
+     "zh": "视觉计算是在单个视觉对象上定义的 DAX，基于该视觉对象已显示的数据进行计算。"
+    },
+    {
+     "en": "Functions such as RUNNINGSUM, MOVINGAVERAGE, PREVIOUS, FIRST and COLLAPSE make running totals and comparisons easy.",
+     "zh": "RUNNINGSUM、MOVINGAVERAGE、PREVIOUS、FIRST 和 COLLAPSE 等函数让累计总计和比较变得容易。"
+    },
+    {
+     "en": "They are not stored in the model, so other visuals and reports cannot reuse them.",
+     "zh": "它们不存储在模型中，所以其他视觉对象和报表无法重用。"
+    }
+   ],
+   "terms": [
+    "visual-calculation"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Select a visual and choose <b>New visual calculation</b> (Home ribbon or the visual's menu). An edit mode shows the visual's data as a small grid; you write DAX that refers to the fields in the visual by name, and can start from templates such as Running sum or Moving average.",
+      "zh": "选取视觉对象，选择<b>新建视觉计算</b>（「主页」功能区或视觉对象菜单）。编辑模式会把视觉对象的数据显示为小网格；你写的 DAX 可直接按名称引用视觉对象中的字段，也可以从「累计求和」「移动平均」等模板开始。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "Running total   = RUNNINGSUM ( [Sales Amount] )\n3-month average = MOVINGAVERAGE ( [Sales Amount], 3 )\nvs previous     = [Sales Amount] - PREVIOUS ( [Sales Amount] )\n% of parent     = DIVIDE ( [Sales Amount], COLLAPSE ( [Sales Amount], ROWS ) )"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Measure",
+       "zh": "度量值"
+      },
+      {
+       "en": "Visual calculation",
+       "zh": "视觉计算"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Defined in",
+        "zh": "定义在"
+       },
+       {
+        "en": "The semantic model",
+        "zh": "语义模型"
+       },
+       {
+        "en": "One visual",
+        "zh": "单个视觉对象"
+       }
+      ],
+      [
+       {
+        "en": "Calculates on",
+        "zh": "计算基础"
+       },
+       {
+        "en": "The model, under the visual's filters",
+        "zh": "模型，在视觉对象的筛选下"
+       },
+       {
+        "en": "The rows and columns of the visual itself",
+        "zh": "视觉对象自身的行和列"
+       }
+      ],
+      [
+       {
+        "en": "Reusable",
+        "zh": "可重用"
+       },
+       {
+        "en": "Yes, everywhere",
+        "zh": "是，处处可用"
+       },
+       {
+        "en": "No",
+        "zh": "否"
+       }
+      ],
+      [
+       {
+        "en": "Good for",
+        "zh": "适合"
+       },
+       {
+        "en": "Business logic shared by all reports",
+        "zh": "所有报表共用的业务逻辑"
+       },
+       {
+        "en": "Running totals, moving averages, % of parent in one chart",
+        "zh": "单一图表中的累计总计、移动平均、占父级百分比"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A user wants a running total in one matrix only, without adding a measure to the shared model. What fits?",
+      "zh": "某用户只想在一个矩阵中显示累计总计，又不想在共享模型中新增度量值。哪个合适？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A calculated column",
+        "zh": "计算列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A visual calculation using RUNNINGSUM",
+        "zh": "使用 RUNNINGSUM 的视觉计算"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it lives in the visual and needs no model change.",
+        "zh": "对：它存在于视觉对象中，不需要修改模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "A calculation group",
+        "zh": "计算组"
+       },
+       "correct": false,
+       "why": {
+        "en": "That changes the model.",
+        "zh": "那会修改模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "A Top N filter",
+        "zh": "前 N 个筛选"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

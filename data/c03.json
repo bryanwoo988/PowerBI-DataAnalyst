@@ -1,0 +1,741 @@
+{
+ "id": "c03",
+ "num": 3,
+ "stage": 2,
+ "title": {
+  "en": "Profile and clean the data",
+  "zh": "分析和清理数据"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-query/power-query-what-is-power-query",
+ "sections": [
+  {
+   "id": "profiling",
+   "heading": {
+    "en": "Profiling the data",
+    "zh": "数据分析（剖析）"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-query/data-profiling-tools",
+   "takeaways": [
+    {
+     "en": "Column quality shows the share of valid, error and empty values; Column distribution shows distinct and unique counts.",
+     "zh": "「列质量」显示有效、错误和空值的比例；「列分布」显示非重复值和唯一值的数量。"
+    },
+    {
+     "en": "Column profile adds statistics (min, max, average, count, nulls) and a value distribution for one column.",
+     "zh": "「列配置文件」为单列提供统计数据（最小值、最大值、平均值、计数、空值）和值分布。"
+    },
+    {
+     "en": "By default profiling looks at the top 1,000 rows; switch to the entire data set in the status bar.",
+     "zh": "默认只分析前 1,000 行；可在状态栏切换为整个数据集。"
+    }
+   ],
+   "terms": [
+    "column-profile",
+    "distinct-unique"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Before cleaning data you need to know what is wrong with it. The Power Query Editor's <b>View</b> ribbon has three profiling tools.",
+      "zh": "清理数据前，先要知道数据哪里有问题。Power Query 编辑器的<b>视图</b>功能区有三个数据分析工具。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Tool",
+       "zh": "工具"
+      },
+      {
+       "en": "Shows",
+       "zh": "显示什么"
+      },
+      {
+       "en": "Use it to spot",
+       "zh": "用来发现"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Column quality",
+        "zh": "列质量"
+       },
+       {
+        "en": "% Valid, % Error, % Empty under each header",
+        "zh": "每个列标题下的有效、错误、空值百分比"
+       },
+       {
+        "en": "Errors from type conversion, missing values",
+        "zh": "类型转换错误、缺失值"
+       }
+      ],
+      [
+       {
+        "en": "Column distribution",
+        "zh": "列分布"
+       },
+       {
+        "en": "A small histogram, distinct count and unique count",
+        "zh": "小直方图、非重复值数量和唯一值数量"
+       },
+       {
+        "en": "Whether a column can be a key (distinct = unique = rows)",
+        "zh": "某列能否当键（非重复 = 唯一 = 行数）"
+       }
+      ],
+      [
+       {
+        "en": "Column profile",
+        "zh": "列配置文件"
+       },
+       {
+        "en": "Count, error, empty, distinct, unique, min, max, average, standard deviation, value distribution",
+        "zh": "计数、错误、空值、非重复、唯一、最小、最大、平均、标准差、值分布"
+       },
+       {
+        "en": "Outliers, unexpected values, skewed data",
+        "zh": "离群值、意外值、偏斜数据"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "The status bar says <b>Column profiling based on top 1000 rows</b>. Click it and choose <b>entire data set</b>, otherwise problems further down the table stay hidden.",
+      "zh": "状态栏显示<b>基于前 1000 行的列分析</b>。点它并选择<b>整个数据集</b>，否则表格后面的问题会被漏掉。"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>Distinct</b> counts how many different values appear; <b>unique</b> counts values that appear exactly once. A column that will be the key of a dimension table must have distinct = unique = the number of rows, and no empty values.",
+      "zh": "<b>非重复值（distinct）</b>是出现过多少种不同的值；<b>唯一值（unique）</b>是只出现一次的值有多少个。要当作维度表键的列，必须满足非重复值 = 唯一值 = 行数，而且没有空值。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Column quality shows 100% valid, but you suspect bad values near the end of a 2-million-row table. What should you check first?",
+      "zh": "「列质量」显示 100% 有效，但你怀疑一张 200 万行的表在后段有错误值。首先该检查什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Switch profiling to the entire data set",
+        "zh": "把列分析切换为整个数据集"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: by default only the top 1,000 rows are profiled.",
+        "zh": "对：默认只分析前 1,000 行。"
+       }
+      },
+      {
+       "html": {
+        "en": "Change the data type to Text",
+        "zh": "把数据类型改为文本"
+       },
+       "correct": false,
+       "why": {
+        "en": "That hides errors rather than finding them.",
+        "zh": "那只会掩盖错误，而不是找出错误。"
+       }
+      },
+      {
+       "html": {
+        "en": "Refresh the report in the service",
+        "zh": "在服务中刷新报表"
+       },
+       "correct": false,
+       "why": {
+        "en": "Profiling happens in the Power Query Editor.",
+        "zh": "数据分析是在 Power Query 编辑器中进行的。"
+       }
+      },
+      {
+       "html": {
+        "en": "Turn on Column distribution",
+        "zh": "开启「列分布」"
+       },
+       "correct": false,
+       "why": {
+        "en": "It still uses the same 1,000-row sample.",
+        "zh": "它仍然只用那 1,000 行样本。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which profile result tells you a CustomerID column can serve as the key of the Customer table?",
+      "zh": "哪种分析结果说明 CustomerID 列可以作为 Customer 表的键？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A normal-looking distribution",
+        "zh": "分布看起来正常"
+       },
+       "correct": false,
+       "why": {
+        "en": "The shape says nothing about duplicates.",
+        "zh": "分布形状说明不了是否重复。"
+       }
+      },
+      {
+       "html": {
+        "en": "Distinct count higher than unique count",
+        "zh": "非重复值多于唯一值"
+       },
+       "correct": false,
+       "why": {
+        "en": "That means some values repeat.",
+        "zh": "这表示有些值重复出现。"
+       }
+      },
+      {
+       "html": {
+        "en": "Distinct count = unique count = row count, no empty values",
+        "zh": "非重复值 = 唯一值 = 行数，且没有空值"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: every row has its own non-blank value.",
+        "zh": "对：每一行都有自己的、非空的值。"
+       }
+      },
+      {
+       "html": {
+        "en": "100% valid",
+        "zh": "100% 有效"
+       },
+       "correct": false,
+       "why": {
+        "en": "Valid values can still repeat.",
+        "zh": "有效的值仍可能重复。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quality",
+   "heading": {
+    "en": "Fixing inconsistent, null and unexpected values",
+    "zh": "修正不一致、空值和意外值"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-query/fill-values-column",
+   "takeaways": [
+    {
+     "en": "Replace values, Trim, Clean and Format (case) fix inconsistent text such as \"NY\", \"ny \" and \"New York\".",
+     "zh": "「替换值」「修整」「清除」和「格式」（大小写）可以修正不一致的文字，例如「NY」「ny 」和「New York」。"
+    },
+    {
+     "en": "Fill down/up copies a value into the blank cells below or above it, common after reading report-style Excel files.",
+     "zh": "「向下/向上填充」把值复制到下方或上方的空白单元格，常用于读取报表格式的 Excel 文件之后。"
+    },
+    {
+     "en": "Remove duplicates and filter out unwanted rows before the table is used as a dimension.",
+     "zh": "表作为维度表之前，要先删除重复项并筛掉不需要的行。"
+    }
+   ],
+   "terms": [
+    "applied-steps"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Data quality problems come in a few familiar shapes. Power Query has a button for each, and every click becomes an <b>applied step</b> you can review, reorder or delete.",
+      "zh": "数据质量问题有几种常见形态。Power Query 为每一种都准备了按钮，每次点击都会变成可以检查、重新排序或删除的<b>应用的步骤</b>。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Problem",
+       "zh": "问题"
+      },
+      {
+       "en": "Power Query fix",
+       "zh": "Power Query 修正方法"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Leading/trailing spaces, non-printing characters",
+        "zh": "前后空格、不可打印字符"
+       },
+       {
+        "en": "Transform → Format → <b>Trim</b> / <b>Clean</b>",
+        "zh": "转换 → 格式 → <b>修整</b> / <b>清除</b>"
+       }
+      ],
+      [
+       {
+        "en": "Mixed case: \"north\", \"NORTH\"",
+        "zh": "大小写混用：「north」「NORTH」"
+       },
+       {
+        "en": "Format → <b>Capitalize Each Word</b>, UPPERCASE or lowercase",
+        "zh": "格式 → <b>每个字词首字母大写</b>、大写或小写"
+       }
+      ],
+      [
+       {
+        "en": "Spelling variants: \"NY\", \"New York\"",
+        "zh": "拼写不同：「NY」「New York」"
+       },
+       {
+        "en": "<b>Replace Values</b>, or a mapping table merged in",
+        "zh": "<b>替换值</b>，或合并一张对照表"
+       }
+      ],
+      [
+       {
+        "en": "Blank cells under a group heading",
+        "zh": "分组标题下方的空白单元格"
+       },
+       {
+        "en": "<b>Fill → Down</b> (or Up)",
+        "zh": "<b>填充 → 向下</b>（或向上）"
+       }
+      ],
+      [
+       {
+        "en": "null where 0 is meant",
+        "zh": "本应是 0 的地方为 null"
+       },
+       {
+        "en": "Replace Values: null → 0 (only if 0 is really correct)",
+        "zh": "替换值：null → 0（只在 0 确实正确时）"
+       }
+      ],
+      [
+       {
+        "en": "Duplicate rows or keys",
+        "zh": "重复的行或键"
+       },
+       {
+        "en": "Select key column(s) → <b>Remove Duplicates</b>",
+        "zh": "选取键列 → <b>删除重复项</b>"
+       }
+      ],
+      [
+       {
+        "en": "Rows that are not data (totals, notes)",
+        "zh": "不是数据的行（合计、备注）"
+       },
+       {
+        "en": "<b>Remove Rows</b> (top, bottom, blank) or filter",
+        "zh": "<b>删除行</b>（前几行、后几行、空行）或筛选"
+       }
+      ],
+      [
+       {
+        "en": "Values outside a valid range",
+        "zh": "超出有效范围的值"
+       },
+       {
+        "en": "Filter rows, or a conditional column that flags them",
+        "zh": "筛选行，或用条件列标记出来"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Remove Duplicates in Power Query is case-sensitive: \"abc\" and \"ABC\" stay as two rows, but the model's engine treats them as the same value. Fix the case first, or a relationship can fail with a duplicate-key error.",
+      "zh": "Power Query 的「删除重复项」区分大小写：「abc」和「ABC」会保留为两行，但模型引擎会把它们视为同一个值。要先统一大小写，否则建立关系时可能出现键重复的错误。"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Think before replacing nulls. A missing sales amount is not the same as zero sales; averages and counts change if you invent values. Often the right fix is in the source system, with Power Query only flagging the problem.",
+      "zh": "替换 null 之前要想清楚。缺少销售金额并不等于销售为零；如果凭空填值，平均数和计数都会改变。很多时候正确的做法是在源系统中修正，而 Power Query 只负责把问题标出来。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A product dimension has \"widget\" and \"Widget\" as two rows. The relationship to Sales fails because the key is not unique. What do you do?",
+      "zh": "某产品维度表有「widget」和「Widget」两行。由于键不唯一，与 Sales 的关系建立失败。应该怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Remove Duplicates only",
+        "zh": "只做「删除重复项」"
+       },
+       "correct": false,
+       "why": {
+        "en": "Both rows survive because they differ by case.",
+        "zh": "两行都会保留，因为它们大小写不同。"
+       }
+      },
+      {
+       "html": {
+        "en": "Standardise the case, then Remove Duplicates",
+        "zh": "先统一大小写，再删除重复项"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: Power Query's duplicate check is case-sensitive, the model's is not.",
+        "zh": "对：Power Query 的重复检查区分大小写，模型则不区分。"
+       }
+      },
+      {
+       "html": {
+        "en": "Trim the column",
+        "zh": "修整该列"
+       },
+       "correct": false,
+       "why": {
+        "en": "Trim removes spaces, not case differences.",
+        "zh": "修整只去掉空格，不处理大小写差异。"
+       }
+      },
+      {
+       "html": {
+        "en": "Change the relationship to many-to-many",
+        "zh": "把关系改为多对多"
+       },
+       "correct": false,
+       "why": {
+        "en": "That hides a data quality problem and makes the model harder to use.",
+        "zh": "那会掩盖数据质量问题，也让模型更难用。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "An Excel export shows the region name only on the first row of each block, with blanks below. Which transformation fills them in?",
+      "zh": "某 Excel 导出文件只在每组的第一行显示区域名称，下方都是空白。用哪个转换来补上？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Fill Down",
+        "zh": "向下填充"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it copies each value into the empty cells beneath it.",
+        "zh": "对：会把每个值复制到下方的空白单元格。"
+       }
+      },
+      {
+       "html": {
+        "en": "Unpivot",
+        "zh": "逆透视"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Replace Errors",
+        "zh": "替换错误"
+       },
+       "correct": false,
+       "why": {
+        "en": "The cells are empty, not errors.",
+        "zh": "那些单元格是空的，不是错误。"
+       }
+      },
+      {
+       "html": {
+        "en": "Transpose",
+        "zh": "转置"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "import-errors",
+   "heading": {
+    "en": "Resolving import errors",
+    "zh": "解决导入错误"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-query/dealing-with-errors",
+   "takeaways": [
+    {
+     "en": "Cell-level errors (DataFormat.Error) usually come from a type conversion; replace, remove or fix them at the source.",
+     "zh": "单元格级错误（DataFormat.Error）通常来自类型转换；可以替换、删除或在源头修正。"
+    },
+    {
+     "en": "Step-level errors stop the whole query: a missing file, a renamed column, expired credentials or a privacy firewall.",
+     "zh": "步骤级错误会让整个查询停止：文件不见了、列被改名、凭据过期或隐私防火墙。"
+    },
+    {
+     "en": "Keep Errors creates a view of only the failing rows, which helps you find the cause.",
+     "zh": "「保留错误」会产生只含出错行的视图，有助于找出原因。"
+    }
+   ],
+   "terms": [
+    "applied-steps",
+    "privacy-level"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Errors in Power Query are either in a <b>cell</b> (the query still runs, but some values are errors) or in a <b>step</b> (the whole query fails). They need different fixes.",
+      "zh": "Power Query 中的错误，要么在<b>单元格</b>（查询仍能运行，但部分值是错误），要么在<b>步骤</b>（整个查询失败）。两者的修正方法不同。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Error",
+       "zh": "错误"
+      },
+      {
+       "en": "Typical cause",
+       "zh": "常见原因"
+      },
+      {
+       "en": "Fix",
+       "zh": "解决方法"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "DataFormat.Error in cells",
+        "zh": "单元格中的 DataFormat.Error"
+       },
+       {
+        "en": "Text like \"N/A\" in a column changed to a number or date",
+        "zh": "被改成数字或日期的列里有「N/A」之类的文字"
+       },
+       {
+        "en": "Replace Errors, Remove Errors, or clean the text before Changed Type",
+        "zh": "替换错误、删除错误，或在「更改的类型」之前先清理文字"
+       }
+      ],
+      [
+       {
+        "en": "Dates parsed wrongly (03/04 → 4 March)",
+        "zh": "日期解析错误（03/04 → 4 月 3 日）"
+       },
+       {
+        "en": "Source uses a different regional format",
+        "zh": "源数据使用不同的区域格式"
+       },
+       {
+        "en": "Change Type → <b>Using Locale</b>",
+        "zh": "更改类型 → <b>使用区域设置</b>"
+       }
+      ],
+      [
+       {
+        "en": "Expression.Error: column not found",
+        "zh": "Expression.Error：找不到列"
+       },
+       {
+        "en": "Source column renamed or removed; a step refers to the old name",
+        "zh": "源列被改名或删除；某步骤仍引用旧名称"
+       },
+       {
+        "en": "Edit the step (often Changed Type) or rename back",
+        "zh": "编辑该步骤（通常是「更改的类型」）或改回原名"
+       }
+      ],
+      [
+       {
+        "en": "DataSource.Error: could not find file",
+        "zh": "DataSource.Error：找不到文件"
+       },
+       {
+        "en": "File moved or renamed",
+        "zh": "文件被移动或改名"
+       },
+       {
+        "en": "Data source settings → Change Source",
+        "zh": "数据源设置 → 更改源"
+       }
+      ],
+      [
+       {
+        "en": "Credentials error",
+        "zh": "凭据错误"
+       },
+       {
+        "en": "Password changed or OAuth token expired",
+        "zh": "密码更改或 OAuth 令牌过期"
+       },
+       {
+        "en": "Edit credentials in Desktop or the semantic model settings",
+        "zh": "在 Desktop 或语义模型设置中编辑凭据"
+       }
+      ],
+      [
+       {
+        "en": "Formula.Firewall",
+        "zh": "Formula.Firewall"
+       },
+       {
+        "en": "Sources with incompatible privacy levels combined",
+        "zh": "合并了隐私级别不兼容的来源"
+       },
+       {
+        "en": "Set correct privacy levels, or restructure queries",
+        "zh": "设定正确的隐私级别，或调整查询结构"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "To investigate cell errors, right-click the column and choose <b>Keep Errors</b> in a duplicate of the query: you see only the failing rows and can click a cell to read the error message.",
+      "zh": "要调查单元格错误，可以在查询的副本中右键单击该列，选择<b>保留错误</b>：只会看到出错的行，点单元格即可读取错误信息。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "\"Using Locale\" is the answer whenever a scenario mentions dates or decimals from another country's format (day/month vs month/day, comma as decimal separator).",
+      "zh": "只要题目提到来自其他国家格式的日期或小数（日/月与月/日、逗号作为小数点），答案就是「使用区域设置」。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A CSV from a European office has dates like 03/04/2026 meaning 3 April, but Power BI reads them as 4 March. What do you do?",
+      "zh": "欧洲办公室的 CSV 中，日期 03/04/2026 表示 4 月 3 日，但 Power BI 读成 3 月 4 日。该怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Replace Errors",
+        "zh": "替换错误"
+       },
+       "correct": false,
+       "why": {
+        "en": "There are no errors; the dates are wrong silently.",
+        "zh": "这里没有错误；日期是悄悄地被读错了。"
+       }
+      },
+      {
+       "html": {
+        "en": "Format the column in the Data view",
+        "zh": "在数据视图中设置列格式"
+       },
+       "correct": false,
+       "why": {
+        "en": "Formatting cannot fix a wrongly parsed date.",
+        "zh": "格式无法修正已被读错的日期。"
+       }
+      },
+      {
+       "html": {
+        "en": "Change Type → Using Locale, with the source's locale",
+        "zh": "更改类型 → 使用区域设置，选择源数据的区域"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the locale tells Power Query how to read the text.",
+        "zh": "对：区域设置告诉 Power Query 该如何读取文字。"
+       }
+      },
+      {
+       "html": {
+        "en": "Change the report's language",
+        "zh": "更改报表语言"
+       },
+       "correct": false,
+       "why": {
+        "en": "That changes display, not parsing.",
+        "zh": "那只改变显示，不改变解析方式。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "After someone renamed a column in the source Excel file, refresh fails with \"The column 'Qty' of the table wasn't found\". Where is the problem?",
+      "zh": "有人在源 Excel 文件中把某列改名后，刷新失败，显示「找不到表的列 'Qty'」。问题出在哪里？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A DAX measure",
+        "zh": "DAX 度量值"
+       },
+       "correct": false,
+       "why": {
+        "en": "The error comes from Power Query before DAX runs.",
+        "zh": "这个错误来自 Power Query，发生在 DAX 执行之前。"
+       }
+      },
+      {
+       "html": {
+        "en": "The gateway",
+        "zh": "网关"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A step (often Changed Type) still refers to the old column name",
+        "zh": "某个步骤（通常是「更改的类型」）仍引用旧列名"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: edit that step or rename the column back.",
+        "zh": "对：编辑那个步骤，或把列名改回去。"
+       }
+      },
+      {
+       "html": {
+        "en": "The privacy level",
+        "zh": "隐私级别"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

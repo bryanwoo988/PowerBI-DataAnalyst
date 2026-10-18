@@ -1,0 +1,832 @@
+{
+ "id": "c12",
+ "num": 12,
+ "stage": 4,
+ "title": {
+  "en": "Identify patterns and trends",
+  "zh": "识别规律与趋势"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview",
+ "sections": [
+  {
+   "id": "analyze-group",
+   "heading": {
+    "en": "The Analyze feature, grouping, binning and clustering",
+    "zh": "「分析」功能、分组、装箱与聚类"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning",
+   "takeaways": [
+    {
+     "en": "Right-click a data point → Analyze → Explain the increase/decrease, or Find where this distribution is different.",
+     "zh": "右键单击数据点 → 分析 → 解释增加/减少，或查找此分布的不同之处。"
+    },
+    {
+     "en": "Groups combine chosen values into one category; bins cut numbers or dates into equal-size ranges.",
+     "zh": "分组把选定的值合并成一个类别；装箱把数字或日期切成大小相同的范围。"
+    },
+    {
+     "en": "Clustering on a scatter chart finds similar points automatically and adds a cluster field.",
+     "zh": "散点图上的聚类会自动找出相似的点，并新增一个聚类字段。"
+    }
+   ],
+   "terms": [
+    "binning",
+    "clustering"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Analyze",
+      "zh": "分析"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "On a column or line chart, right-click a point and choose <b>Analyze → Explain the increase</b> (or decrease). Power BI looks at other fields in the model and shows small visuals of the categories that contributed most to the change. <b>Find where this distribution is different</b> looks for fields where the selected value's distribution stands out.",
+      "zh": "在柱形图或折线图上，右键单击数据点，选择<b>分析 → 解释增加</b>（或减少）。Power BI 会检查模型中的其他字段，用小视觉对象显示对变化贡献最大的类别。<b>查找此分布的不同之处</b>会找出所选值的分布与众不同的字段。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Groups and bins",
+      "zh": "分组与装箱"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Feature",
+       "zh": "功能"
+      },
+      {
+       "en": "How",
+       "zh": "做法"
+      },
+      {
+       "en": "Example",
+       "zh": "例子"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Group (list)",
+        "zh": "分组（列表）"
+       },
+       {
+        "en": "Ctrl+click data points → right-click → Group, or column menu → New group",
+        "zh": "Ctrl+单击数据点 → 右键 → 分组，或列菜单 → 新建组"
+       },
+       {
+        "en": "Put five small countries into \"Other Europe\"",
+        "zh": "把五个小国家归为「其他欧洲」"
+       }
+      ],
+      [
+       {
+        "en": "Bins",
+        "zh": "装箱"
+       },
+       {
+        "en": "Column menu → New group → Group type: Bin; set bin size or number of bins",
+        "zh": "列菜单 → 新建组 → 组类型：箱；设定箱大小或箱数量"
+       },
+       {
+        "en": "Age 0–9, 10–19…; order value in 100s",
+        "zh": "年龄 0–9、10–19……；订单金额每 100 一组"
+       }
+      ],
+      [
+       {
+        "en": "Clusters",
+        "zh": "聚类"
+       },
+       {
+        "en": "Scatter chart → More options → Automatically find clusters",
+        "zh": "散点图 → 更多选项 → 自动查找聚类"
+       },
+       {
+        "en": "Customer segments by frequency and spend",
+        "zh": "按购买频率和消费金额划分客户群"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Groups and bins become new columns in the model (with the group icon) that you can use in any visual, slicer or filter.",
+      "zh": "分组和装箱会在模型中成为新列（带分组图标），可在任何视觉对象、切片器或筛选器中使用。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You need to show a histogram of order values in ranges of 50. What do you create?",
+      "zh": "你要用直方图显示订单金额，每 50 为一个范围。应该建立什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Clusters",
+        "zh": "聚类"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A list group",
+        "zh": "列表分组"
+       },
+       "correct": false,
+       "why": {
+        "en": "Grouping by hand would be slow and fixed.",
+        "zh": "手动分组很慢，而且是固定的。"
+       }
+      },
+      {
+       "html": {
+        "en": "Bins on the order value column with bin size 50",
+        "zh": "对订单金额列建立装箱，箱大小 50"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A Top N filter",
+        "zh": "前 N 个筛选"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ai-visuals",
+   "heading": {
+    "en": "AI visuals",
+    "zh": "AI 视觉对象"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-influencers",
+   "takeaways": [
+    {
+     "en": "Key influencers ranks the factors that drive a metric up or down and finds top segments.",
+     "zh": "关键影响因素会对推动指标上升或下降的因素进行排名，并找出主要细分群体。"
+    },
+    {
+     "en": "Decomposition tree breaks a measure down across dimensions in any order, with AI splits that pick the highest or lowest next value.",
+     "zh": "分解树可按任意顺序把度量值按维度拆解，并提供 AI 拆分，自动选出下一个最高或最低的值。"
+    },
+    {
+     "en": "Q&A and the narrative (smart narrative) visual are also AI visuals.",
+     "zh": "问答和叙述（智能叙述）视觉对象也属于 AI 视觉对象。"
+    }
+   ],
+   "terms": [
+    "key-influencers",
+    "decomposition-tree",
+    "qna"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Visual",
+       "zh": "视觉对象"
+      },
+      {
+       "en": "Answers",
+       "zh": "回答的问题"
+      },
+      {
+       "en": "Example",
+       "zh": "例子"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<b>Key influencers</b>",
+        "zh": "<b>关键影响因素</b>"
+       },
+       {
+        "en": "What drives this outcome? Which segments have the highest rate?",
+        "zh": "是什么驱动了这个结果？哪些细分群体的比率最高？"
+       },
+       {
+        "en": "What makes a customer rating Low? \"Contract = month-to-month: 2.1× more likely\"",
+        "zh": "什么让客户评分为「低」？「合同 = 按月：可能性高 2.1 倍」"
+       }
+      ],
+      [
+       {
+        "en": "<b>Decomposition tree</b>",
+        "zh": "<b>分解树</b>"
+       },
+       {
+        "en": "Where does this total come from? Drill in any order",
+        "zh": "这个总计来自哪里？可按任意顺序深入"
+       },
+       {
+        "en": "Sales → Region → Product → Channel; AI split: High value",
+        "zh": "Sales → 区域 → 产品 → 渠道；AI 拆分：高值"
+       }
+      ],
+      [
+       {
+        "en": "<b>Q&amp;A</b>",
+        "zh": "<b>问答</b>"
+       },
+       {
+        "en": "Ask a question in words",
+        "zh": "用文字提问"
+       },
+       {
+        "en": "\"top 5 products by margin\"",
+        "zh": "「top 5 products by margin」"
+       }
+      ],
+      [
+       {
+        "en": "<b>Narrative</b>",
+        "zh": "<b>叙述</b>"
+       },
+       {
+        "en": "Text summary of the data",
+        "zh": "数据的文字摘要"
+       },
+       {
+        "en": "\"Sales rose 12% to $4.1M, led by Bikes\"",
+        "zh": "「销售额增长 12% 至 410 万美元，主要来自 Bikes」"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Key influencers in detail",
+      "zh": "关键影响因素详解"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Analyze</b>: the field to explain — a category (\"Rating is Low\") or a continuous number (\"Sales increase\").",
+       "zh": "<b>分析</b>：要解释的字段——类别（「评分为低」）或连续数字（「销售额增加」）。"
+      },
+      {
+       "en": "<b>Explain by</b>: the candidate factors (columns or measures).",
+       "zh": "<b>解释依据</b>：候选因素（列或度量值）。"
+      },
+      {
+       "en": "<b>Key influencers</b> tab: each factor's effect; <b>Top segments</b> tab: combinations of values with the highest (or lowest) result.",
+       "zh": "<b>关键影响因素</b>选项卡：每个因素的影响；<b>主要细分群体</b>选项卡：结果最高（或最低）的值组合。"
+      },
+      {
+       "en": "It shows correlation, not proof of cause.",
+       "zh": "它显示的是相关性，不能证明因果关系。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Decomposition tree in detail",
+      "zh": "分解树详解"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Put a measure in <b>Analyze</b> and several dimensions in <b>Explain by</b>. Click + on a node to choose the next dimension yourself, or pick <b>High value</b> / <b>Low value</b> to let AI choose the dimension with the biggest contribution. Locked levels stop viewers from changing the first levels.",
+      "zh": "把度量值放在<b>分析</b>，几个维度放在<b>解释依据</b>。点击节点上的 + 自己选择下一个维度，或选择<b>高值</b>/<b>低值</b>，让 AI 选出贡献最大的维度。锁定的层级可以防止读者修改前几层。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "HR asks: \"Which employee attributes make attrition more likely?\" Which visual answers this directly?",
+      "zh": "人力资源部问：「哪些员工属性让离职的可能性更高？」哪个视觉对象能直接回答？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Decomposition tree",
+        "zh": "分解树"
+       },
+       "correct": false,
+       "why": {
+        "en": "It splits a total; it does not compute likelihood.",
+        "zh": "它拆解总计，不计算可能性。"
+       }
+      },
+      {
+       "html": {
+        "en": "Funnel chart",
+        "zh": "漏斗图"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Gauge",
+        "zh": "仪表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Key influencers",
+        "zh": "关键影响因素"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it ranks factors by how much they raise the chance of attrition.",
+        "zh": "对：它按各因素提高离职可能性的程度进行排名。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A user wants to break total cost down by department, then by vendor, then by month, choosing the order freely and letting AI suggest the biggest contributor. Which visual?",
+      "zh": "某用户想把总成本按部门、再按供应商、再按月份拆解，可以自由选择顺序，还要 AI 建议贡献最大的项目。用哪个视觉对象？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Key influencers",
+        "zh": "关键影响因素"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Decomposition tree",
+        "zh": "分解树"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Ribbon chart",
+        "zh": "丝带图"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Matrix with a hierarchy",
+        "zh": "带层次结构的矩阵"
+       },
+       "correct": false,
+       "why": {
+        "en": "The order is fixed by the hierarchy and there is no AI split.",
+        "zh": "顺序由层次结构固定，也没有 AI 拆分。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "analytics-pane",
+   "heading": {
+    "en": "Reference lines, error bars and forecasting",
+    "zh": "参考线、误差线与预测"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-analytics-pane",
+   "takeaways": [
+    {
+     "en": "The Analytics pane adds constant, average, median, percentile, min and max lines, trend lines and forecasts.",
+     "zh": "「分析」窗格可加入常量线、平均线、中值线、百分位线、最小/最大值线、趋势线和预测。"
+    },
+    {
+     "en": "Forecasting works on line charts with a continuous date axis and shows a confidence interval.",
+     "zh": "预测适用于有连续日期轴的折线图，并显示置信区间。"
+    },
+    {
+     "en": "Error bars show an upper and lower bound around values, from fields or measures.",
+     "zh": "误差线在数值周围显示上下界，界限来自字段或度量值。"
+    }
+   ],
+   "terms": [
+    "analytics-pane",
+    "forecast"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Select a visual and open the <b>Analytics</b> pane (magnifier icon). What is available depends on the visual type.",
+      "zh": "选取视觉对象并打开<b>分析</b>窗格（放大镜图标）。可用项目取决于视觉对象类型。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Analytics feature",
+       "zh": "分析功能"
+      },
+      {
+       "en": "Typical visuals",
+       "zh": "常见视觉对象"
+      },
+      {
+       "en": "Use",
+       "zh": "用途"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Constant line",
+        "zh": "常量线"
+       },
+       {
+        "en": "Bar, column, line, scatter",
+        "zh": "条形、柱形、折线、散点"
+       },
+       {
+        "en": "A target or threshold: 100,000",
+        "zh": "目标或阈值：100,000"
+       }
+      ],
+      [
+       {
+        "en": "Average / median / percentile / min / max line",
+        "zh": "平均线 / 中值线 / 百分位线 / 最小值线 / 最大值线"
+       },
+       {
+        "en": "Bar, column, line, scatter",
+        "zh": "条形、柱形、折线、散点"
+       },
+       {
+        "en": "Compare each item with the typical value",
+        "zh": "把每个项目与典型值比较"
+       }
+      ],
+      [
+       {
+        "en": "Trend line",
+        "zh": "趋势线"
+       },
+       {
+        "en": "Line, scatter (continuous axis)",
+        "zh": "折线、散点（连续轴）"
+       },
+       {
+        "en": "Overall direction",
+        "zh": "整体走向"
+       }
+      ],
+      [
+       {
+        "en": "Forecast",
+        "zh": "预测"
+       },
+       {
+        "en": "Line chart, continuous date axis, one measure",
+        "zh": "折线图、连续日期轴、单一度量值"
+       },
+       {
+        "en": "Projected values with forecast length, confidence interval and seasonality",
+        "zh": "预测值，可设预测长度、置信区间和季节性"
+       }
+      ],
+      [
+       {
+        "en": "Error bars",
+        "zh": "误差线"
+       },
+       {
+        "en": "Line, bar, column, scatter",
+        "zh": "折线、条形、柱形、散点"
+       },
+       {
+        "en": "Show uncertainty or a min–max range from upper/lower bound fields",
+        "zh": "用上下界字段显示不确定性或最小–最大范围"
+       }
+      ],
+      [
+       {
+        "en": "Symmetry shading / ratio line",
+        "zh": "对称阴影 / 比率线"
+       },
+       {
+        "en": "Scatter",
+        "zh": "散点图"
+       },
+       {
+        "en": "Which points are above or below x = y",
+        "zh": "哪些点高于或低于 x = y"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Forecast is not available when the date axis is categorical (for example month names as text). Use a date column, and turn the axis to Continuous.",
+      "zh": "当日期轴是类别型时（例如以文字表示的月份名称），就无法使用预测。要使用日期列，并把轴设为「连续」。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "The Forecast option is missing from a line chart that shows sales by Month Name. Why?",
+      "zh": "某个按 Month Name 显示销售额的折线图中找不到「预测」选项。为什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "The axis is categorical; forecasting needs a continuous date axis",
+        "zh": "轴是类别型的；预测需要连续的日期轴"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "The chart has a legend",
+        "zh": "图表有图例"
+       },
+       "correct": false,
+       "why": {
+        "en": "A legend does block forecasting, but the stated cause here is the text axis.",
+        "zh": "图例确实会让预测不可用，但这里的原因是文字轴。"
+       }
+      },
+      {
+       "html": {
+        "en": "Forecasting needs Premium",
+        "zh": "预测需要 Premium"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "There are too many data points",
+        "zh": "数据点太多"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "outliers-scorecards",
+   "heading": {
+    "en": "Outliers, anomalies, and metrics scorecards",
+    "zh": "离群值、异常与指标记分卡"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-anomaly-detection",
+   "takeaways": [
+    {
+     "en": "Anomaly detection on a line chart with a date axis marks unexpected points and offers an explanation.",
+     "zh": "在带日期轴的折线图上，异常检测会标出意外的点并提供解释。"
+    },
+    {
+     "en": "Scatter charts, box-like comparisons with percentile lines, and clustering also expose outliers.",
+     "zh": "散点图、用百分位线做的类箱形比较，以及聚类，也都能发现离群值。"
+    },
+    {
+     "en": "Metrics (scorecards) in the service track goals against targets, with statuses, owners and check-ins.",
+     "zh": "服务中的指标（记分卡）把目标与目标值对比跟踪，包含状态、负责人和签到。"
+    }
+   ],
+   "terms": [
+    "anomaly-detection",
+    "scorecard"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Anomaly detection",
+      "zh": "异常检测"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "On a line chart with a date field on the axis, open the Analytics pane and turn on <b>Find anomalies</b>. Power BI draws an expected range and marks points outside it. Adjust <b>sensitivity</b>, and add fields under <b>Explain by</b>; clicking an anomaly opens a pane with possible explanations.",
+      "zh": "在轴为日期字段的折线图上，打开「分析」窗格并开启<b>查找异常</b>。Power BI 会画出预期范围，并标出范围外的点。可以调整<b>敏感度</b>，并在<b>解释依据</b>下加入字段；点击某个异常会打开窗格，列出可能的解释。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Other ways to spot outliers",
+      "zh": "发现离群值的其他方法"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "A <b>scatter chart</b> of two measures shows points far from the cloud.",
+       "zh": "两个度量值的<b>散点图</b>会显示远离点群的点。"
+      },
+      {
+       "en": "Percentile lines (5th and 95th) highlight values beyond the usual range.",
+       "zh": "百分位线（第 5 和第 95 百分位）能突显超出一般范围的值。"
+      },
+      {
+       "en": "A DAX flag such as <code>IF([Sales] &gt; [Avg] + 2 * [StDev], \"Outlier\")</code> can drive conditional formatting.",
+       "zh": "像 <code>IF([Sales] &gt; [Avg] + 2 * [StDev], \"Outlier\")</code> 这样的 DAX 标记可以驱动条件格式。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Scorecards and metrics",
+      "zh": "记分卡与指标"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "In the Power BI service, <b>Metrics</b> lets you build a <b>scorecard</b>: a list of metrics, each with a current value and a target, either typed in or connected to a value in a report. Each metric has an owner, a status (On track, At risk, Behind…), a due date, notes and check-ins. Status rules can change the status automatically. Share scorecards like other items, and add them to apps.",
+      "zh": "在 Power BI 服务中，<b>指标</b>功能可以建立<b>记分卡</b>：一份指标列表，每个指标都有当前值和目标值，可手动输入，也可连接到报表中的值。每个指标都有负责人、状态（正常、有风险、落后……）、到期日、备注和签到记录。状态规则可以自动改变状态。记分卡可以像其他项目一样分享，也可以加入应用。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Managers want to track ten quarterly targets, each connected to report data, with an owner and a status that updates automatically. What do you create?",
+      "zh": "经理们想跟踪十个季度目标，每个都连接报表数据，有负责人，状态还要自动更新。应该建立什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A paginated report",
+        "zh": "分页报表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A dashboard with KPI tiles",
+        "zh": "带 KPI 磁贴的仪表板"
+       },
+       "correct": false,
+       "why": {
+        "en": "Tiles have no owners, statuses or check-ins.",
+        "zh": "磁贴没有负责人、状态或签到。"
+       }
+      },
+      {
+       "html": {
+        "en": "Ten gauge visuals",
+        "zh": "十个仪表视觉对象"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A scorecard with connected metrics and status rules",
+        "zh": "带连接指标和状态规则的记分卡"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which feature marks unexpected spikes and dips in a time series and suggests explanations?",
+      "zh": "哪个功能可以标出时间序列中意外的峰值和低谷，并提出解释？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Forecast",
+        "zh": "预测"
+       },
+       "correct": false,
+       "why": {
+        "en": "Forecast projects future values.",
+        "zh": "预测是推算未来的值。"
+       }
+      },
+      {
+       "html": {
+        "en": "Binning",
+        "zh": "装箱"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Anomaly detection on a line chart",
+        "zh": "折线图上的异常检测"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Trend line",
+        "zh": "趋势线"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

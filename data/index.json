@@ -1,0 +1,679 @@
+{
+ "app": {
+  "en": "Power BI",
+  "zh": "Power BI"
+ },
+ "exam": "PL-300",
+ "stages": [
+  {
+   "n": 1,
+   "id": "start",
+   "weight": null,
+   "title": {
+    "en": "Getting started",
+    "zh": "入门"
+   },
+   "blurb": {
+    "en": "The PL-300 exam, what Power BI is made of, and the analyst's workflow.",
+    "zh": "PL-300 考试概况、Power BI 由哪些部分组成，以及数据分析师的工作流程。"
+   },
+   "url": "https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/",
+   "chapters": [
+    "c01"
+   ]
+  },
+  {
+   "n": 2,
+   "id": "prepare",
+   "weight": "25–30%",
+   "title": {
+    "en": "Prepare the data",
+    "zh": "准备数据"
+   },
+   "blurb": {
+    "en": "Connect to sources, profile and clean the data, and shape it in Power Query.",
+    "zh": "连接数据源、分析和清理数据，并在 Power Query 中整理数据。"
+   },
+   "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+   "chapters": [
+    "c02",
+    "c03",
+    "c04",
+    "c05"
+   ]
+  },
+  {
+   "n": 3,
+   "id": "model",
+   "weight": "25–30%",
+   "title": {
+    "en": "Model the data",
+    "zh": "数据建模"
+   },
+   "blurb": {
+    "en": "Star schema, relationships, a date table, DAX measures, time intelligence and model performance.",
+    "zh": "星型架构、关系、日期表、DAX 度量值、时间智能和模型性能。"
+   },
+   "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+   "chapters": [
+    "c06",
+    "c07",
+    "c08",
+    "c09"
+   ]
+  },
+  {
+   "n": 4,
+   "id": "visualize",
+   "weight": "25–30%",
+   "title": {
+    "en": "Visualize and analyze the data",
+    "zh": "可视化与分析数据"
+   },
+   "blurb": {
+    "en": "Choose and format visuals, build interactive reports, use Copilot and AI visuals to find patterns.",
+    "zh": "选择和设置视觉对象、制作交互式报表，并使用 Copilot 和 AI 视觉对象发现规律。"
+   },
+   "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+   "chapters": [
+    "c10",
+    "c11",
+    "c12"
+   ]
+  },
+  {
+   "n": 5,
+   "id": "manage",
+   "weight": "15–20%",
+   "title": {
+    "en": "Manage and secure Power BI",
+    "zh": "管理和保护 Power BI"
+   },
+   "blurb": {
+    "en": "Workspaces, apps, dashboards, gateways and refresh; roles, permissions, row-level security and sensitivity labels.",
+    "zh": "工作区、应用、仪表板、网关和刷新；角色、权限、行级别安全性和敏感度标签。"
+   },
+   "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+   "chapters": [
+    "c13",
+    "c14"
+   ]
+  }
+ ],
+ "chapters": [
+  {
+   "id": "c01",
+   "num": 1,
+   "stage": 1,
+   "title": {
+    "en": "The exam and Power BI",
+    "zh": "考试与 Power BI"
+   },
+   "minutes": 18,
+   "sections": [
+    {
+     "id": "exam",
+     "heading": {
+      "en": "About the PL-300 exam",
+      "zh": "PL-300 考试简介"
+     }
+    },
+    {
+     "id": "parts",
+     "heading": {
+      "en": "What Power BI is made of",
+      "zh": "Power BI 的组成部分"
+     }
+    },
+    {
+     "id": "workflow",
+     "heading": {
+      "en": "The analyst's workflow",
+      "zh": "数据分析师的工作流程"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c02",
+   "num": 2,
+   "stage": 2,
+   "title": {
+    "en": "Get or connect to data",
+    "zh": "获取或连接数据"
+   },
+   "minutes": 27,
+   "sections": [
+    {
+     "id": "sources",
+     "heading": {
+      "en": "Data sources and connectors",
+      "zh": "数据源与连接器"
+     }
+    },
+    {
+     "id": "storage-modes",
+     "heading": {
+      "en": "Import, DirectQuery, Dual and Direct Lake",
+      "zh": "导入、DirectQuery、双重与 Direct Lake"
+     }
+    },
+    {
+     "id": "shared-models",
+     "heading": {
+      "en": "Connecting to a shared semantic model",
+      "zh": "连接共享的语义模型"
+     }
+    },
+    {
+     "id": "settings-parameters",
+     "heading": {
+      "en": "Data source settings, privacy levels and parameters",
+      "zh": "数据源设置、隐私级别与参数"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c03",
+   "num": 3,
+   "stage": 2,
+   "title": {
+    "en": "Profile and clean the data",
+    "zh": "分析和清理数据"
+   },
+   "minutes": 19,
+   "sections": [
+    {
+     "id": "profiling",
+     "heading": {
+      "en": "Profiling the data",
+      "zh": "数据分析（剖析）"
+     }
+    },
+    {
+     "id": "quality",
+     "heading": {
+      "en": "Fixing inconsistent, null and unexpected values",
+      "zh": "修正不一致、空值和意外值"
+     }
+    },
+    {
+     "id": "import-errors",
+     "heading": {
+      "en": "Resolving import errors",
+      "zh": "解决导入错误"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c04",
+   "num": 4,
+   "stage": 2,
+   "title": {
+    "en": "Transform the data",
+    "zh": "转换数据"
+   },
+   "minutes": 23,
+   "sections": [
+    {
+     "id": "types-columns",
+     "heading": {
+      "en": "Data types and new columns",
+      "zh": "数据类型与新增列"
+     }
+    },
+    {
+     "id": "group-pivot",
+     "heading": {
+      "en": "Group, aggregate, pivot, unpivot and transpose",
+      "zh": "分组、聚合、透视、逆透视与转置"
+     }
+    },
+    {
+     "id": "semi-structured",
+     "heading": {
+      "en": "Turning semi-structured data into tables",
+      "zh": "把半结构化数据变成表"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c05",
+   "num": 5,
+   "stage": 2,
+   "title": {
+    "en": "Shape tables for the model",
+    "zh": "为模型整理表格"
+   },
+   "minutes": 30,
+   "sections": [
+    {
+     "id": "merge-append",
+     "heading": {
+      "en": "Merge and append queries",
+      "zh": "合并查询与追加查询"
+     }
+    },
+    {
+     "id": "reference-duplicate",
+     "heading": {
+      "en": "Reference or duplicate a query",
+      "zh": "引用查询还是复制查询"
+     }
+    },
+    {
+     "id": "fact-dimension",
+     "heading": {
+      "en": "Fact tables, dimension tables and keys",
+      "zh": "事实表、维度表与键"
+     }
+    },
+    {
+     "id": "loading",
+     "heading": {
+      "en": "Query folding and load settings",
+      "zh": "查询折叠与加载设置"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c06",
+   "num": 6,
+   "stage": 3,
+   "title": {
+    "en": "Design and implement a data model",
+    "zh": "设计和实现数据模型"
+   },
+   "minutes": 45,
+   "sections": [
+    {
+     "id": "star-schema",
+     "heading": {
+      "en": "The star schema",
+      "zh": "星型架构"
+     }
+    },
+    {
+     "id": "relationships",
+     "heading": {
+      "en": "Relationships: cardinality and cross-filter direction",
+      "zh": "关系：基数与交叉筛选方向"
+     }
+    },
+    {
+     "id": "role-playing",
+     "heading": {
+      "en": "Role-playing dimensions",
+      "zh": "角色扮演维度"
+     }
+    },
+    {
+     "id": "date-table",
+     "heading": {
+      "en": "A common date table",
+      "zh": "通用日期表"
+     }
+    },
+    {
+     "id": "properties",
+     "heading": {
+      "en": "Table and column properties",
+      "zh": "表和列的属性"
+     }
+    },
+    {
+     "id": "calculated-columns-tables",
+     "heading": {
+      "en": "When to use calculated columns and tables",
+      "zh": "何时使用计算列和计算表"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c07",
+   "num": 7,
+   "stage": 3,
+   "title": {
+    "en": "DAX essentials",
+    "zh": "DAX 基础"
+   },
+   "minutes": 35,
+   "sections": [
+    {
+     "id": "measures",
+     "heading": {
+      "en": "Single aggregation measures",
+      "zh": "单一聚合度量值"
+     }
+    },
+    {
+     "id": "context",
+     "heading": {
+      "en": "Row context and filter context",
+      "zh": "行上下文与筛选上下文"
+     }
+    },
+    {
+     "id": "calculate",
+     "heading": {
+      "en": "The CALCULATE function",
+      "zh": "CALCULATE 函数"
+     }
+    },
+    {
+     "id": "iterators",
+     "heading": {
+      "en": "Iterators, variables and handy functions",
+      "zh": "迭代器、变量和常用函数"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c08",
+   "num": 8,
+   "stage": 3,
+   "title": {
+    "en": "Time intelligence and advanced DAX",
+    "zh": "时间智能与进阶 DAX"
+   },
+   "minutes": 30,
+   "sections": [
+    {
+     "id": "time-intelligence",
+     "heading": {
+      "en": "Time intelligence measures",
+      "zh": "时间智能度量值"
+     }
+    },
+    {
+     "id": "semi-additive",
+     "heading": {
+      "en": "Semi-additive measures",
+      "zh": "半累加度量值"
+     }
+    },
+    {
+     "id": "quick-measures",
+     "heading": {
+      "en": "Quick measures",
+      "zh": "快速度量值"
+     }
+    },
+    {
+     "id": "calculation-groups",
+     "heading": {
+      "en": "Calculation groups",
+      "zh": "计算组"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c09",
+   "num": 9,
+   "stage": 3,
+   "title": {
+    "en": "Optimize model performance",
+    "zh": "优化模型性能"
+   },
+   "minutes": 21,
+   "sections": [
+    {
+     "id": "remove",
+     "heading": {
+      "en": "Remove what you do not need",
+      "zh": "删除不需要的内容"
+     }
+    },
+    {
+     "id": "performance-analyzer",
+     "heading": {
+      "en": "Performance Analyzer and DAX query view",
+      "zh": "性能分析器与 DAX 查询视图"
+     }
+    },
+    {
+     "id": "granularity",
+     "heading": {
+      "en": "Reduce granularity",
+      "zh": "降低粒度"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "num": 10,
+   "stage": 4,
+   "title": {
+    "en": "Create reports",
+    "zh": "创建报表"
+   },
+   "minutes": 44,
+   "sections": [
+    {
+     "id": "choose-visual",
+     "heading": {
+      "en": "Selecting an appropriate visual",
+      "zh": "选择合适的视觉对象"
+     }
+    },
+    {
+     "id": "format-theme",
+     "heading": {
+      "en": "Formatting visuals and themes",
+      "zh": "设置视觉对象格式与主题"
+     }
+    },
+    {
+     "id": "conditional-formatting",
+     "heading": {
+      "en": "Conditional formatting",
+      "zh": "条件格式"
+     }
+    },
+    {
+     "id": "filter-slicer",
+     "heading": {
+      "en": "Slicing and filtering",
+      "zh": "切片和筛选"
+     }
+    },
+    {
+     "id": "page-paginated",
+     "heading": {
+      "en": "Report pages and paginated reports",
+      "zh": "报表页面与分页报表"
+     }
+    },
+    {
+     "id": "visual-calcs",
+     "heading": {
+      "en": "Visual calculations",
+      "zh": "视觉计算"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c11",
+   "num": 11,
+   "stage": 4,
+   "title": {
+    "en": "Enhance reports for usability and storytelling",
+    "zh": "提升报表的易用性与叙事性"
+   },
+   "minutes": 39,
+   "sections": [
+    {
+     "id": "bookmarks",
+     "heading": {
+      "en": "Bookmarks and the Selection pane",
+      "zh": "书签与选择窗格"
+     }
+    },
+    {
+     "id": "tooltips-interactions",
+     "heading": {
+      "en": "Custom tooltips and visual interactions",
+      "zh": "自定义工具提示与视觉对象交互"
+     }
+    },
+    {
+     "id": "navigation-drill",
+     "heading": {
+      "en": "Navigation, sorting, sync slicers and drill",
+      "zh": "导航、排序、同步切片器与钻取"
+     }
+    },
+    {
+     "id": "export-mobile",
+     "heading": {
+      "en": "Export, mobile layout and accessibility",
+      "zh": "导出、移动布局与无障碍"
+     }
+    },
+    {
+     "id": "qna-copilot",
+     "heading": {
+      "en": "Q&A and Copilot in reports",
+      "zh": "报表中的问答与 Copilot"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c12",
+   "num": 12,
+   "stage": 4,
+   "title": {
+    "en": "Identify patterns and trends",
+    "zh": "识别规律与趋势"
+   },
+   "minutes": 32,
+   "sections": [
+    {
+     "id": "analyze-group",
+     "heading": {
+      "en": "The Analyze feature, grouping, binning and clustering",
+      "zh": "「分析」功能、分组、装箱与聚类"
+     }
+    },
+    {
+     "id": "ai-visuals",
+     "heading": {
+      "en": "AI visuals",
+      "zh": "AI 视觉对象"
+     }
+    },
+    {
+     "id": "analytics-pane",
+     "heading": {
+      "en": "Reference lines, error bars and forecasting",
+      "zh": "参考线、误差线与预测"
+     }
+    },
+    {
+     "id": "outliers-scorecards",
+     "heading": {
+      "en": "Outliers, anomalies, and metrics scorecards",
+      "zh": "离群值、异常与指标记分卡"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c13",
+   "num": 13,
+   "stage": 5,
+   "title": {
+    "en": "Create and manage workspaces and assets",
+    "zh": "创建和管理工作区与资产"
+   },
+   "minutes": 38,
+   "sections": [
+    {
+     "id": "workspaces",
+     "heading": {
+      "en": "Workspaces and publishing",
+      "zh": "工作区与发布"
+     }
+    },
+    {
+     "id": "apps-distribution",
+     "heading": {
+      "en": "Apps and choosing a distribution method",
+      "zh": "应用与分发方式的选择"
+     }
+    },
+    {
+     "id": "dashboards-alerts",
+     "heading": {
+      "en": "Dashboards, subscriptions and data alerts",
+      "zh": "仪表板、订阅与数据警报"
+     }
+    },
+    {
+     "id": "endorsement",
+     "heading": {
+      "en": "Promote or certify content",
+      "zh": "提升或认证内容"
+     }
+    },
+    {
+     "id": "gateway-refresh",
+     "heading": {
+      "en": "Gateways and scheduled refresh",
+      "zh": "网关与计划刷新"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c14",
+   "num": 14,
+   "stage": 5,
+   "title": {
+    "en": "Secure and govern Power BI items",
+    "zh": "保护和治理 Power BI 项目"
+   },
+   "minutes": 30,
+   "sections": [
+    {
+     "id": "roles",
+     "heading": {
+      "en": "Workspace roles",
+      "zh": "工作区角色"
+     }
+    },
+    {
+     "id": "item-access",
+     "heading": {
+      "en": "Item-level and semantic model access",
+      "zh": "项目级与语义模型访问"
+     }
+    },
+    {
+     "id": "rls",
+     "heading": {
+      "en": "Row-level security",
+      "zh": "行级别安全性"
+     }
+    },
+    {
+     "id": "sensitivity",
+     "heading": {
+      "en": "Sensitivity labels",
+      "zh": "敏感度标签"
+     }
+    }
+   ]
+  }
+ ]
+}

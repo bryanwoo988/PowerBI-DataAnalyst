@@ -1,0 +1,545 @@
+{
+ "id": "c09",
+ "num": 9,
+ "stage": 3,
+ "title": {
+  "en": "Optimize model performance",
+  "zh": "优化模型性能"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/guidance/power-bi-optimization",
+ "sections": [
+  {
+   "id": "remove",
+   "heading": {
+    "en": "Remove what you do not need",
+    "zh": "删除不需要的内容"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/guidance/import-modeling-data-reduction",
+   "takeaways": [
+    {
+     "en": "Every column and row costs memory and refresh time; remove columns no report uses and rows outside the needed period.",
+     "zh": "每个列和每一行都消耗内存和刷新时间；删除没有报表使用的列，以及所需期间以外的行。"
+    },
+    {
+     "en": "High-cardinality columns (GUIDs, timestamps, free text, many decimals) compress worst — remove, split or round them.",
+     "zh": "高基数的列（GUID、时间戳、自由文本、很多位小数）压缩效果最差——要删除、拆分或四舍五入。"
+    },
+    {
+     "en": "Turn off Auto date/time and prefer integer keys.",
+     "zh": "关闭「自动日期/时间」，优先使用整数键。"
+    }
+   ],
+   "terms": [
+    "cardinality-column",
+    "vertipaq",
+    "auto-date-time"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Import models are compressed column by column. A column with few distinct values (Country) compresses to almost nothing; a column where every value is different (TransactionGUID, a Date/Time to the second) barely compresses at all. The fastest model is a small one.",
+      "zh": "导入模型是按列压缩的。非重复值很少的列（国家/地区）几乎不占空间；每个值都不同的列（TransactionGUID、精确到秒的日期/时间）几乎压缩不了。最快的模型就是小的模型。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Action",
+       "zh": "做法"
+      },
+      {
+       "en": "Why",
+       "zh": "原因"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Remove unused columns in Power Query",
+        "zh": "在 Power Query 中删除没用的列"
+       },
+       {
+        "en": "Fewer columns = less memory, faster refresh",
+        "zh": "列越少，内存越少、刷新越快"
+       }
+      ],
+      [
+       {
+        "en": "Filter rows to the needed history (e.g. last 3 years)",
+        "zh": "把行筛选到需要的历史范围（如最近 3 年）"
+       },
+       {
+        "en": "Fewer rows everywhere",
+        "zh": "所有地方的行都会变少"
+       }
+      ],
+      [
+       {
+        "en": "Split Date/Time into Date and Time; drop seconds",
+        "zh": "把日期/时间拆成日期和时间；去掉秒"
+       },
+       {
+        "en": "Lower cardinality per column",
+        "zh": "降低每列的基数"
+       }
+      ],
+      [
+       {
+        "en": "Round or use Fixed decimal",
+        "zh": "四舍五入或使用定点小数"
+       },
+       {
+        "en": "Fewer distinct values",
+        "zh": "减少非重复值"
+       }
+      ],
+      [
+       {
+        "en": "Integer surrogate keys instead of long text keys",
+        "zh": "用整数代理键代替很长的文字键"
+       },
+       {
+        "en": "Smaller, faster relationships",
+        "zh": "关系更小、更快"
+       }
+      ],
+      [
+       {
+        "en": "Disable Auto date/time (Options → Data load)",
+        "zh": "停用「自动日期/时间」（选项 → 数据加载）"
+       },
+       {
+        "en": "Removes hidden date tables for every date column",
+        "zh": "移除每个日期列的隐藏日期表"
+       }
+      ],
+      [
+       {
+        "en": "Replace calculated columns with Power Query columns",
+        "zh": "用 Power Query 列代替计算列"
+       },
+       {
+        "en": "Better compression",
+        "zh": "压缩更好"
+       }
+      ],
+      [
+       {
+        "en": "Avoid bidirectional relationships unless needed",
+        "zh": "非必要不用双向关系"
+       },
+       {
+        "en": "Simpler, faster filter propagation",
+        "zh": "筛选传递更简单、更快"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which column is likely to make an Import model much larger than necessary?",
+      "zh": "哪个列最可能让导入模型变得远比需要的大？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A Year column",
+        "zh": "年份列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A Date column used by the date relationship",
+        "zh": "日期关系使用的日期列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A unique transaction GUID that no report uses",
+        "zh": "没有报表使用的唯一交易 GUID"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: every value is different and it adds nothing.",
+        "zh": "对：每个值都不同，而且毫无用处。"
+       }
+      },
+      {
+       "html": {
+        "en": "Product category",
+        "zh": "产品类别"
+       },
+       "correct": false,
+       "why": {
+        "en": "Low cardinality compresses well.",
+        "zh": "低基数压缩效果很好。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "performance-analyzer",
+   "heading": {
+    "en": "Performance Analyzer and DAX query view",
+    "zh": "性能分析器与 DAX 查询视图"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-performance-analyzer",
+   "takeaways": [
+    {
+     "en": "Performance Analyzer records, per visual, the time spent on the DAX query, visual display and other (waiting).",
+     "zh": "性能分析器按视觉对象记录 DAX 查询、视觉对象显示和其他（等待）所花的时间。"
+    },
+    {
+     "en": "Copy a visual's query into DAX query view (or DAX Studio) to test and tune the measure.",
+     "zh": "把视觉对象的查询复制到 DAX 查询视图（或 DAX Studio）中，测试和调整度量值。"
+    },
+    {
+     "en": "Slow DAX query → fix the measure or model; slow visual display → too many points or visuals on the page.",
+     "zh": "DAX 查询慢 → 修正度量值或模型；视觉对象显示慢 → 数据点或页面上的视觉对象太多。"
+    }
+   ],
+   "terms": [
+    "performance-analyzer",
+    "dax-query-view"
+   ],
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "en": "In Desktop open <b>Optimize → Performance analyzer</b> (or View → Performance analyzer).",
+       "zh": "在 Desktop 中打开<b>优化 → 性能分析器</b>（或「视图 → 性能分析器」）。"
+      },
+      {
+       "en": "Select <b>Start recording</b>, then <b>Refresh visuals</b> or interact with the page.",
+       "zh": "选择<b>开始录制</b>，然后<b>刷新视觉对象</b>或与页面互动。"
+      },
+      {
+       "en": "Expand each visual to see its timings, sorted by duration.",
+       "zh": "展开每个视觉对象，查看按耗时排序的时间。"
+      },
+      {
+       "en": "<b>Copy query</b> and paste it into <b>DAX query view</b> to run it, change the measure and compare.",
+       "zh": "<b>复制查询</b>，粘贴到 <b>DAX 查询视图</b>中执行、修改度量值并比较。"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Timing",
+       "zh": "时间项目"
+      },
+      {
+       "en": "What it measures",
+       "zh": "测量什么"
+      },
+      {
+       "en": "If it is large",
+       "zh": "如果很大"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "DAX query",
+        "zh": "DAX 查询"
+       },
+       {
+        "en": "Time for the engine to answer the query",
+        "zh": "引擎回答查询的时间"
+       },
+       {
+        "en": "Simplify the measure (variables, avoid FILTER on whole tables), check relationships and model size",
+        "zh": "简化度量值（用变量、避免对整张表 FILTER），检查关系和模型大小"
+       }
+      ],
+      [
+       {
+        "en": "Visual display",
+        "zh": "视觉对象显示"
+       },
+       {
+        "en": "Time to draw the visual",
+        "zh": "绘制视觉对象的时间"
+       },
+       {
+        "en": "Fewer data points, simpler custom visuals",
+        "zh": "减少数据点，使用较简单的自定义视觉对象"
+       }
+      ],
+      [
+       {
+        "en": "Other",
+        "zh": "其他"
+       },
+       {
+        "en": "Waiting for other visuals or background work",
+        "zh": "等待其他视觉对象或后台工作"
+       },
+       {
+        "en": "Fewer visuals on the page; use drill-through or tooltips instead",
+        "zh": "减少页面上的视觉对象；改用钻取或工具提示"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>DAX query view</b> is a tab in Power BI Desktop where you write <code>EVALUATE</code> queries against the model. It can define measures temporarily in a <code>DEFINE</code> block, run them, and update the model with the improved version. Quick queries (right-click a table or measure) generate starter queries for you.",
+      "zh": "<b>DAX 查询视图</b>是 Power BI Desktop 中的一个选项卡，可以对模型编写 <code>EVALUATE</code> 查询。你可以在 <code>DEFINE</code> 区块中临时定义度量值、执行它们，再把改进后的版本更新到模型。快速查询（右键单击表或度量值）会为你生成起始查询。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "DEFINE\n    MEASURE Sales[Total Sales] = SUM ( Sales[Amount] )\nEVALUATE\nSUMMARIZECOLUMNS ( Product[Category], \"Sales\", [Total Sales] )\nORDER BY [Sales] DESC"
+    },
+    {
+     "type": "note",
+     "kind": "key",
+     "html": {
+      "en": "The <b>Optimize</b> ribbon also has <b>Pause visuals</b> (stop queries while you edit) and optimization presets that add an Apply button to slicers and filters, so each click does not send a new query.",
+      "zh": "<b>优化</b>功能区还有<b>暂停视觉对象</b>（编辑时停止发送查询），以及优化预设：为切片器和筛选器加上「应用」按钮，避免每次点击都发送新查询。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Performance Analyzer shows a table visual with DAX query 120 ms, Visual display 4,800 ms. What is the most likely fix?",
+      "zh": "性能分析器显示某个表格视觉对象：DAX 查询 120 毫秒、视觉对象显示 4,800 毫秒。最可能的解决方法是什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Switch the table to DirectQuery",
+        "zh": "把表改为 DirectQuery"
+       },
+       "correct": false,
+       "why": {
+        "en": "That usually makes the query slower.",
+        "zh": "那通常会让查询更慢。"
+       }
+      },
+      {
+       "html": {
+        "en": "Reduce the number of rows or data points the visual renders",
+        "zh": "减少视觉对象要呈现的行数或数据点"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the query is fast; drawing is slow.",
+        "zh": "对：查询很快，绘制很慢。"
+       }
+      },
+      {
+       "html": {
+        "en": "Rewrite the measure",
+        "zh": "重写度量值"
+       },
+       "correct": false,
+       "why": {
+        "en": "The DAX part is only 120 ms.",
+        "zh": "DAX 部分只有 120 毫秒。"
+       }
+      },
+      {
+       "html": {
+        "en": "Add a bidirectional relationship",
+        "zh": "新增双向关系"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Where can you run and tune the DAX query that a slow visual generates, without leaving Power BI Desktop?",
+      "zh": "在不离开 Power BI Desktop 的情况下，可以在哪里执行和调整慢速视觉对象所生成的 DAX 查询？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "The Analytics pane",
+        "zh": "「分析」窗格"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Power Query Editor",
+        "zh": "Power Query 编辑器"
+       },
+       "correct": false,
+       "why": {
+        "en": "Power Query uses M, not DAX queries.",
+        "zh": "Power Query 使用 M，不是 DAX 查询。"
+       }
+      },
+      {
+       "html": {
+        "en": "DAX query view",
+        "zh": "DAX 查询视图"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Model view properties",
+        "zh": "模型视图的属性"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "granularity",
+   "heading": {
+    "en": "Reduce granularity",
+    "zh": "降低粒度"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-bi/guidance/import-modeling-data-reduction",
+   "takeaways": [
+    {
+     "en": "Granularity is what one row of a fact table represents: a transaction, a day per product, a month per store.",
+     "zh": "粒度是事实表中一行所代表的内容：一笔交易、每个产品每天、每家门店每月。"
+    },
+    {
+     "en": "If reports never need transaction detail, group the fact table to a coarser grain to cut rows dramatically.",
+     "zh": "如果报表从不需要交易明细，就把事实表分组到较粗的粒度，可大幅减少行数。"
+    },
+    {
+     "en": "Keep detail available through DirectQuery or a separate detail table if a few users need it.",
+     "zh": "如果少数用户需要明细，可以通过 DirectQuery 或另一张明细表提供。"
+    }
+   ],
+   "terms": [
+    "granularity",
+    "aggregations"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Reducing <b>granularity</b> (summarising) is the biggest lever for model size. Fifty million sales lines grouped to one row per day, store and product might become two million rows — and every visual that shows daily or monthly figures gives the same answer.",
+      "zh": "降低<b>粒度</b>（汇总）是缩小模型最有效的方法。五千万行的销售明细，按日、门店和产品分组后可能只剩两百万行——而所有显示每日或每月数据的视觉对象，答案都一样。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Decide the grain from the questions the report must answer, not from what the source happens to hold.",
+       "zh": "根据报表必须回答的问题来决定粒度，而不是根据数据源碰巧有什么。"
+      },
+      {
+       "en": "Group By in Power Query (or in the source view) to the chosen grain; sum the additive numbers, and keep a count if you need averages.",
+       "zh": "在 Power Query（或数据源视图）中用「分组依据」整理到选定的粒度；对可加总的数字求和，若需要平均值就保留一个计数。"
+      },
+      {
+       "en": "A coarser fact table can still join the same dimensions, as long as it keeps their keys.",
+       "zh": "较粗粒度的事实表只要保留维度表的键，仍可连接相同的维度表。"
+      },
+      {
+       "en": "For huge DirectQuery sources, <b>aggregations</b> keep a small imported summary table that answers most queries, falling back to the detail table only when needed.",
+       "zh": "对于超大的 DirectQuery 数据源，<b>聚合</b>会保留一张小的导入汇总表来回答大多数查询，只在需要时才回到明细表。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Reports only ever show sales by day, product and store, but the model imports 80 million transaction rows. What reduces the model most?",
+      "zh": "报表只会按日、产品和门店显示销售额，但模型导入了 8,000 万行交易数据。哪种做法最能缩小模型？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Group the fact table by date, product and store in Power Query",
+        "zh": "在 Power Query 中按日期、产品和门店对事实表分组"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: fewer rows, same answers.",
+        "zh": "对：行更少，答案相同。"
+       }
+      },
+      {
+       "html": {
+        "en": "Change the cross-filter direction",
+        "zh": "改变交叉筛选方向"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Add more measures",
+        "zh": "新增更多度量值"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Mark the date table",
+        "zh": "标记日期表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

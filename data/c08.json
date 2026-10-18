@@ -1,0 +1,670 @@
+{
+ "id": "c08",
+ "num": 8,
+ "stage": 3,
+ "title": {
+  "en": "Time intelligence and advanced DAX",
+  "zh": "时间智能与进阶 DAX"
+ },
+ "url": "https://learn.microsoft.com/en-us/dax/time-intelligence-functions-dax",
+ "sections": [
+  {
+   "id": "time-intelligence",
+   "heading": {
+    "en": "Time intelligence measures",
+    "zh": "时间智能度量值"
+   },
+   "min": 10,
+   "url": "https://learn.microsoft.com/en-us/dax/time-intelligence-functions-dax",
+   "takeaways": [
+    {
+     "en": "Time intelligence functions shift or extend the dates in the filter context: year-to-date, same period last year, rolling periods.",
+     "zh": "时间智能函数会移动或扩展筛选上下文中的日期：年初至今、去年同期、滚动期间。"
+    },
+    {
+     "en": "They need a marked date table with contiguous dates, and work through CALCULATE.",
+     "zh": "它们需要一张已标记、日期连续的日期表，并通过 CALCULATE 运作。"
+    },
+    {
+     "en": "TOTALYTD and DATESYTD accept a fiscal year-end such as \"6/30\".",
+     "zh": "TOTALYTD 和 DATESYTD 可以接受财年结束日，例如 \"6/30\"。"
+    }
+   ],
+   "terms": [
+    "time-intelligence",
+    "date-table"
+   ],
+   "blocks": [
+    {
+     "type": "code",
+     "text": "Sales YTD      = TOTALYTD ( [Total Sales], 'Date'[Date] )\nSales FYTD     = TOTALYTD ( [Total Sales], 'Date'[Date], \"6/30\" )   -- fiscal year ends 30 June\nSales MTD      = TOTALMTD ( [Total Sales], 'Date'[Date] )\nSales PY       = CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )\nSales PM       = CALCULATE ( [Total Sales], DATEADD ( 'Date'[Date], -1, MONTH ) )\nYoY %          = DIVIDE ( [Total Sales] - [Sales PY], [Sales PY] )\nSales Last 3M  = CALCULATE ( [Total Sales],\n                    DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -3, MONTH ) )"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Function",
+       "zh": "函数"
+      },
+      {
+       "en": "Returns the dates of…",
+       "zh": "返回哪些日期"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<code>DATESYTD / TOTALYTD</code>",
+        "zh": "<code>DATESYTD / TOTALYTD</code>"
+       },
+       {
+        "en": "Start of the year to the last date in context",
+        "zh": "年初到上下文中的最后日期"
+       }
+      ],
+      [
+       {
+        "en": "<code>DATESMTD, DATESQTD</code>",
+        "zh": "<code>DATESMTD、DATESQTD</code>"
+       },
+       {
+        "en": "Month- or quarter-to-date",
+        "zh": "月初或季初至今"
+       }
+      ],
+      [
+       {
+        "en": "<code>SAMEPERIODLASTYEAR</code>",
+        "zh": "<code>SAMEPERIODLASTYEAR</code>"
+       },
+       {
+        "en": "The same dates one year back",
+        "zh": "往回推一年的相同日期"
+       }
+      ],
+      [
+       {
+        "en": "<code>DATEADD(dates, n, interval)</code>",
+        "zh": "<code>DATEADD(日期, n, 间隔)</code>"
+       },
+       {
+        "en": "Dates shifted by n days, months, quarters or years",
+        "zh": "移动 n 天、月、季或年后的日期"
+       }
+      ],
+      [
+       {
+        "en": "<code>PARALLELPERIOD</code>",
+        "zh": "<code>PARALLELPERIOD</code>"
+       },
+       {
+        "en": "The whole parallel month/quarter/year (full period, not partial)",
+        "zh": "整个对应的月/季/年（完整期间，而非部分）"
+       }
+      ],
+      [
+       {
+        "en": "<code>DATESINPERIOD(dates, end, n, interval)</code>",
+        "zh": "<code>DATESINPERIOD(日期, 结束日, n, 间隔)</code>"
+       },
+       {
+        "en": "A rolling window ending on a date",
+        "zh": "以某日为结束的滚动窗口"
+       }
+      ],
+      [
+       {
+        "en": "<code>PREVIOUSMONTH / NEXTYEAR …</code>",
+        "zh": "<code>PREVIOUSMONTH / NEXTYEAR …</code>"
+       },
+       {
+        "en": "The whole previous/next period",
+        "zh": "整个上一个/下一个期间"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Use the Date table's date column in these functions, not Sales[OrderDate]. The filter must come from the date table so that all fact tables shift together.",
+      "zh": "这些函数要使用日期表的日期列，而不是 Sales[OrderDate]。筛选必须来自日期表，所有事实表才会一起移动。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Your fiscal year ends on 30 June. Which measure gives fiscal year-to-date sales?",
+      "zh": "你的财年在 6 月 30 日结束。哪个度量值能算出财年至今的销售额？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "TOTALMTD([Total Sales], 'Date'[Date])",
+        "zh": "TOTALMTD([Total Sales], 'Date'[Date])"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "TOTALYTD([Total Sales], 'Date'[Date], \"6/30\")",
+        "zh": "TOTALYTD([Total Sales], 'Date'[Date], \"6/30\")"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the third argument sets the year-end date.",
+        "zh": "对：第三个参数设定年度结束日。"
+       }
+      },
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))",
+        "zh": "CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "TOTALYTD([Total Sales], 'Date'[Date])",
+        "zh": "TOTALYTD([Total Sales], 'Date'[Date])"
+       },
+       "correct": false,
+       "why": {
+        "en": "That uses a 31 December year-end.",
+        "zh": "这使用 12 月 31 日作为年度结束日。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which expression returns sales for the 12 months ending on the last date in the current filter context?",
+      "zh": "哪个表达式返回截至当前筛选上下文最后日期的 12 个月销售额？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], PREVIOUSYEAR('Date'[Date]))",
+        "zh": "CALCULATE([Total Sales], PREVIOUSYEAR('Date'[Date]))"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -12, MONTH))",
+        "zh": "CALCULATE([Total Sales], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -12, MONTH))"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -12, MONTH))",
+        "zh": "CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -12, MONTH))"
+       },
+       "correct": false,
+       "why": {
+        "en": "That shifts back 12 months instead of covering them.",
+        "zh": "这是往回移 12 个月，而不是涵盖 12 个月。"
+       }
+      },
+      {
+       "html": {
+        "en": "TOTALYTD([Total Sales], 'Date'[Date])",
+        "zh": "TOTALYTD([Total Sales], 'Date'[Date])"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "semi-additive",
+   "heading": {
+    "en": "Semi-additive measures",
+    "zh": "半累加度量值"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/dax/closingbalancemonth-function-dax",
+   "takeaways": [
+    {
+     "en": "Balances and stock levels can be added across products or accounts, but not across time.",
+     "zh": "余额和库存可以跨产品或账户相加，但不能跨时间相加。"
+    },
+    {
+     "en": "Return the value on the last date of the period: LASTDATE, LASTNONBLANK or CLOSINGBALANCEMONTH/QUARTER/YEAR.",
+     "zh": "返回期间最后一天的值：LASTDATE、LASTNONBLANK 或 CLOSINGBALANCEMONTH/QUARTER/YEAR。"
+    },
+    {
+     "en": "Use LASTNONBLANK when the last calendar date may have no snapshot.",
+     "zh": "当日历的最后一天可能没有快照数据时，用 LASTNONBLANK。"
+    }
+   ],
+   "terms": [
+    "semi-additive"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "A warehouse counts 100 bikes on 31 January and 120 on 28 February. The stock for \"Q1 so far\" is 120, not 220. Measures like this are <b>semi-additive</b>: they sum across some dimensions (warehouses, products) but not across dates.",
+      "zh": "某仓库 1 月 31 日盘点有 100 辆自行车，2 月 28 日有 120 辆。「第一季度至今」的库存是 120，而不是 220。这类度量值是<b>半累加</b>的：可以跨某些维度（仓库、产品）加总，但不能跨日期加总。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "Stock on Hand =\nCALCULATE ( SUM ( Inventory[Units] ), LASTDATE ( 'Date'[Date] ) )\n\nStock (last snapshot) =\nCALCULATE (\n    SUM ( Inventory[Units] ),\n    LASTNONBLANK ( 'Date'[Date], CALCULATE ( SUM ( Inventory[Units] ) ) )\n)\n\nMonth-end Balance = CLOSINGBALANCEMONTH ( SUM ( Account[Balance] ), 'Date'[Date] )\nOpening Balance   = OPENINGBALANCEMONTH ( SUM ( Account[Balance] ), 'Date'[Date] )\nAverage Stock     = AVERAGEX ( VALUES ( 'Date'[Date] ), [Stock on Hand] )"
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "<code>LASTDATE</code> takes the last date of the period in the date table. If snapshots exist only on business days, the last date (a Sunday, say) has no data and the result is blank — <code>LASTNONBLANK</code> finds the last date that actually has a value.",
+      "zh": "<code>LASTDATE</code> 取日期表中该期间的最后一天。如果快照只在工作日才有，最后一天（例如星期日）就没有数据，结果为空——<code>LASTNONBLANK</code> 会找出真正有值的最后一天。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Inventory is captured on weekdays only. A monthly stock measure using LASTDATE shows blanks for some months. What fixes it?",
+      "zh": "库存只在工作日记录。使用 LASTDATE 的月库存度量值在某些月份显示空白。怎么修正？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Use LASTNONBLANK over the dates",
+        "zh": "对日期使用 LASTNONBLANK"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: months that end on a weekend have no row on the last date.",
+        "zh": "对：以周末结束的月份，最后一天没有数据行。"
+       }
+      },
+      {
+       "html": {
+        "en": "Use SUM without CALCULATE",
+        "zh": "直接用 SUM，不用 CALCULATE"
+       },
+       "correct": false,
+       "why": {
+        "en": "That adds up every day's stock.",
+        "zh": "这会把每天的库存加总。"
+       }
+      },
+      {
+       "html": {
+        "en": "Use TOTALYTD",
+        "zh": "用 TOTALYTD"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Turn on Auto date/time",
+        "zh": "开启「自动日期/时间」"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quick-measures",
+   "heading": {
+    "en": "Quick measures",
+    "zh": "快速度量值"
+   },
+   "min": 5,
+   "url": "https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-quick-measures",
+   "takeaways": [
+    {
+     "en": "Quick measures generate DAX from a dialog: running total, year-over-year change, weighted average, filtered values and more.",
+     "zh": "快速度量值通过对话框生成 DAX：累计总计、同比变化、加权平均、筛选后的值等。"
+    },
+    {
+     "en": "The result is an ordinary measure you can read, rename and edit.",
+     "zh": "结果是一个普通的度量值，可以阅读、重命名和编辑。"
+    },
+    {
+     "en": "Time-based quick measures need a date table or the Auto date hierarchy.",
+     "zh": "基于时间的快速度量值需要日期表或自动日期层次结构。"
+    }
+   ],
+   "terms": [
+    "quick-measure"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Right-click a table in the Data pane and choose <b>New quick measure</b>. Pick a calculation, drop fields into the slots, and Power BI writes the DAX. In current versions you can also describe the measure in words and let Copilot suggest the DAX, if Copilot is enabled for your tenant.",
+      "zh": "在「数据」窗格中右键单击一张表，选择<b>新建快速度量值</b>。选择计算类型，把字段拖进对应位置，Power BI 就会写出 DAX。在新版本中，如果租户启用了 Copilot，也可以用文字描述度量值，让 Copilot 建议 DAX。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Category",
+       "zh": "类别"
+      },
+      {
+       "en": "Examples",
+       "zh": "例子"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Aggregate per category",
+        "zh": "按类别聚合"
+       },
+       {
+        "en": "Average per category, variance, max/min per category, weighted average",
+        "zh": "按类别的平均值、方差、最大/最小值、加权平均"
+       }
+      ],
+      [
+       {
+        "en": "Filters",
+        "zh": "筛选器"
+       },
+       {
+        "en": "Filtered value, difference from filtered value, % difference, sales from new customers",
+        "zh": "筛选后的值、与筛选值的差、百分比差异、新客户的销售额"
+       }
+      ],
+      [
+       {
+        "en": "Time intelligence",
+        "zh": "时间智能"
+       },
+       {
+        "en": "Year-to-date total, quarter-to-date, month-to-date, year-over-year change, rolling average",
+        "zh": "年初至今总计、季初至今、月初至今、同比变化、滚动平均"
+       }
+      ],
+      [
+       {
+        "en": "Totals",
+        "zh": "总计"
+       },
+       {
+        "en": "Running total, total for category (filters applied or not)",
+        "zh": "累计总计、类别总计（是否套用筛选）"
+       }
+      ],
+      [
+       {
+        "en": "Mathematical operations",
+        "zh": "数学运算"
+       },
+       {
+        "en": "Addition, subtraction, multiplication, division, percentage difference, correlation coefficient",
+        "zh": "加、减、乘、除、百分比差异、相关系数"
+       }
+      ],
+      [
+       {
+        "en": "Text",
+        "zh": "文本"
+       },
+       {
+        "en": "Star rating, concatenated list of values",
+        "zh": "星级评分、串接的值列表"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A business user who does not know DAX needs a running total of sales by date. What is the quickest correct approach?",
+      "zh": "一位不懂 DAX 的业务用户需要按日期计算销售额的累计总计。最快的正确方法是什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Use the Analytics pane",
+        "zh": "使用「分析」窗格"
+       },
+       "correct": false,
+       "why": {
+        "en": "The Analytics pane adds reference lines, not running totals.",
+        "zh": "「分析」窗格加的是参考线，不是累计总计。"
+       }
+      },
+      {
+       "html": {
+        "en": "New quick measure → Running total",
+        "zh": "新建快速度量值 → 累计总计"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: it generates the DAX for you.",
+        "zh": "对：它会为你生成 DAX。"
+       }
+      },
+      {
+       "html": {
+        "en": "Add a calculated column with SUM",
+        "zh": "新增使用 SUM 的计算列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Group By in Power Query",
+        "zh": "在 Power Query 中分组"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "calculation-groups",
+   "heading": {
+    "en": "Calculation groups",
+    "zh": "计算组"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/transform-model/calculation-groups",
+   "takeaways": [
+    {
+     "en": "A calculation group applies the same logic (YTD, PY, YoY %) to any measure, so you do not write it for every measure.",
+     "zh": "计算组把同一套逻辑（年初至今、去年、同比 %）套用到任何度量值，不必为每个度量值重写。"
+    },
+    {
+     "en": "Each calculation item uses SELECTEDMEASURE() as a placeholder for the measure in the visual.",
+     "zh": "每个计算项用 SELECTEDMEASURE() 代表视觉对象中的度量值。"
+    },
+    {
+     "en": "Creating a calculation group turns on \"discourage implicit measures\": only explicit measures work with it.",
+     "zh": "建立计算组会开启「不鼓励隐式度量值」：只有显式度量值才能配合使用。"
+    }
+   ],
+   "terms": [
+    "calculation-group",
+    "implicit-measure"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Ten base measures × five time variations = fifty measures to write and maintain. A <b>calculation group</b> collapses that to ten measures plus one group with five <b>calculation items</b>. Put the group's column in a slicer or on matrix columns and every measure gets the variations.",
+      "zh": "10 个基础度量值 × 5 种时间变化 = 要编写和维护 50 个度量值。<b>计算组</b>可以把它简化为 10 个度量值加上一个包含 5 个<b>计算项</b>的组。把计算组的列放进切片器或矩阵的列中，每个度量值都会得到这些变化。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "-- Calculation group \"Time Calc\", column \"Period\"\nCurrent = SELECTEDMEASURE ()\nYTD     = CALCULATE ( SELECTEDMEASURE (), DATESYTD ( 'Date'[Date] ) )\nPY      = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( 'Date'[Date] ) )\nYoY %   =\n    VAR Cur = SELECTEDMEASURE ()\n    VAR Prev = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( 'Date'[Date] ) )\n    RETURN DIVIDE ( Cur - Prev, Prev )"
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Create it in <b>Model view → Calculation group</b> in Power BI Desktop (or with Tabular Editor).",
+       "zh": "在 Power BI Desktop 的<b>模型视图 → 计算组</b>中建立（或使用 Tabular Editor）。"
+      },
+      {
+       "en": "A <b>format string expression</b> per item can show YoY % as a percentage while the others stay currency.",
+       "zh": "每个项目的<b>格式字符串表达式</b>可以让「同比 %」显示为百分比，其他项目仍保持货币格式。"
+      },
+      {
+       "en": "<b>Precedence</b> decides the order when two calculation groups apply to the same measure.",
+       "zh": "当两个计算组作用于同一个度量值时，<b>优先级</b>决定先后顺序。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You have 12 base measures and need YTD, PY and YoY % for each. What minimises the number of measures to maintain?",
+      "zh": "你有 12 个基础度量值，每个都需要年初至今、去年和同比 %。怎样能让需要维护的度量值最少？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A calculation group with YTD, PY and YoY % items",
+        "zh": "一个包含 YTD、PY 和 YoY % 项目的计算组"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: 12 measures plus one group instead of 48 measures.",
+        "zh": "对：只需 12 个度量值加一个组，而不是 48 个度量值。"
+       }
+      },
+      {
+       "html": {
+        "en": "Quick measures for each",
+        "zh": "为每个都建立快速度量值"
+       },
+       "correct": false,
+       "why": {
+        "en": "Still 36 extra measures.",
+        "zh": "仍然要多出 36 个度量值。"
+       }
+      },
+      {
+       "html": {
+        "en": "Field parameters",
+        "zh": "字段参数"
+       },
+       "correct": false,
+       "why": {
+        "en": "Field parameters let users switch fields, not apply time logic.",
+        "zh": "字段参数让用户切换字段，而不是套用时间逻辑。"
+       }
+      },
+      {
+       "html": {
+        "en": "Calculated columns",
+        "zh": "计算列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Inside a calculation item, which function stands for the measure currently in the visual?",
+      "zh": "在计算项中，哪个函数代表视觉对象中当前的度量值？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "ISINSCOPE()",
+        "zh": "ISINSCOPE()"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "SELECTEDVALUE()",
+        "zh": "SELECTEDVALUE()"
+       },
+       "correct": false,
+       "why": {
+        "en": "That returns a column value.",
+        "zh": "它返回的是列值。"
+       }
+      },
+      {
+       "html": {
+        "en": "CURRENTGROUP()",
+        "zh": "CURRENTGROUP()"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "SELECTEDMEASURE()",
+        "zh": "SELECTEDMEASURE()"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

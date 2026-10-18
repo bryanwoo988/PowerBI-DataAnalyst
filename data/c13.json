@@ -1,0 +1,1229 @@
+{
+ "id": "c13",
+ "num": 13,
+ "stage": 5,
+ "title": {
+  "en": "Create and manage workspaces and assets",
+  "zh": "创建和管理工作区与资产"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-new-workspaces",
+ "sections": [
+  {
+   "id": "workspaces",
+   "heading": {
+    "en": "Workspaces and publishing",
+    "zh": "工作区与发布"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces",
+   "takeaways": [
+    {
+     "en": "A workspace is where a team creates and keeps reports, semantic models, dashboards and other items.",
+     "zh": "工作区是团队建立和存放报表、语义模型、仪表板等项目的地方。"
+    },
+    {
+     "en": "Workspace settings include name, description, contact list, licence mode (Pro, PPU, Premium or Fabric capacity) and Git integration.",
+     "zh": "工作区设置包括名称、说明、联系人列表、授权模式（Pro、PPU、Premium 或 Fabric 容量）以及 Git 集成。"
+    },
+    {
+     "en": "Publishing from Desktop sends the report and its semantic model; republishing replaces both.",
+     "zh": "从 Desktop 发布会同时发送报表和它的语义模型；重新发布会同时替换两者。"
+    }
+   ],
+   "terms": [
+    "workspace",
+    "deployment-pipeline"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Every user has <b>My workspace</b> for personal work. Team content belongs in a shared workspace: <b>Workspaces → New workspace</b>. Plan one workspace per team or subject, and often separate workspaces (or a deployment pipeline) for development, test and production.",
+      "zh": "每个用户都有个人使用的<b>我的工作区</b>。团队内容应放在共享工作区：<b>工作区 → 新建工作区</b>。规划时按团队或主题各建一个工作区，开发、测试和正式环境通常也分开（或使用部署管道）。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Setting",
+       "zh": "设置"
+      },
+      {
+       "en": "Purpose",
+       "zh": "用途"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Name, description, image",
+        "zh": "名称、说明、图像"
+       },
+       {
+        "en": "Help people find the right workspace",
+        "zh": "帮助用户找到正确的工作区"
+       }
+      ],
+      [
+       {
+        "en": "Contact list",
+        "zh": "联系人列表"
+       },
+       {
+        "en": "Who receives access requests and notifications",
+        "zh": "谁会收到访问请求和通知"
+       }
+      ],
+      [
+       {
+        "en": "License mode",
+        "zh": "许可证模式"
+       },
+       {
+        "en": "Pro, Premium per user, Premium capacity, Fabric capacity, Embedded — decides features and who can view",
+        "zh": "Pro、按用户 Premium、Premium 容量、Fabric 容量、Embedded——决定功能和谁能查看"
+       }
+      ],
+      [
+       {
+        "en": "Git integration",
+        "zh": "Git 集成"
+       },
+       {
+        "en": "Version control of items (Fabric capacity)",
+        "zh": "项目的版本控制（Fabric 容量）"
+       }
+      ],
+      [
+       {
+        "en": "Allow contributors to update the app",
+        "zh": "允许参与者更新应用"
+       },
+       {
+        "en": "Let the Contributor role publish app changes",
+        "zh": "让「参与者」角色发布应用更新"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Publish, import and update",
+      "zh": "发布、导入与更新"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Publish</b> in Desktop: pick the workspace; the .pbix becomes a report plus a semantic model.",
+       "zh": "在 Desktop 中<b>发布</b>：选择工作区；.pbix 会变成一份报表加一个语义模型。"
+      },
+      {
+       "en": "Publishing a file with the same name asks to <b>replace</b> the existing items; links, dashboards pinned from it and app content keep working.",
+       "zh": "发布同名文件时会询问是否<b>替换</b>现有项目；链接、从中固定的仪表板和应用内容都会继续有效。"
+      },
+      {
+       "en": "In the service, <b>Upload</b> a .pbix, .xlsx or .rdl, or connect to a file in OneDrive/SharePoint so changes sync automatically.",
+       "zh": "在服务中可以<b>上传</b> .pbix、.xlsx 或 .rdl，或连接到 OneDrive/SharePoint 中的文件，让修改自动同步。"
+      },
+      {
+       "en": "Many reports can share one semantic model: publish it once and build \"thin\" reports that connect to it.",
+       "zh": "多份报表可以共用一个语义模型：只发布一次模型，再制作连接它的「精简」报表。"
+      },
+      {
+       "en": "<b>Deployment pipelines</b> (Premium, PPU or Fabric capacity) promote content from Development to Test to Production.",
+       "zh": "<b>部署管道</b>（Premium、PPU 或 Fabric 容量）把内容从开发推进到测试，再到正式环境。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Three teams build reports on the same sales data. How do you avoid three copies of the model?",
+      "zh": "三个团队都基于相同的销售数据制作报表。如何避免模型有三个副本？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Publish one shared semantic model and build thin reports that connect to it",
+        "zh": "发布一个共享语义模型，再制作连接它的精简报表"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Each team imports the data in their own .pbix",
+        "zh": "每个团队在自己的 .pbix 中导入数据"
+       },
+       "correct": false,
+       "why": {
+        "en": "That creates three models to refresh and keep in sync.",
+        "zh": "那样就有三个模型要刷新和保持一致。"
+       }
+      },
+      {
+       "html": {
+        "en": "Put all reports in My workspace",
+        "zh": "把所有报表放在「我的工作区」"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Use Publish to web",
+        "zh": "使用「发布到 Web」"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "apps-distribution",
+   "heading": {
+    "en": "Apps and choosing a distribution method",
+    "zh": "应用与分发方式的选择"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-create-distribute-apps",
+   "takeaways": [
+    {
+     "en": "An app packages a workspace's content for many viewers; changes reach them only after you update the app.",
+     "zh": "应用把工作区的内容打包给大量读者；只有在你更新应用后，变更才会送到他们手中。"
+    },
+    {
+     "en": "Apps can have several audiences, each seeing a different set of reports.",
+     "zh": "应用可以有多个受众，每个受众看到不同的报表组合。"
+    },
+    {
+     "en": "Other methods: workspace access, direct sharing, embedding in Teams or SharePoint, subscriptions — and Publish to web only for truly public data.",
+     "zh": "其他方式：工作区访问权限、直接分享、嵌入 Teams 或 SharePoint、订阅——「发布到 Web」只适用于真正公开的数据。"
+    }
+   ],
+   "terms": [
+    "app",
+    "publish-to-web",
+    "audience"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Method",
+       "zh": "方式"
+      },
+      {
+       "en": "Best for",
+       "zh": "最适合"
+      },
+      {
+       "en": "Notes",
+       "zh": "备注"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Workspace roles",
+        "zh": "工作区角色"
+       },
+       {
+        "en": "People who build or co-author",
+        "zh": "制作或共同编辑内容的人"
+       },
+       {
+        "en": "Gives access to everything in the workspace",
+        "zh": "可访问工作区中的所有内容"
+       }
+      ],
+      [
+       {
+        "en": "<b>App</b>",
+        "zh": "<b>应用</b>"
+       },
+       {
+        "en": "Large, read-only audiences across the organisation",
+        "zh": "组织内大量只读读者"
+       },
+       {
+        "en": "Curated navigation, audiences, controlled update",
+        "zh": "整理过的导航、受众、受控的更新"
+       }
+      ],
+      [
+       {
+        "en": "Share a report or dashboard",
+        "zh": "分享报表或仪表板"
+       },
+       {
+        "en": "A few people, ad hoc",
+        "zh": "少数人、临时性"
+       },
+       {
+        "en": "Hard to manage at scale",
+        "zh": "规模大了难以管理"
+       }
+      ],
+      [
+       {
+        "en": "Embed in Teams / SharePoint Online",
+        "zh": "嵌入 Teams / SharePoint Online"
+       },
+       {
+        "en": "Where people already work",
+        "zh": "大家已经在用的地方"
+       },
+       {
+        "en": "Power BI permissions and RLS still apply",
+        "zh": "Power BI 权限和 RLS 仍然有效"
+       }
+      ],
+      [
+       {
+        "en": "Subscriptions",
+        "zh": "订阅"
+       },
+       {
+        "en": "Regular email snapshots",
+        "zh": "定期邮件快照"
+       },
+       {
+        "en": "Recipients still need access to open the report",
+        "zh": "收件人打开报表时仍需要访问权限"
+       }
+      ],
+      [
+       {
+        "en": "Publish to web",
+        "zh": "发布到 Web"
+       },
+       {
+        "en": "Public websites, open data",
+        "zh": "公开网站、开放数据"
+       },
+       {
+        "en": "<b>Anyone on the internet can see it; no security.</b> Often disabled by admins",
+        "zh": "<b>互联网上任何人都能看到；没有任何安全保护。</b>管理员经常停用"
+       }
+      ],
+      [
+       {
+        "en": "Power BI Embedded",
+        "zh": "Power BI Embedded"
+       },
+       {
+        "en": "Reports inside your own application for customers",
+        "zh": "在你自己的应用程序中向客户提供报表"
+       },
+       {
+        "en": "Needs embedded capacity and development",
+        "zh": "需要嵌入式容量和开发工作"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Workspace apps",
+      "zh": "工作区应用"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "In the workspace choose <b>Create app</b>: set name, description, logo and colour; add content and sections; set navigation.",
+       "zh": "在工作区中选择<b>创建应用</b>：设定名称、说明、徽标和颜色；加入内容和分节；设定导航。"
+      },
+      {
+       "en": "<b>Audiences</b>: create several audience groups and hide items per audience.",
+       "zh": "<b>受众</b>：建立多个受众组，按受众隐藏项目。"
+      },
+      {
+       "en": "Permissions: let users build content with the app's semantic models (Build), reshare, and install the app automatically.",
+       "zh": "权限：允许用户使用应用的语义模型制作内容（生成）、重新分享，以及自动安装应用。"
+      },
+      {
+       "en": "Edits in the workspace are not visible to app users until you select <b>Update app</b>.",
+       "zh": "在工作区中所做的修改，要选择<b>更新应用</b>之后，应用用户才看得到。"
+      }
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "\"Hundreds of read-only users, different departments see different reports, changes released together\" → a workspace app with audiences.",
+      "zh": "「数百名只读用户、不同部门看到不同报表、变更要一起发布」→ 使用带受众的工作区应用。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You fixed a measure in a report in the workspace, but app users still see the old numbers. What is missing?",
+      "zh": "你在工作区中修正了报表里的一个度量值，但应用用户看到的仍是旧数字。漏了什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Refresh the semantic model",
+        "zh": "刷新语义模型"
+       },
+       "correct": false,
+       "why": {
+        "en": "A measure change is in the model definition, not the data.",
+        "zh": "度量值的修改属于模型定义，而不是数据。"
+       }
+      },
+      {
+       "html": {
+        "en": "Endorse the report",
+        "zh": "认可报表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Re-share the report",
+        "zh": "重新分享报表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Update the app",
+        "zh": "更新应用"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the app shows the content as it was when last published.",
+        "zh": "对：应用显示的是上次发布时的内容。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A public charity wants its annual statistics on its public website, visible without signing in. Which method?",
+      "zh": "某公益组织想把年度统计放在公开网站上，访客不需要登录就能看。用哪种方式？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Publish to web (if allowed by the admin, and only because the data is public)",
+        "zh": "发布到 Web（需管理员允许，而且只因为数据是公开的）"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Embed in SharePoint Online",
+        "zh": "嵌入 SharePoint Online"
+       },
+       "correct": false,
+       "why": {
+        "en": "Viewers must sign in.",
+        "zh": "读者必须登录。"
+       }
+      },
+      {
+       "html": {
+        "en": "Email subscriptions",
+        "zh": "邮件订阅"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A workspace app",
+        "zh": "工作区应用"
+       },
+       "correct": false,
+       "why": {
+        "en": "Viewers must sign in.",
+        "zh": "读者必须登录。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dashboards-alerts",
+   "heading": {
+    "en": "Dashboards, subscriptions and data alerts",
+    "zh": "仪表板、订阅与数据警报"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards",
+   "takeaways": [
+    {
+     "en": "Dashboards are built in the service by pinning visuals or whole live pages from reports, possibly several reports.",
+     "zh": "仪表板在服务中建立，方法是从报表（可来自多份报表）固定视觉对象或整个实时页面。"
+    },
+    {
+     "en": "Data alerts can be set only on dashboard tiles of type card, KPI and gauge.",
+     "zh": "数据警报只能设定在卡片、KPI 和仪表类型的仪表板磁贴上。"
+    },
+    {
+     "en": "Subscriptions email a snapshot of a report page or dashboard on a schedule to you or others.",
+     "zh": "订阅会按计划把报表页或仪表板的快照通过邮件发给你或其他人。"
+    }
+   ],
+   "terms": [
+    "dashboard",
+    "data-alert",
+    "subscription",
+    "tile"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Dashboards",
+      "zh": "仪表板"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Open a report in the service, hover a visual and select <b>Pin visual</b>; choose a new or existing dashboard.",
+       "zh": "在服务中打开报表，悬停在视觉对象上选择<b>固定视觉对象</b>；选择新的或现有的仪表板。"
+      },
+      {
+       "en": "<b>Pin to a dashboard → live page</b> pins a whole report page that stays interactive.",
+       "zh": "<b>固定到仪表板 → 实时页面</b>会固定整个报表页，并保持可交互。"
+      },
+      {
+       "en": "A tile opens the report it came from; tiles from different reports and models can sit on one dashboard.",
+       "zh": "点击磁贴会打开其来源报表；来自不同报表和模型的磁贴可以放在同一个仪表板上。"
+      },
+      {
+       "en": "Dashboards have their own theme, mobile view and Q&amp;A box (where enabled).",
+       "zh": "仪表板有自己的主题、移动视图和问答框（若已启用）。"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Report",
+       "zh": "报表"
+      },
+      {
+       "en": "Dashboard",
+       "zh": "仪表板"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Pages",
+        "zh": "页面"
+       },
+       {
+        "en": "Many",
+        "zh": "多页"
+       },
+       {
+        "en": "One",
+        "zh": "一页"
+       }
+      ],
+      [
+       {
+        "en": "Sources",
+        "zh": "来源"
+       },
+       {
+        "en": "One semantic model",
+        "zh": "一个语义模型"
+       },
+       {
+        "en": "Many reports / models",
+        "zh": "多份报表 / 多个模型"
+       }
+      ],
+      [
+       {
+        "en": "Created in",
+        "zh": "建立于"
+       },
+       {
+        "en": "Desktop or service",
+        "zh": "Desktop 或服务"
+       },
+       {
+        "en": "Service only",
+        "zh": "仅服务"
+       }
+      ],
+      [
+       {
+        "en": "Slicers and filters",
+        "zh": "切片器和筛选器"
+       },
+       {
+        "en": "Yes",
+        "zh": "有"
+       },
+       {
+        "en": "No (tiles are fixed; live pages keep their slicers)",
+        "zh": "没有（磁贴是固定的；实时页面保留其切片器）"
+       }
+      ],
+      [
+       {
+        "en": "Data alerts",
+        "zh": "数据警报"
+       },
+       {
+        "en": "No",
+        "zh": "没有"
+       },
+       {
+        "en": "Yes, on card, KPI and gauge tiles",
+        "zh": "有，在卡片、KPI 和仪表磁贴上"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Subscriptions and alerts",
+      "zh": "订阅与警报"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Subscribe</b> on a report or dashboard: choose recipients, frequency (daily, weekly, after data refresh), and the page; recipients need access.",
+       "zh": "在报表或仪表板上<b>订阅</b>：选择收件人、频率（每天、每周、数据刷新后）和页面；收件人需要有访问权限。"
+      },
+      {
+       "en": "<b>Data alert</b> on a tile: \"notify me when Total Sales is above 1,000,000\"; at most once an hour or once a day; delivered to the notification centre and email, and can trigger Power Automate.",
+       "zh": "磁贴上的<b>数据警报</b>：「当 Total Sales 高于 1,000,000 时通知我」；最多每小时一次或每天一次；发送到通知中心和邮件，也可以触发 Power Automate。"
+      },
+      {
+       "en": "Alerts work only for data that refreshes; they are personal to the user who sets them.",
+       "zh": "警报只适用于会刷新的数据；只对设定它的用户本人有效。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A manager wants an email when daily returns exceed 500. The value is shown in a card on a report. What must happen first?",
+      "zh": "某经理希望每日退货超过 500 时收到邮件。这个值显示在报表的一张卡片中。首先要做什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Create a subscription",
+        "zh": "建立订阅"
+       },
+       "correct": false,
+       "why": {
+        "en": "A subscription sends on a schedule, not on a threshold.",
+        "zh": "订阅按计划发送，而不是按阈值发送。"
+       }
+      },
+      {
+       "html": {
+        "en": "Pin the card to a dashboard, then set a data alert on the tile",
+        "zh": "把卡片固定到仪表板，再在磁贴上设定数据警报"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: data alerts exist on dashboard tiles (card, KPI, gauge).",
+        "zh": "对：数据警报只存在于仪表板磁贴上（卡片、KPI、仪表）。"
+       }
+      },
+      {
+       "html": {
+        "en": "Set the alert on the report visual",
+        "zh": "在报表视觉对象上设定警报"
+       },
+       "correct": false,
+       "why": {
+        "en": "Report visuals do not support data alerts.",
+        "zh": "报表视觉对象不支持数据警报。"
+       }
+      },
+      {
+       "html": {
+        "en": "Use conditional formatting",
+        "zh": "使用条件格式"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "endorsement",
+   "heading": {
+    "en": "Promote or certify content",
+    "zh": "提升或认证内容"
+   },
+   "min": 5,
+   "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-endorse-content",
+   "takeaways": [
+    {
+     "en": "Endorsement labels help people find trustworthy content: Promoted, Certified and (for data) Master data.",
+     "zh": "认可标签帮助大家找到值得信赖的内容：已提升、已认证，以及（针对数据的）主数据。"
+    },
+    {
+     "en": "Anyone with write permission on an item can Promote it; only reviewers authorised by the admin can Certify it.",
+     "zh": "任何对项目有写入权限的人都可以「提升」它；只有管理员授权的审阅者才能「认证」它。"
+    },
+    {
+     "en": "Endorsed semantic models appear first when report authors search for data.",
+     "zh": "已认可的语义模型会在报表作者搜索数据时优先显示。"
+    }
+   ],
+   "terms": [
+    "endorsement"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Label",
+       "zh": "标签"
+      },
+      {
+       "en": "Who can apply",
+       "zh": "谁可以套用"
+      },
+      {
+       "en": "Meaning",
+       "zh": "含义"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<b>Promoted</b>",
+        "zh": "<b>已提升</b>"
+       },
+       {
+        "en": "Item owners / anyone with write permission",
+        "zh": "项目所有者 / 任何有写入权限的人"
+       },
+       {
+        "en": "\"We think this is ready to share and reuse.\"",
+        "zh": "「我们认为这已经可以分享和重用。」"
+       }
+      ],
+      [
+       {
+        "en": "<b>Certified</b>",
+        "zh": "<b>已认证</b>"
+       },
+       {
+        "en": "Reviewers named by the Power BI/Fabric admin",
+        "zh": "由 Power BI/Fabric 管理员指定的审阅者"
+       },
+       {
+        "en": "Meets the organisation's quality standards; authoritative",
+        "zh": "符合组织的质量标准；具有权威性"
+       }
+      ],
+      [
+       {
+        "en": "<b>Master data</b>",
+        "zh": "<b>主数据</b>"
+       },
+       {
+        "en": "Users authorised by the admin",
+        "zh": "管理员授权的用户"
+       },
+       {
+        "en": "Core reference data (customers, products) — the single source of truth",
+        "zh": "核心参考数据（客户、产品）——单一事实来源"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Set it in the item's <b>Settings → Endorsement</b>. Endorsement is about trust and discovery; it does not change who can access the item.",
+      "zh": "在项目的<b>设置 → 认可</b>中设定。认可关乎信任和可发现性；它不会改变谁能访问该项目。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You built a semantic model and want report authors to see that the finance team stands behind it, but the certification process is not available to you. What can you do?",
+      "zh": "你建立了一个语义模型，想让报表作者知道财务团队为它背书，但你无法使用认证流程。可以怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Apply a sensitivity label",
+        "zh": "套用敏感度标签"
+       },
+       "correct": false,
+       "why": {
+        "en": "Labels are about protection, not quality.",
+        "zh": "标签关乎保护，不关乎质量。"
+       }
+      },
+      {
+       "html": {
+        "en": "Add it to an app",
+        "zh": "加入应用"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Promote it",
+        "zh": "将它标记为「已提升」"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: promotion is open to item owners; certification needs authorised reviewers.",
+        "zh": "对：项目所有者就能提升；认证需要授权的审阅者。"
+       }
+      },
+      {
+       "html": {
+        "en": "Certify it",
+        "zh": "将它认证"
+       },
+       "correct": false,
+       "why": {
+        "en": "Only authorised reviewers can certify.",
+        "zh": "只有授权的审阅者才能认证。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gateway-refresh",
+   "heading": {
+    "en": "Gateways and scheduled refresh",
+    "zh": "网关与计划刷新"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem",
+   "takeaways": [
+    {
+     "en": "A gateway is needed when the service must reach data it cannot see from the cloud: on-premises servers and local files.",
+     "zh": "当服务需要访问从云端看不到的数据时，就需要网关：本地服务器和本机文件。"
+    },
+    {
+     "en": "Standard mode serves many users and supports DirectQuery; personal mode is for one user, Import only.",
+     "zh": "标准模式供多人使用并支持 DirectQuery；个人模式只供一人使用，且只支持导入。"
+    },
+    {
+     "en": "Scheduled refresh: up to 8 times a day with Pro, up to 48 with Premium, PPU or Fabric capacity.",
+     "zh": "计划刷新：Pro 每天最多 8 次，Premium、PPU 或 Fabric 容量每天最多 48 次。"
+    }
+   ],
+   "terms": [
+    "gateway",
+    "scheduled-refresh",
+    "incremental-refresh"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "When is a gateway required?",
+      "zh": "什么时候需要网关？"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Source",
+       "zh": "数据源"
+      },
+      {
+       "en": "Gateway?",
+       "zh": "需要网关？"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "SQL Server on a company server",
+        "zh": "公司服务器上的 SQL Server"
+       },
+       {
+        "en": "Yes",
+        "zh": "需要"
+       }
+      ],
+      [
+       {
+        "en": "Excel file on C:\\ or a network share",
+        "zh": "C:\\ 或网络共享上的 Excel 文件"
+       },
+       {
+        "en": "Yes",
+        "zh": "需要"
+       }
+      ],
+      [
+       {
+        "en": "Azure SQL Database, Fabric lakehouse",
+        "zh": "Azure SQL 数据库、Fabric 湖仓"
+       },
+       {
+        "en": "No (cloud to cloud)",
+        "zh": "不需要（云到云）"
+       }
+      ],
+      [
+       {
+        "en": "Excel file in SharePoint Online / OneDrive (by URL)",
+        "zh": "SharePoint Online / OneDrive 中的 Excel 文件（用网址）"
+       },
+       {
+        "en": "No",
+        "zh": "不需要"
+       }
+      ],
+      [
+       {
+        "en": "Data in an Azure virtual network",
+        "zh": "Azure 虚拟网络中的数据"
+       },
+       {
+        "en": "A VNet data gateway (or standard gateway)",
+        "zh": "虚拟网络数据网关（或标准网关）"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Standard mode",
+       "zh": "标准模式"
+      },
+      {
+       "en": "Personal mode",
+       "zh": "个人模式"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Users",
+        "zh": "用户"
+       },
+       {
+        "en": "Many; managed centrally",
+        "zh": "多人；集中管理"
+       },
+       {
+        "en": "Only the person who installed it",
+        "zh": "只有安装它的人"
+       }
+      ],
+      [
+       {
+        "en": "Supports",
+        "zh": "支持"
+       },
+       {
+        "en": "Import, DirectQuery, live connection, dataflows",
+        "zh": "导入、DirectQuery、实时连接、数据流"
+       },
+       {
+        "en": "Import (scheduled refresh) only",
+        "zh": "只支持导入（计划刷新）"
+       }
+      ],
+      [
+       {
+        "en": "Runs as",
+        "zh": "运行方式"
+       },
+       {
+        "en": "A Windows service, ideally on an always-on server",
+        "zh": "Windows 服务，最好装在常开的服务器上"
+       },
+       {
+        "en": "An app on the user's computer",
+        "zh": "用户电脑上的应用程序"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Configure scheduled refresh",
+      "zh": "配置计划刷新"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "en": "In the semantic model's <b>Settings</b>, map it to a gateway connection (if needed) and enter <b>data source credentials</b>.",
+       "zh": "在语义模型的<b>设置</b>中，把它对应到网关连接（如果需要），并输入<b>数据源凭据</b>。"
+      },
+      {
+       "en": "Turn on <b>Scheduled refresh</b>, choose frequency, time zone and times (up to 8/day with Pro, 48/day with Premium/PPU/Fabric capacity).",
+       "zh": "开启<b>计划刷新</b>，选择频率、时区和时间（Pro 每天最多 8 次，Premium/PPU/Fabric 容量每天最多 48 次）。"
+      },
+      {
+       "en": "Set failure notifications to the owner and other contacts.",
+       "zh": "设定失败通知，发送给所有者和其他联系人。"
+      },
+      {
+       "en": "For big tables, configure <b>incremental refresh</b> so only recent partitions reload.",
+       "zh": "对于大表，配置<b>增量刷新</b>，只重新加载最近的分区。"
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "DirectQuery and live connection models do not need scheduled data refresh — queries go to the source — but the service can refresh visual caches. Very large models on capacity can use the <b>large semantic model storage format</b>.",
+      "zh": "DirectQuery 和实时连接模型不需要计划刷新数据——查询直接发往数据源——但服务可以刷新视觉对象缓存。容量上的超大模型可以使用<b>大型语义模型存储格式</b>。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A report imports from an on-premises SQL Server and an Azure SQL Database. Which needs a gateway?",
+      "zh": "某报表从本地 SQL Server 和 Azure SQL 数据库导入数据。哪个需要网关？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Both",
+        "zh": "两者都要"
+       },
+       "correct": false,
+       "why": {
+        "en": "Cloud sources are reached directly by the service.",
+        "zh": "服务可以直接访问云端数据源。"
+       }
+      },
+      {
+       "html": {
+        "en": "Only the on-premises SQL Server",
+        "zh": "只有本地 SQL Server"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Neither",
+        "zh": "都不需要"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Only Azure SQL Database",
+        "zh": "只有 Azure SQL 数据库"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Several analysts publish reports using the same on-premises Oracle database, some in DirectQuery. Which gateway setup?",
+      "zh": "多位分析师发布的报表都使用同一个本地 Oracle 数据库，其中一些用 DirectQuery。应采用哪种网关设置？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "No gateway; publish to web",
+        "zh": "不用网关；发布到 Web"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A VNet data gateway",
+        "zh": "虚拟网络数据网关"
+       },
+       "correct": false,
+       "why": {
+        "en": "The data is on-premises, not in an Azure virtual network.",
+        "zh": "数据在本地，不在 Azure 虚拟网络中。"
+       }
+      },
+      {
+       "html": {
+        "en": "An on-premises data gateway in standard mode, shared through gateway connections",
+        "zh": "标准模式的本地数据网关，通过网关连接共享"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A personal-mode gateway on each analyst's laptop",
+        "zh": "在每位分析师的笔记本电脑上装个人模式网关"
+       },
+       "correct": false,
+       "why": {
+        "en": "Personal mode does not support DirectQuery or sharing.",
+        "zh": "个人模式不支持 DirectQuery，也不能共享。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "With Pro licences, what is the maximum number of scheduled refreshes per day for one semantic model?",
+      "zh": "使用 Pro 授权时，一个语义模型每天最多可以计划刷新几次？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "8",
+        "zh": "8"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Unlimited",
+        "zh": "无限制"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "24",
+        "zh": "24"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "48",
+        "zh": "48"
+       },
+       "correct": false,
+       "why": {
+        "en": "48 is the limit on Premium, PPU or Fabric capacity.",
+        "zh": "48 次是 Premium、PPU 或 Fabric 容量的上限。"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

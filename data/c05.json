@@ -1,0 +1,903 @@
+{
+ "id": "c05",
+ "num": 5,
+ "stage": 2,
+ "title": {
+  "en": "Shape tables for the model",
+  "zh": "为模型整理表格"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+ "sections": [
+  {
+   "id": "merge-append",
+   "heading": {
+    "en": "Merge and append queries",
+    "zh": "合并查询与追加查询"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-query/merge-queries-overview",
+   "takeaways": [
+    {
+     "en": "Append stacks tables on top of each other (more rows); Merge joins them side by side on matching keys (more columns).",
+     "zh": "「追加」把表上下叠起来（行变多）；「合并」按匹配的键左右连接（列变多）。"
+    },
+    {
+     "en": "Merge offers six join kinds: left outer, right outer, full outer, inner, left anti and right anti.",
+     "zh": "「合并」提供六种联接类型：左外部、右外部、完全外部、内部、左反和右反。"
+    },
+    {
+     "en": "Left anti returns rows from the first table that have no match — the quick way to find orphans.",
+     "zh": "左反联接返回第一张表中没有匹配的行——这是找出孤立记录最快的方法。"
+    }
+   ],
+   "terms": [
+    "merge-queries",
+    "append-queries"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Combining queries is one of the most tested Power Query skills. The two words sound alike but do opposite things.",
+      "zh": "合并多个查询是 Power Query 最常考的技能之一。两个词听起来相似，作用却完全不同。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Append",
+       "zh": "追加"
+      },
+      {
+       "en": "Merge",
+       "zh": "合并"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Direction",
+        "zh": "方向"
+       },
+       {
+        "en": "Vertical: rows of table B under table A",
+        "zh": "垂直：表 B 的行接在表 A 下方"
+       },
+       {
+        "en": "Horizontal: columns of B added to A by matching key",
+        "zh": "水平：按匹配的键，把 B 的列加到 A"
+       }
+      ],
+      [
+       {
+        "en": "SQL equivalent",
+        "zh": "SQL 对应"
+       },
+       {
+        "en": "UNION ALL",
+        "zh": "UNION ALL"
+       },
+       {
+        "en": "JOIN",
+        "zh": "JOIN"
+       }
+      ],
+      [
+       {
+        "en": "Typical use",
+        "zh": "典型用途"
+       },
+       {
+        "en": "Sales2025 + Sales2026; one table per region",
+        "zh": "Sales2025 + Sales2026；每个区域一张表"
+       },
+       {
+        "en": "Bring Category from Product into Sales; look up a code",
+        "zh": "把 Product 的 Category 带进 Sales；查对照代码"
+       }
+      ],
+      [
+       {
+        "en": "Columns",
+        "zh": "列"
+       },
+       {
+        "en": "Matched by name; a column missing in one table is filled with null",
+        "zh": "按名称对应；某张表缺少的列会以 null 填充"
+       },
+       {
+        "en": "You pick the key column(s) in each table",
+        "zh": "你在两张表中各自选择键列"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Join kinds",
+      "zh": "联接类型"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Join kind",
+       "zh": "联接类型"
+      },
+      {
+       "en": "Returns",
+       "zh": "返回"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Left outer (default)",
+        "zh": "左外部（默认）"
+       },
+       {
+        "en": "All rows of the first table, matching rows of the second",
+        "zh": "第一张表的所有行，加上第二张表中匹配的行"
+       }
+      ],
+      [
+       {
+        "en": "Right outer",
+        "zh": "右外部"
+       },
+       {
+        "en": "All rows of the second table, matching rows of the first",
+        "zh": "第二张表的所有行，加上第一张表中匹配的行"
+       }
+      ],
+      [
+       {
+        "en": "Full outer",
+        "zh": "完全外部"
+       },
+       {
+        "en": "All rows from both",
+        "zh": "两张表的所有行"
+       }
+      ],
+      [
+       {
+        "en": "Inner",
+        "zh": "内部"
+       },
+       {
+        "en": "Only rows that match in both",
+        "zh": "只有两张表都匹配的行"
+       }
+      ],
+      [
+       {
+        "en": "Left anti",
+        "zh": "左反"
+       },
+       {
+        "en": "Rows of the first table with <b>no</b> match",
+        "zh": "第一张表中<b>没有</b>匹配的行"
+       }
+      ],
+      [
+       {
+        "en": "Right anti",
+        "zh": "右反"
+       },
+       {
+        "en": "Rows of the second table with no match",
+        "zh": "第二张表中没有匹配的行"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Merge also supports <b>fuzzy matching</b> for keys that are spelled slightly differently, with a similarity threshold you can tune. Use <b>Append Queries as New</b> or <b>Merge Queries as New</b> to keep the original queries unchanged.",
+      "zh": "「合并」还支持<b>模糊匹配</b>，用于拼写稍有不同的键，相似度阈值可以调整。使用<b>将查询追加为新查询</b>或<b>将查询合并为新查询</b>，可以保留原本的查询不变。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You need a list of customers who have never placed an order. Which merge from Customers to Orders gives it directly?",
+      "zh": "你需要一份从未下过订单的客户名单。从 Customers 合并到 Orders，用哪种联接能直接得到？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Left outer",
+        "zh": "左外部"
+       },
+       "correct": false,
+       "why": {
+        "en": "Returns all customers; you would still have to filter for nulls.",
+        "zh": "会返回所有客户，还要再筛选 null。"
+       }
+      },
+      {
+       "html": {
+        "en": "Full outer",
+        "zh": "完全外部"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Inner",
+        "zh": "内部"
+       },
+       "correct": false,
+       "why": {
+        "en": "Inner returns customers who did order.",
+        "zh": "内部联接返回的是下过订单的客户。"
+       }
+      },
+      {
+       "html": {
+        "en": "Left anti",
+        "zh": "左反"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: customers with no matching order.",
+        "zh": "对：没有匹配订单的客户。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Sales for 2025 and 2026 are in two queries with the same columns. You need one Sales table. What do you do?",
+      "zh": "2025 年和 2026 年的销售数据在两个列相同的查询中。你需要一张 Sales 表，该怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Append the queries",
+        "zh": "追加查询"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: append stacks rows of tables that share columns.",
+        "zh": "对：追加会把列相同的表的行叠在一起。"
+       }
+      },
+      {
+       "html": {
+        "en": "Pivot the year column",
+        "zh": "透视年份列"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Create a relationship between them",
+        "zh": "在两者之间建立关系"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Merge the queries on Date",
+        "zh": "按日期合并查询"
+       },
+       "correct": false,
+       "why": {
+        "en": "Merge adds columns, not rows.",
+        "zh": "合并增加的是列，不是行。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reference-duplicate",
+   "heading": {
+    "en": "Reference or duplicate a query",
+    "zh": "引用查询还是复制查询"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-query/power-query-ui",
+   "takeaways": [
+    {
+     "en": "Duplicate copies all of a query's steps into an independent new query.",
+     "zh": "「复制」会把查询的所有步骤复制成一个独立的新查询。"
+    },
+    {
+     "en": "Reference starts a new query from the output of an existing one, so changes to the original flow through.",
+     "zh": "「引用」以现有查询的输出作为新查询的起点，所以原查询的修改会一路传下去。"
+    },
+    {
+     "en": "A common pattern: one staging query (load disabled) referenced by several fact and dimension queries.",
+     "zh": "常见模式：一个暂存查询（停用加载），被多个事实表和维度表查询引用。"
+    }
+   ],
+   "terms": [
+    "reference-query",
+    "staging-query"
+   ],
+   "blocks": [
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Duplicate",
+       "zh": "复制"
+      },
+      {
+       "en": "Reference",
+       "zh": "引用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "New query starts with",
+        "zh": "新查询的起点"
+       },
+       {
+        "en": "A copy of every step",
+        "zh": "每个步骤的副本"
+       },
+       {
+        "en": "<code>= OriginalQuery</code> — one step",
+        "zh": "<code>= OriginalQuery</code>——只有一个步骤"
+       }
+      ],
+      [
+       {
+        "en": "Later changes to the original",
+        "zh": "之后修改原查询"
+       },
+       {
+        "en": "Not reflected",
+        "zh": "不会反映"
+       },
+       {
+        "en": "Flow into the new query",
+        "zh": "会传到新查询"
+       }
+      ],
+      [
+       {
+        "en": "Use when",
+        "zh": "适用于"
+       },
+       {
+        "en": "You want to experiment or need a variant that must not change",
+        "zh": "想试验，或需要一个不能被影响的变体"
+       },
+       {
+        "en": "Several tables come from the same cleaned source",
+        "zh": "多张表来自同一个已清理的来源"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Example: a flat Sales export holds order lines with product and customer details repeated on every row. Load it once as <b>SalesStaging</b>, clean it, and disable its load. Then <b>Reference</b> it three times: keep the product columns and remove duplicates → <b>Product</b>; the customer columns → <b>Customer</b>; the keys and numbers → <b>Sales</b>.",
+      "zh": "例子：某个扁平的销售导出文件包含订单明细，每一行都重复着产品和客户资料。先把它载入为 <b>SalesStaging</b>、清理好并停用加载。然后<b>引用</b>它三次：保留产品列并删除重复项 → <b>Product</b>；客户列 → <b>Customer</b>；键和数值 → <b>Sales</b>。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Referencing does not cache the original's result: each query that references it is evaluated on its own, so the source can be read more than once during refresh. That is usually fine, but for a slow source consider a dataflow.",
+      "zh": "引用并不会缓存原查询的结果：每个引用它的查询都会各自计算，所以刷新时数据源可能被读取不止一次。通常没问题，但如果数据源很慢，可以考虑使用数据流。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Product and Customer dimensions must both come from the same cleaned staging query, and future cleaning steps must apply to both. What do you use?",
+      "zh": "Product 和 Customer 维度表都必须来自同一个已清理的暂存查询，而且之后新增的清理步骤要同时套用到两者。该用什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Reference the staging query twice",
+        "zh": "引用暂存查询两次"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: changes to the staging query flow into both references.",
+        "zh": "对：对暂存查询的修改会传到两个引用查询。"
+       }
+      },
+      {
+       "html": {
+        "en": "Append the staging query to itself",
+        "zh": "把暂存查询追加到自身"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Duplicate the staging query twice",
+        "zh": "复制暂存查询两次"
+       },
+       "correct": false,
+       "why": {
+        "en": "Duplicates are independent; you would repeat every future step.",
+        "zh": "副本是独立的；以后每个步骤都得重复做。"
+       }
+      },
+      {
+       "html": {
+        "en": "Create calculated tables in DAX",
+        "zh": "用 DAX 建立计算表"
+       },
+       "correct": false,
+       "why": {
+        "en": "Possible, but cleaning belongs in Power Query and the question asks for shared steps.",
+        "zh": "可行，但清理应该在 Power Query 中进行，而题目要求共享步骤。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fact-dimension",
+   "heading": {
+    "en": "Fact tables, dimension tables and keys",
+    "zh": "事实表、维度表与键"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+   "takeaways": [
+    {
+     "en": "Fact tables hold events and numbers (sales lines, transactions); dimension tables describe them (product, customer, date).",
+     "zh": "事实表存放事件和数值（销售明细、交易）；维度表负责描述它们（产品、客户、日期）。"
+    },
+    {
+     "en": "Each dimension needs a key with one row per value; the fact table holds that key as a foreign key.",
+     "zh": "每张维度表都需要一个键，每个值只有一行；事实表把这个键当作外键保存。"
+    },
+    {
+     "en": "Power BI relationships use a single column: create a surrogate key (Index) or merge columns when the natural key spans several columns.",
+     "zh": "Power BI 的关系只能用单一列：当自然键横跨多列时，要建立代理键（索引列）或合并列。"
+    }
+   ],
+   "terms": [
+    "fact-table",
+    "dimension-table",
+    "surrogate-key",
+    "star-schema"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Power Query is where you decide the <b>shape</b> of the model. The target is a star schema (covered in Course 3): narrow fact tables in the middle, descriptive dimension tables around them.",
+      "zh": "Power Query 是决定模型<b>形状</b>的地方。目标是星型架构（课程 3 会讲）：中间是窄的事实表，周围是描述性的维度表。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Fact table",
+       "zh": "事实表"
+      },
+      {
+       "en": "Dimension table",
+       "zh": "维度表"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Holds",
+        "zh": "存放"
+       },
+       {
+        "en": "Events: one row per sale, visit, transaction",
+        "zh": "事件：每笔销售、每次访问、每笔交易一行"
+       },
+       {
+        "en": "Things: one row per product, customer, date",
+        "zh": "事物：每个产品、客户、日期一行"
+       }
+      ],
+      [
+       {
+        "en": "Columns",
+        "zh": "列"
+       },
+       {
+        "en": "Keys to dimensions + numeric values to aggregate",
+        "zh": "指向维度表的键 + 要汇总的数值"
+       },
+       {
+        "en": "A key + descriptive attributes (name, category, city)",
+        "zh": "一个键 + 描述性属性（名称、类别、城市）"
+       }
+      ],
+      [
+       {
+        "en": "Size",
+        "zh": "大小"
+       },
+       {
+        "en": "Many rows, grows over time",
+        "zh": "行很多，随时间增长"
+       },
+       {
+        "en": "Fewer rows, changes slowly",
+        "zh": "行较少，变化缓慢"
+       }
+      ],
+      [
+       {
+        "en": "Visual role",
+        "zh": "在视觉对象中的角色"
+       },
+       {
+        "en": "Summarised (sum, count, average)",
+        "zh": "被汇总（求和、计数、平均）"
+       },
+       {
+        "en": "Filters, slicers, axes, groups",
+        "zh": "筛选、切片器、轴、分组"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Keys",
+      "zh": "键"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Natural key</b>: an ID from the source, such as ProductCode.",
+       "zh": "<b>自然键</b>：来自源系统的标识，例如 ProductCode。"
+      },
+      {
+       "en": "<b>Surrogate key</b>: a new whole-number ID you add (Index column), useful when the natural key is long text or missing.",
+       "zh": "<b>代理键</b>：你新增的整数标识（索引列），适合自然键是很长的文字或缺失时使用。"
+      },
+      {
+       "en": "<b>Composite key</b>: when uniqueness needs two columns (StoreID + ProductID), merge them into one key column in both tables — a relationship can use only one column.",
+       "zh": "<b>组合键</b>：当需要两列才能唯一（StoreID + ProductID）时，在两张表中都把它们合并成一个键列——关系只能使用一列。"
+      },
+      {
+       "en": "Integer keys compress better than text keys and make relationships faster.",
+       "zh": "整数键比文字键压缩得更好，关系也更快。"
+      }
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "When a question says a relationship cannot be created because the key is made of two columns, the answer is to add a merged (concatenated) key column in both tables, or a surrogate key.",
+      "zh": "当题目说因为键由两列组成而无法建立关系时，答案是在两张表中都新增一个合并（串接）的键列，或使用代理键。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Stock levels are unique per Store and Product. You must relate Stock to a StoreProduct table. What do you do?",
+      "zh": "库存数据在「门店 + 产品」上才唯一。你必须把 Stock 关联到 StoreProduct 表，该怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Create two relationships, one per column",
+        "zh": "建立两个关系，每列一个"
+       },
+       "correct": false,
+       "why": {
+        "en": "Only one of them could be active, and neither is unique alone.",
+        "zh": "只有其中一个能是活动的，而且单独一列都不唯一。"
+       }
+      },
+      {
+       "html": {
+        "en": "Append the two tables",
+        "zh": "追加两张表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Merge StoreID and ProductID into one key column in both tables",
+        "zh": "在两张表中把 StoreID 和 ProductID 合并成一个键列"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: relationships use a single column.",
+        "zh": "对：关系只能使用单一列。"
+       }
+      },
+      {
+       "html": {
+        "en": "Use a many-to-many relationship on StoreID",
+        "zh": "以 StoreID 建立多对多关系"
+       },
+       "correct": false,
+       "why": {
+        "en": "That gives wrong totals per product.",
+        "zh": "这样按产品的合计会出错。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "loading",
+   "heading": {
+    "en": "Query folding and load settings",
+    "zh": "查询折叠与加载设置"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-query/query-folding-basics",
+   "takeaways": [
+    {
+     "en": "Query folding turns Power Query steps into one source query (for example SQL), so the source does the work.",
+     "zh": "查询折叠把 Power Query 步骤转换成一个源查询（例如 SQL），让数据源来完成工作。"
+    },
+    {
+     "en": "Right-click a step: if View Native Query is available, the step folds. Put folding steps first.",
+     "zh": "右键单击步骤：如果能使用「查看本机查询」，表示该步骤可以折叠。把能折叠的步骤放在前面。"
+    },
+    {
+     "en": "Untick Enable load for staging and helper queries so they are not added to the model.",
+     "zh": "对暂存和辅助查询取消勾选「启用加载」，这样它们就不会加入模型。"
+    }
+   ],
+   "terms": [
+    "query-folding",
+    "enable-load",
+    "staging-query"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Query folding",
+      "zh": "查询折叠"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "When the source is a database, Power Query tries to translate your steps — filter rows, remove columns, group by, merge — into a single native query. The database then returns only the rows and columns you need. This is <b>query folding</b>, and it makes refresh much faster. It is also required for incremental refresh and for DirectQuery.",
+      "zh": "当数据源是数据库时，Power Query 会尝试把你的步骤——筛选行、删除列、分组、合并——翻译成一个本机查询。数据库就只返回你需要的行和列。这就是<b>查询折叠</b>，它能让刷新快很多。增量刷新和 DirectQuery 也都需要它。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Steps that usually fold: filter, remove/select columns, rename, group by, merge and append on the same source, simple type changes.",
+       "zh": "通常可以折叠的步骤：筛选、删除/选择列、重命名、分组、同一来源上的合并与追加、简单的类型更改。"
+      },
+      {
+       "en": "Steps that often break folding: adding an Index column, custom M functions, merging with a different source, some text transformations.",
+       "zh": "经常会打断折叠的步骤：新增索引列、自定义 M 函数、与不同来源合并、部分文字转换。"
+      },
+      {
+       "en": "Once a step does not fold, the steps after it do not fold either — so order matters.",
+       "zh": "一旦某个步骤不能折叠，它后面的步骤也都不能折叠——所以顺序很重要。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Load settings",
+      "zh": "加载设置"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Setting (right-click a query)",
+       "zh": "设置（右键单击查询）"
+      },
+      {
+       "en": "Effect",
+       "zh": "作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<b>Enable load</b> (on)",
+        "zh": "<b>启用加载</b>（开）"
+       },
+       {
+        "en": "The query becomes a table in the model.",
+        "zh": "查询成为模型中的一张表。"
+       }
+      ],
+      [
+       {
+        "en": "<b>Enable load</b> (off)",
+        "zh": "<b>启用加载</b>（关）"
+       },
+       {
+        "en": "The query exists only to feed others; shown in italics. Saves memory.",
+        "zh": "查询只用来供应其他查询；名称以斜体显示。可节省内存。"
+       }
+      ],
+      [
+       {
+        "en": "<b>Include in report refresh</b>",
+        "zh": "<b>包含在报表刷新中</b>"
+       },
+       {
+        "en": "Untick for static tables you never want to refresh.",
+        "zh": "对永远不想刷新的静态表取消勾选。"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Which query should have Enable load turned off?",
+      "zh": "哪个查询应该关闭「启用加载」？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "The date dimension",
+        "zh": "日期维度表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A table used in an RLS role",
+        "zh": "在 RLS 角色中使用的表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A staging query that other queries reference",
+        "zh": "被其他查询引用的暂存查询"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: its data reaches the model through the queries that reference it.",
+        "zh": "对：它的数据会经由引用它的查询进入模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "The fact table",
+        "zh": "事实表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A query against SQL Server refreshes slowly. Steps: Source → Add Index Column → Filtered Rows (last 2 years) → Removed Columns. What change helps most?",
+      "zh": "某个针对 SQL Server 的查询刷新很慢。步骤：源 → 添加索引列 → 筛选的行（最近 2 年）→ 删除的列。哪个修改最有帮助？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Change the privacy level to Public",
+        "zh": "把隐私级别改为公共"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Move the filter and column removal before the index step",
+        "zh": "把筛选和删除列移到索引步骤之前"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: adding an index breaks folding, so the filter ran in Power Query on all rows.",
+        "zh": "对：新增索引会打断折叠，所以筛选是在 Power Query 中对所有行执行的。"
+       }
+      },
+      {
+       "html": {
+        "en": "Disable load on the query",
+        "zh": "停用该查询的加载"
+       },
+       "correct": false,
+       "why": {
+        "en": "Then the table would not reach the model at all.",
+        "zh": "那样这张表就根本进不了模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "Turn off Column profiling",
+        "zh": "关闭列分析"
+       },
+       "correct": false,
+       "why": {
+        "en": "Profiling affects the editor preview, not refresh.",
+        "zh": "列分析只影响编辑器预览，不影响刷新。"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

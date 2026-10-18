@@ -1,0 +1,885 @@
+{
+ "id": "c02",
+ "num": 2,
+ "stage": 2,
+ "title": {
+  "en": "Get or connect to data",
+  "zh": "获取或连接数据"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-quickstart-connect-to-data",
+ "sections": [
+  {
+   "id": "sources",
+   "heading": {
+    "en": "Data sources and connectors",
+    "zh": "数据源与连接器"
+   },
+   "min": 6,
+   "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources",
+   "takeaways": [
+    {
+     "en": "Get data offers hundreds of connectors: files, databases, cloud services, SharePoint, Dataverse and existing semantic models.",
+     "zh": "「获取数据」提供数百个连接器：文件、数据库、云服务、SharePoint、Dataverse 以及现有的语义模型。"
+    },
+    {
+     "en": "Connect to a SharePoint or OneDrive file by its web URL, not a local sync path, so the service can refresh it without a gateway.",
+     "zh": "SharePoint 或 OneDrive 中的文件要用网址连接，而不是本机同步路径，这样服务就能直接刷新，不需要网关。"
+    },
+    {
+     "en": "The Folder and SharePoint folder connectors combine many files with the same layout into one table.",
+     "zh": "「文件夹」和「SharePoint 文件夹」连接器能把很多格式相同的文件合并成一张表。"
+    }
+   ],
+   "terms": [
+    "connector",
+    "gateway"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Everything starts with <b>Get data</b> in Power BI Desktop. Each connector knows how to talk to one kind of source and shows you a <b>Navigator</b> where you pick tables, then either <b>Load</b> them straight into the model or <b>Transform data</b> in the Power Query Editor first.",
+      "zh": "一切从 Power BI Desktop 的<b>获取数据</b>开始。每个连接器负责一种数据源，并显示<b>导航器</b>让你选择表，然后可以直接<b>加载</b>到模型，或者先在 Power Query 编辑器中<b>转换数据</b>。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Source family",
+       "zh": "数据源类别"
+      },
+      {
+       "en": "Examples",
+       "zh": "例子"
+      },
+      {
+       "en": "Watch out for",
+       "zh": "注意"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Files",
+        "zh": "文件"
+       },
+       {
+        "en": "Excel, CSV/text, XML, JSON, PDF, Parquet",
+        "zh": "Excel、CSV/文本、XML、JSON、PDF、Parquet"
+       },
+       {
+        "en": "A local path (C:\\…) needs a gateway to refresh in the service.",
+        "zh": "本机路径（C:\\…）在服务中刷新需要网关。"
+       }
+      ],
+      [
+       {
+        "en": "Folders",
+        "zh": "文件夹"
+       },
+       {
+        "en": "Folder, SharePoint folder",
+        "zh": "文件夹、SharePoint 文件夹"
+       },
+       {
+        "en": "All files must share the same columns; Combine uses a sample file.",
+        "zh": "所有文件的列必须相同；「合并」会以一个示例文件为准。"
+       }
+      ],
+      [
+       {
+        "en": "Databases",
+        "zh": "数据库"
+       },
+       {
+        "en": "SQL Server, Azure SQL, Oracle, PostgreSQL, MySQL",
+        "zh": "SQL Server、Azure SQL、Oracle、PostgreSQL、MySQL"
+       },
+       {
+        "en": "Can use Import or DirectQuery; on-premises servers need a gateway.",
+        "zh": "可用导入或 DirectQuery；本地服务器需要网关。"
+       }
+      ],
+      [
+       {
+        "en": "Cloud services",
+        "zh": "云服务"
+       },
+       {
+        "en": "Dataverse, Salesforce, Google Analytics, SharePoint Online lists",
+        "zh": "Dataverse、Salesforce、Google Analytics、SharePoint Online 列表"
+       },
+       {
+        "en": "Sign-in (OAuth) credentials expire and must be renewed in the service.",
+        "zh": "登录（OAuth）凭据会过期，需要在服务中更新。"
+       }
+      ],
+      [
+       {
+        "en": "Fabric / Power BI",
+        "zh": "Fabric / Power BI"
+       },
+       {
+        "en": "Power BI semantic models, lakehouse, warehouse, dataflows",
+        "zh": "Power BI 语义模型、湖仓、仓库、数据流"
+       },
+       {
+        "en": "Reusing a shared model avoids duplicate logic.",
+        "zh": "重用共享模型可以避免重复的逻辑。"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Combining files from a folder",
+      "zh": "合并文件夹中的文件"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Point the Folder connector at a folder of monthly CSV files and choose <b>Combine &amp; Transform</b>. Power Query creates a helper query with a <b>sample file</b> and a function, applies your steps from the sample to every file, and appends the results. New files dropped into the folder are picked up at the next refresh.",
+      "zh": "把「文件夹」连接器指向存放每月 CSV 的文件夹，选择<b>合并并转换</b>。Power Query 会建立带<b>示例文件</b>的辅助查询和一个函数，把示例上的步骤套用到每个文件，再把结果追加起来。之后放进文件夹的新文件，下次刷新时会自动纳入。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "If a scenario says files are stored in SharePoint Online and the report must refresh in the service without a gateway, the answer is the SharePoint folder (or Web) connector with the site URL — not the local OneDrive sync folder.",
+      "zh": "如果题目说文件存放在 SharePoint Online，且报表要在服务中刷新又不用网关，答案是用「SharePoint 文件夹」（或 Web）连接器配合站点网址——而不是本机 OneDrive 同步文件夹。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Sales files arrive every month as CSVs with identical columns in one SharePoint Online folder. You want one table that grows automatically. What do you use?",
+      "zh": "每个月都有列完全相同的销售 CSV 放进同一个 SharePoint Online 文件夹。你想要一张会自动增长的表，该用什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Enter data",
+        "zh": "输入数据"
+       },
+       "correct": false,
+       "why": {
+        "en": "Enter data is for small manual tables.",
+        "zh": "「输入数据」只适合少量手动输入的表。"
+       }
+      },
+      {
+       "html": {
+        "en": "Text/CSV connector, once per file",
+        "zh": "每个文件用一次「文本/CSV」连接器"
+       },
+       "correct": false,
+       "why": {
+        "en": "You would have to add a query for every new month.",
+        "zh": "每个新月份都得手动加一个查询。"
+       }
+      },
+      {
+       "html": {
+        "en": "SharePoint folder connector, then Combine",
+        "zh": "SharePoint 文件夹连接器，然后「合并」"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: new files are included at each refresh, and no gateway is needed.",
+        "zh": "对：每次刷新都会纳入新文件，也不需要网关。"
+       }
+      },
+      {
+       "html": {
+        "en": "Folder connector on the local OneDrive sync path",
+        "zh": "对本机 OneDrive 同步路径使用「文件夹」连接器"
+       },
+       "correct": false,
+       "why": {
+        "en": "A local path needs a gateway to refresh in the service.",
+        "zh": "本机路径在服务中刷新需要网关。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage-modes",
+   "heading": {
+    "en": "Import, DirectQuery, Dual and Direct Lake",
+    "zh": "导入、DirectQuery、双重与 Direct Lake"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-dataset-modes-understand",
+   "takeaways": [
+    {
+     "en": "Import copies the data into the model: fastest queries and full features, but it is only as fresh as the last refresh.",
+     "zh": "导入会把数据复制到模型：查询最快、功能完整，但数据只和上次刷新时一样新。"
+    },
+    {
+     "en": "DirectQuery leaves the data in the source and queries it live: always current, but slower and with some limits.",
+     "zh": "DirectQuery 把数据留在源中、实时查询：数据始终最新，但较慢，也有一些限制。"
+    },
+    {
+     "en": "Dual tables act as Import or DirectQuery as needed; Direct Lake reads Delta tables in Fabric OneLake directly.",
+     "zh": "双重（Dual）表按需要充当导入或 DirectQuery；Direct Lake 直接读取 Fabric OneLake 中的 Delta 表。"
+    }
+   ],
+   "terms": [
+    "import-mode",
+    "directquery",
+    "dual-mode",
+    "direct-lake",
+    "composite-model",
+    "vertipaq"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Each table in a model has a <b>storage mode</b>. Choosing it is a trade-off between speed, freshness, size and features — and the exam asks about this trade-off often.",
+      "zh": "模型中的每张表都有一个<b>存储模式</b>。选哪一个是在速度、数据新鲜度、大小和功能之间取舍——考试经常考这一点。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Mode",
+       "zh": "模式"
+      },
+      {
+       "en": "Where the data lives",
+       "zh": "数据在哪里"
+      },
+      {
+       "en": "Strengths",
+       "zh": "优点"
+      },
+      {
+       "en": "Limits",
+       "zh": "限制"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<b>Import</b>",
+        "zh": "<b>导入</b>"
+       },
+       {
+        "en": "Compressed in the model (VertiPaq engine)",
+        "zh": "压缩存放在模型中（VertiPaq 引擎）"
+       },
+       {
+        "en": "Fastest; all DAX and Power Query features; works offline in Desktop",
+        "zh": "最快；支持所有 DAX 和 Power Query 功能；Desktop 中可离线使用"
+       },
+       {
+        "en": "Needs refresh; model size limits (1 GB per model with Pro)",
+        "zh": "需要刷新；模型大小有限制（Pro 每个模型 1 GB）"
+       }
+      ],
+      [
+       {
+        "en": "<b>DirectQuery</b>",
+        "zh": "<b>DirectQuery</b>"
+       },
+       {
+        "en": "Stays in the source; queries sent at view time",
+        "zh": "留在数据源中；查看时发送查询"
+       },
+       {
+        "en": "Near real-time data; very large sources; source security",
+        "zh": "接近实时；适合超大数据源；可沿用源端安全性"
+       },
+       {
+        "en": "Slower; load on the source; some DAX/M limits; 1 million rows per intermediate result",
+        "zh": "较慢；增加源端负载；部分 DAX/M 受限；中间结果上限 100 万行"
+       }
+      ],
+      [
+       {
+        "en": "<b>Dual</b>",
+        "zh": "<b>双重</b>"
+       },
+       {
+        "en": "Both: cached and queryable live",
+        "zh": "两者皆有：既缓存也可实时查询"
+       },
+       {
+        "en": "Dimension tables in composite models avoid slow cross-source joins",
+        "zh": "组合模型中的维度表可避免缓慢的跨源联接"
+       },
+       {
+        "en": "Only meaningful in composite models",
+        "zh": "只在组合模型中有意义"
+       }
+      ],
+      [
+       {
+        "en": "<b>Direct Lake</b>",
+        "zh": "<b>Direct Lake</b>"
+       },
+       {
+        "en": "Delta tables in Fabric OneLake",
+        "zh": "Fabric OneLake 中的 Delta 表"
+       },
+       {
+        "en": "Import-like speed without copying and refreshing data",
+        "zh": "接近导入的速度，却不用复制和刷新数据"
+       },
+       {
+        "en": "Only for Fabric lakehouse/warehouse data; can fall back to DirectQuery",
+        "zh": "只适用于 Fabric 湖仓/仓库的数据；可能回退为 DirectQuery"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Composite models",
+      "zh": "组合模型"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "A <b>composite model</b> mixes storage modes, for example a huge fact table in DirectQuery with small dimension tables set to <b>Dual</b>. A filter from a Dual dimension can then be answered from the cache or pushed to the source together with the fact table.",
+      "zh": "<b>组合模型</b>混合使用多种存储模式，例如超大的事实表用 DirectQuery，小的维度表设为<b>双重</b>。这样来自双重维度表的筛选，既可以用缓存回答，也可以和事实表一起推送到数据源。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Choose <b>Import</b> by default — it is the fastest and most flexible.",
+       "zh": "默认选<b>导入</b>——最快、最灵活。"
+      },
+      {
+       "en": "Choose <b>DirectQuery</b> when data must be near real-time, is too large to import, or must stay in the source for compliance.",
+       "zh": "当数据必须接近实时、太大无法导入，或因合规要求必须留在数据源时，选 <b>DirectQuery</b>。"
+      },
+      {
+       "en": "Choose <b>Direct Lake</b> when the data already sits as Delta tables in a Fabric lakehouse or warehouse.",
+       "zh": "当数据已是 Fabric 湖仓或仓库中的 Delta 表时，选 <b>Direct Lake</b>。"
+      }
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Switching a table from DirectQuery to Import is possible; switching from Import to DirectQuery is not — you would rebuild the table.",
+      "zh": "表可以从 DirectQuery 切换为导入，但不能从导入切换为 DirectQuery——必须重新建立这张表。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Managers need dashboards that show stock levels within a minute of a change in a 2 TB SQL database. Which storage mode fits?",
+      "zh": "经理们需要在 2 TB 的 SQL 数据库变动后一分钟内就看到库存水平。哪种存储模式合适？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Import with a daily refresh",
+        "zh": "导入，每天刷新一次"
+       },
+       "correct": false,
+       "why": {
+        "en": "A daily refresh is not near real-time, and 2 TB is large to import.",
+        "zh": "每天刷新不算接近实时，2 TB 也太大不适合导入。"
+       }
+      },
+      {
+       "html": {
+        "en": "DirectQuery",
+        "zh": "DirectQuery"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: data stays in the source and each query sees current values.",
+        "zh": "对：数据留在源中，每次查询都看到最新的值。"
+       }
+      },
+      {
+       "html": {
+        "en": "Import with eight refreshes a day",
+        "zh": "导入，每天刷新八次"
+       },
+       "correct": false,
+       "why": {
+        "en": "Still up to three hours old between refreshes.",
+        "zh": "两次刷新之间仍可能落后三个小时。"
+       }
+      },
+      {
+       "html": {
+        "en": "Dual for every table",
+        "zh": "所有表都设为双重"
+       },
+       "correct": false,
+       "why": {
+        "en": "Dual still caches data and needs refresh; it suits dimension tables in a composite model.",
+        "zh": "双重仍会缓存数据、需要刷新；它适合组合模型中的维度表。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A composite model has a DirectQuery Sales table and an Import Product table. Slicing Sales by Product is slow. What is the usual fix?",
+      "zh": "某组合模型中 Sales 表为 DirectQuery，Product 表为导入。按 Product 切片 Sales 很慢。通常怎么解决？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Set Sales to Import",
+        "zh": "把 Sales 改为导入"
+       },
+       "correct": false,
+       "why": {
+        "en": "That may not be possible (size, freshness) and loses the DirectQuery requirement.",
+        "zh": "可能做不到（大小、实时性），也违背使用 DirectQuery 的需求。"
+       }
+      },
+      {
+       "html": {
+        "en": "Turn on bidirectional filtering",
+        "zh": "开启双向筛选"
+       },
+       "correct": false,
+       "why": {
+        "en": "That changes filter direction, not where queries run.",
+        "zh": "那只改变筛选方向，不改变查询在哪里执行。"
+       }
+      },
+      {
+       "html": {
+        "en": "Set Product to Dual",
+        "zh": "把 Product 设为双重"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the dimension can then be sent to the source with the fact table query.",
+        "zh": "对：这样维度表可以和事实表的查询一起发送到数据源。"
+       }
+      },
+      {
+       "html": {
+        "en": "Add a calculated column to Sales",
+        "zh": "在 Sales 加计算列"
+       },
+       "correct": false,
+       "why": {
+        "en": "Calculated columns do not solve cross-source joins.",
+        "zh": "计算列不能解决跨源联接的问题。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shared-models",
+   "heading": {
+    "en": "Connecting to a shared semantic model",
+    "zh": "连接共享的语义模型"
+   },
+   "min": 5,
+   "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-report-lifecycle-datasets",
+   "takeaways": [
+    {
+     "en": "A live connection to a published Power BI semantic model reuses its tables, measures and security; you build only the report.",
+     "zh": "对已发布 Power BI 语义模型的实时连接，可重用其表、度量值和安全设置；你只需制作报表。"
+    },
+    {
+     "en": "With a live connection you cannot use Power Query or change the model, but you can add report-level measures.",
+     "zh": "使用实时连接时不能使用 Power Query，也不能修改模型，但可以新增报表级度量值。"
+    },
+    {
+     "en": "To add your own data to a shared model, change it to a composite model (DirectQuery for Power BI semantic models).",
+     "zh": "如果要把自己的数据加进共享模型，就把它改为组合模型（对 Power BI 语义模型使用 DirectQuery）。"
+    }
+   ],
+   "terms": [
+    "semantic-model",
+    "live-connection",
+    "build-permission",
+    "composite-model"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Large organisations keep one curated, certified semantic model and let many report authors build on it. In Desktop choose <b>Get data → Power BI semantic models</b> (or the OneLake catalog) and pick the model. You need <b>Build</b> permission on it.",
+      "zh": "大型组织通常维护一个经过整理和认证的语义模型，让许多报表作者在其上制作报表。在 Desktop 中选择<b>获取数据 → Power BI 语义模型</b>（或 OneLake 目录）并选择模型。你需要对它有<b>生成（Build）</b>权限。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Approach",
+       "zh": "方式"
+      },
+      {
+       "en": "What you can do",
+       "zh": "可以做什么"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Live connection",
+        "zh": "实时连接"
+       },
+       {
+        "en": "Build visuals, add report-level measures. No Power Query, no new tables or relationships. Model security (RLS) still applies.",
+        "zh": "制作视觉对象、新增报表级度量值。不能用 Power Query，不能新增表或关系。模型的安全设置（RLS）仍然有效。"
+       }
+      ],
+      [
+       {
+        "en": "Composite model (DirectQuery to the semantic model)",
+        "zh": "组合模型（对语义模型使用 DirectQuery）"
+       },
+       {
+        "en": "Add local tables (for example a budget in Excel), relate them to the remote tables, add calculated columns on local tables.",
+        "zh": "可以加入本地表（例如 Excel 中的预算），与远程表建立关系，并在本地表上新增计算列。"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "The status bar shows <b>Connected live to the Power BI semantic model</b>. To convert, select <b>Make changes to this model</b>; Power BI adds a local DirectQuery connection so you can extend it.",
+      "zh": "状态栏会显示<b>已实时连接到 Power BI 语义模型</b>。若要转换，选择<b>对此模型进行更改</b>；Power BI 会加入本地 DirectQuery 连接，让你扩展模型。"
+     }
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "Keywords: \"reuse the certified model\", \"single source of truth\", \"avoid duplicating measures\" point to connecting to the shared semantic model rather than importing the same data again.",
+      "zh": "关键词：「重用认证模型」「单一事实来源」「避免重复度量值」，都指向连接共享语义模型，而不是再导入一次相同的数据。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "You are live connected to a certified semantic model and need a quick ratio measure for your report only. What can you do?",
+      "zh": "你已实时连接到认证语义模型，只想在自己的报表里加一个比例度量值。可以怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Add a calculated column",
+        "zh": "新增计算列"
+       },
+       "correct": false,
+       "why": {
+        "en": "Not possible on a live connection.",
+        "zh": "实时连接下不能新增计算列。"
+       }
+      },
+      {
+       "html": {
+        "en": "Create a report-level measure",
+        "zh": "新增报表级度量值"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: report-level measures are allowed on a live connection and do not change the shared model.",
+        "zh": "对：实时连接允许报表级度量值，而且不会改动共享模型。"
+       }
+      },
+      {
+       "html": {
+        "en": "Edit the query in Power Query",
+        "zh": "在 Power Query 中编辑查询"
+       },
+       "correct": false,
+       "why": {
+        "en": "Power Query is not available on a live connection.",
+        "zh": "实时连接下无法使用 Power Query。"
+       }
+      },
+      {
+       "html": {
+        "en": "Import the model's tables again",
+        "zh": "重新导入该模型的表"
+       },
+       "correct": false,
+       "why": {
+        "en": "That duplicates data and logic.",
+        "zh": "这会重复数据和逻辑。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "settings-parameters",
+   "heading": {
+    "en": "Data source settings, privacy levels and parameters",
+    "zh": "数据源设置、隐私级别与参数"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-query/power-query-query-parameters",
+   "takeaways": [
+    {
+     "en": "Data source settings is where you change a source path or server and edit or clear credentials.",
+     "zh": "「数据源设置」用来修改数据源路径或服务器，以及编辑或清除凭据。"
+    },
+    {
+     "en": "Privacy levels (Private, Organizational, Public) stop data from one source leaking to another when queries combine them.",
+     "zh": "隐私级别（私有、组织、公共）可在查询合并多个数据源时，防止一个来源的数据泄露给另一个来源。"
+    },
+    {
+     "en": "Parameters make values like a server name or a date reusable and changeable without editing every query.",
+     "zh": "参数让服务器名称、日期等值可以重用和修改，而不必逐一编辑每个查询。"
+    }
+   ],
+   "terms": [
+    "privacy-level",
+    "parameter",
+    "incremental-refresh",
+    "query-folding"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Data source settings",
+      "zh": "数据源设置"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "In Desktop go to <b>File → Options and settings → Data source settings</b> (or Transform data → Data source settings). Here you can <b>Change Source</b> when a file moves or a server is renamed, and <b>Edit Permissions</b> to update credentials and the privacy level. In the service the same credentials are set in the semantic model's settings.",
+      "zh": "在 Desktop 中打开<b>文件 → 选项和设置 → 数据源设置</b>（或「转换数据 → 数据源设置」）。文件搬家或服务器改名时可以<b>更改源</b>，用<b>编辑权限</b>更新凭据和隐私级别。在服务中，同样的凭据是在语义模型的设置里设定。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Privacy levels",
+      "zh": "隐私级别"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Level",
+       "zh": "级别"
+      },
+      {
+       "en": "Meaning",
+       "zh": "含义"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Private",
+        "zh": "私有"
+       },
+       {
+        "en": "Sensitive data; never sent to another source.",
+        "zh": "敏感数据；绝不会发送到其他数据源。"
+       }
+      ],
+      [
+       {
+        "en": "Organizational",
+        "zh": "组织"
+       },
+       {
+        "en": "Can be combined with other Organizational sources, not with Public ones.",
+        "zh": "可以与其他「组织」来源合并，但不能与「公共」来源合并。"
+       }
+      ],
+      [
+       {
+        "en": "Public",
+        "zh": "公共"
+       },
+       {
+        "en": "Anyone can see it, such as open data on the web.",
+        "zh": "任何人都能看到，例如网上的公开数据。"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "If you combine sources with conflicting levels, Power Query raises a <b>Formula.Firewall</b> error or evaluates the sources separately, which can stop query folding and slow refresh.",
+      "zh": "如果合并了隐私级别相冲突的来源，Power Query 会出现 <b>Formula.Firewall</b> 错误，或分开读取各来源，这可能导致查询折叠失效、刷新变慢。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Parameters",
+      "zh": "参数"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>Manage Parameters → New Parameter</b> creates a named value with a type and, optionally, a list of allowed values. Use it in a source step, a filter or a custom column. After publishing, you can change parameter values in the semantic model settings without opening Desktop.",
+      "zh": "<b>管理参数 → 新建参数</b>可建立有名称和类型的值，还可以限定允许的值列表。它可用于数据源步骤、筛选或自定义列。发布后，可以在语义模型设置中修改参数值，不必打开 Desktop。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "// Source step that uses a parameter called ServerName\nlet\n    Source = Sql.Database(ServerName, \"SalesDW\"),\n    Sales  = Source{[Schema = \"dbo\", Item = \"FactSales\"]}[Data]\nin\n    Sales"
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Switch between development and production servers by changing one parameter.",
+       "zh": "只改一个参数，就能在开发和正式服务器之间切换。"
+      },
+      {
+       "en": "<b>Incremental refresh</b> requires two DateTime parameters named exactly <code>RangeStart</code> and <code>RangeEnd</code>.",
+       "zh": "<b>增量刷新</b>需要两个名称必须是 <code>RangeStart</code> 和 <code>RangeEnd</code> 的日期/时间参数。"
+      },
+      {
+       "en": "A <b>Power BI template (.pbit)</b> can prompt for parameter values when someone opens it.",
+       "zh": "<b>Power BI 模板（.pbit）</b>在打开时可以提示输入参数值。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "The report must point to a test server while you develop and to production after publishing, without editing queries. What do you create?",
+      "zh": "开发时报表要连测试服务器，发布后要连正式服务器，而且不想修改查询。应该建立什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Two copies of every query",
+        "zh": "每个查询复制两份"
+       },
+       "correct": false,
+       "why": {
+        "en": "Duplicated queries double the maintenance.",
+        "zh": "复制查询会让维护工作加倍。"
+       }
+      },
+      {
+       "html": {
+        "en": "A parameter for the server name, used in the source step",
+        "zh": "建立服务器名称参数，并在数据源步骤中使用"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: change the parameter in Desktop or in the semantic model settings.",
+        "zh": "对：在 Desktop 或语义模型设置中修改参数即可。"
+       }
+      },
+      {
+       "html": {
+        "en": "A DAX variable",
+        "zh": "DAX 变量"
+       },
+       "correct": false,
+       "why": {
+        "en": "DAX runs on loaded data; it cannot choose the source.",
+        "zh": "DAX 在载入后的数据上运行，不能选择数据源。"
+       }
+      },
+      {
+       "html": {
+        "en": "A privacy level of Public",
+        "zh": "把隐私级别设为公共"
+       },
+       "correct": false,
+       "why": {
+        "en": "Privacy levels do not switch servers.",
+        "zh": "隐私级别不会切换服务器。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "What must the two parameters for incremental refresh be called?",
+      "zh": "增量刷新所用的两个参数必须叫什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Any names, as long as they are Date type",
+        "zh": "任何名称，只要是「日期」类型"
+       },
+       "correct": false,
+       "why": {
+        "en": "The names are fixed and the type is Date/Time, not Date.",
+        "zh": "名称是固定的，类型是「日期/时间」而不是「日期」。"
+       }
+      },
+      {
+       "html": {
+        "en": "RangeStart and RangeEnd",
+        "zh": "RangeStart 和 RangeEnd"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right, and both must be of type Date/Time.",
+        "zh": "对，而且两者都必须是「日期/时间」类型。"
+       }
+      },
+      {
+       "html": {
+        "en": "StartDate and EndDate",
+        "zh": "StartDate 和 EndDate"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "FromDate and ToDate",
+        "zh": "FromDate 和 ToDate"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

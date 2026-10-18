@@ -1,0 +1,1044 @@
+{
+ "id": "c11",
+ "num": 11,
+ "stage": 4,
+ "title": {
+  "en": "Enhance reports for usability and storytelling",
+  "zh": "提升报表的易用性与叙事性"
+ },
+ "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/",
+ "sections": [
+  {
+   "id": "bookmarks",
+   "heading": {
+    "en": "Bookmarks and the Selection pane",
+    "zh": "书签与选择窗格"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-bookmarks",
+   "takeaways": [
+    {
+     "en": "A bookmark captures the state of a page: filters, slicers, sort, drill, spotlight and which visuals are visible.",
+     "zh": "书签会记录页面的状态：筛选器、切片器、排序、钻取、聚焦，以及哪些视觉对象可见。"
+    },
+    {
+     "en": "Untick Data in a bookmark to change only visibility (for example toggling a chart and a table) without resetting filters.",
+     "zh": "在书签中取消勾选「数据」，就只改变可见性（例如切换图表和表格），而不会重设筛选器。"
+    },
+    {
+     "en": "The Selection pane shows, hides, groups and layers visuals; bookmarks remember its state.",
+     "zh": "选择窗格可以显示、隐藏、分组和调整视觉对象的层次；书签会记住它的状态。"
+    }
+   ],
+   "terms": [
+    "bookmark",
+    "selection-pane"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Open <b>View → Bookmarks</b> and <b>View → Selection</b>. Arrange the page, then <b>Add</b> a bookmark. Each bookmark's menu sets what it remembers:",
+      "zh": "打开<b>视图 → 书签</b>和<b>视图 → 选择</b>。把页面安排好后<b>添加</b>书签。每个书签的菜单决定它记住什么："
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Option",
+       "zh": "选项"
+      },
+      {
+       "en": "Remembers",
+       "zh": "记住"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Data",
+        "zh": "数据"
+       },
+       {
+        "en": "Filters, slicers, sort order, drill location",
+        "zh": "筛选器、切片器、排序、钻取位置"
+       }
+      ],
+      [
+       {
+        "en": "Display",
+        "zh": "显示"
+       },
+       {
+        "en": "Visibility, spotlight, focus mode",
+        "zh": "可见性、聚焦、焦点模式"
+       }
+      ],
+      [
+       {
+        "en": "Current page",
+        "zh": "当前页"
+       },
+       {
+        "en": "Which page to open",
+        "zh": "要打开哪一页"
+       }
+      ],
+      [
+       {
+        "en": "All visuals / Selected visuals",
+        "zh": "所有视觉对象 / 所选视觉对象"
+       },
+       {
+        "en": "Apply to the whole page or only the visuals selected when updating",
+        "zh": "套用到整页，或只套用到更新时选取的视觉对象"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Toggle pattern</b>: put a chart and a table in the same spot; bookmark A shows the chart and hides the table, B the opposite; two buttons call the bookmarks. Untick Data so the user's filters survive the switch.",
+       "zh": "<b>切换模式</b>：把图表和表格放在同一位置；书签 A 显示图表、隐藏表格，B 相反；用两个按钮调用这两个书签。取消勾选「数据」，切换时用户的筛选就会保留。"
+      },
+      {
+       "en": "<b>Bookmark navigator</b> creates a row of buttons from a bookmark group, ideal for storytelling and slideshows (View → Bookmarks → View).",
+       "zh": "<b>书签导航器</b>会把一组书签变成一排按钮，非常适合叙事和幻灯片放映（视图 → 书签 → 视图）。"
+      },
+      {
+       "en": "<b>Personal bookmarks</b> in the service let each viewer save their own filter states.",
+       "zh": "服务中的<b>个人书签</b>让每位读者保存自己的筛选状态。"
+      },
+      {
+       "en": "In the Selection pane, group visuals to show/hide them together and set <b>tab order</b> for keyboard users.",
+       "zh": "在选择窗格中，把视觉对象分组以便一起显示/隐藏，并为键盘用户设定<b>Tab 键顺序</b>。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Two buttons switch between a chart and a table in the same place. After switching, the user's slicer selections reset. What should you change?",
+      "zh": "两个按钮在同一位置切换图表和表格。切换后，用户的切片器选择被重设了。应该修改什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Lock the filters",
+        "zh": "锁定筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Untick Data in both bookmarks",
+        "zh": "在两个书签中都取消勾选「数据」"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the bookmarks then change only what is visible.",
+        "zh": "对：这样书签就只改变可见内容。"
+       }
+      },
+      {
+       "html": {
+        "en": "Sync the slicers",
+        "zh": "同步切片器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Untick Display in both bookmarks",
+        "zh": "在两个书签中都取消勾选「显示」"
+       },
+       "correct": false,
+       "why": {
+        "en": "Then the toggle would stop working.",
+        "zh": "那切换就失效了。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tooltips-interactions",
+   "heading": {
+    "en": "Custom tooltips and visual interactions",
+    "zh": "自定义工具提示与视觉对象交互"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips",
+   "takeaways": [
+    {
+     "en": "A report-page tooltip shows a small page of visuals when a user hovers over a data point.",
+     "zh": "报表页工具提示会在用户悬停在数据点上时，显示一个小型视觉对象页面。"
+    },
+    {
+     "en": "Make it with a page set to Allow use as tooltip and canvas type Tooltip; then pick it in the visual's Tooltips settings.",
+     "zh": "制作方法：页面设为「允许用作工具提示」、画布类型选「工具提示」；然后在视觉对象的工具提示设置中选择它。"
+    },
+    {
+     "en": "Edit interactions decides whether selecting in one visual filters, highlights or does nothing to each other visual.",
+     "zh": "「编辑交互」决定在一个视觉对象中选择时，对其他每个视觉对象是筛选、突出显示还是不起作用。"
+    }
+   ],
+   "terms": [
+    "report-page-tooltip",
+    "edit-interactions"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Custom report-page tooltips",
+      "zh": "自定义报表页工具提示"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "en": "Add a new page; in Format page → Page information turn on <b>Allow use as tooltip</b>.",
+       "zh": "新增一个页面；在「设置页面格式 → 页面信息」中开启<b>允许用作工具提示</b>。"
+      },
+      {
+       "en": "Set Canvas settings → Type: <b>Tooltip</b> (a small canvas).",
+       "zh": "设定画布设置 → 类型：<b>工具提示</b>（小画布）。"
+      },
+      {
+       "en": "Build the visuals; optionally add fields to the page's Tooltip well so it appears automatically for those fields.",
+       "zh": "制作视觉对象；也可以把字段加到页面的「工具提示」区域，这样那些字段就会自动显示它。"
+      },
+      {
+       "en": "On the source visual: Format → General → Tooltips → Type: Report page, Page: your tooltip page.",
+       "zh": "在来源视觉对象上：格式 → 常规 → 工具提示 → 类型：报表页，页面：你的工具提示页。"
+      },
+      {
+       "en": "Hide the tooltip page.",
+       "zh": "隐藏工具提示页。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Editing interactions",
+      "zh": "编辑交互"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "By default, selecting a bar cross-highlights or cross-filters every other visual on the page. Select the source visual, then <b>Format → Edit interactions</b>: an icon appears on every other visual.",
+      "zh": "默认情况下，选择一个条形会对页面上其他所有视觉对象进行交叉突出显示或交叉筛选。选取来源视觉对象，然后<b>格式 → 编辑交互</b>：其他每个视觉对象上会出现图标。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Icon",
+       "zh": "图标"
+      },
+      {
+       "en": "Effect on the target visual",
+       "zh": "对目标视觉对象的作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Filter",
+        "zh": "筛选"
+       },
+       {
+        "en": "Shows only the selected data",
+        "zh": "只显示所选数据"
+       }
+      ],
+      [
+       {
+        "en": "Highlight",
+        "zh": "突出显示"
+       },
+       {
+        "en": "Shows all data, with the selected part highlighted",
+        "zh": "显示所有数据，所选部分突出显示"
+       }
+      ],
+      [
+       {
+        "en": "None",
+        "zh": "无"
+       },
+       {
+        "en": "Not affected",
+        "zh": "不受影响"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A card showing company-wide total sales must not change when users click bars in a chart on the same page. What do you do?",
+      "zh": "一张显示公司总销售额的卡片，在用户点击同页图表的条形时不能改变。应该怎么做？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Lock the card's filters",
+        "zh": "锁定卡片的筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "Locking stops users editing filters, not cross-filtering.",
+        "zh": "锁定只阻止用户编辑筛选器，不阻止交叉筛选。"
+       }
+      },
+      {
+       "html": {
+        "en": "Use a bookmark",
+        "zh": "使用书签"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Hide the card in the Selection pane",
+        "zh": "在选择窗格中隐藏卡片"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Edit interactions on the chart and set the card to None",
+        "zh": "对图表编辑交互，把卡片设为「无」"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "navigation-drill",
+   "heading": {
+    "en": "Navigation, sorting, sync slicers and drill",
+    "zh": "导航、排序、同步切片器与钻取"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-drillthrough",
+   "takeaways": [
+    {
+     "en": "Buttons can navigate to a page, apply a bookmark, drill through, go back, or open a web URL; the page navigator builds a menu of pages automatically.",
+     "zh": "按钮可以导航到某页、套用书签、钻取、返回或打开网址；页面导航器会自动生成页面菜单。"
+    },
+    {
+     "en": "Drill-through pages show detail for the item a user right-clicks; a Back button is added automatically.",
+     "zh": "钻取页显示用户右键单击的项目的明细；会自动加上「返回」按钮。"
+    },
+    {
+     "en": "Sync slicers (View → Sync slicers) makes one slicer apply, and optionally appear, on several pages.",
+     "zh": "同步切片器（视图 → 同步切片器）让一个切片器作用于多个页面，并可选择是否在这些页面显示。"
+    }
+   ],
+   "terms": [
+    "drill-through",
+    "sync-slicers",
+    "hierarchy"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Navigation",
+      "zh": "导航"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "<b>Insert → Buttons</b>; set Action type: Back, Bookmark, Drill through, Page navigation, Q&amp;A, Web URL, Apply/Clear all slicers.",
+       "zh": "<b>插入 → 按钮</b>；设定操作类型：返回、书签、钻取、页面导航、问答、Web URL、应用/清除所有切片器。"
+      },
+      {
+       "en": "<b>Page navigator</b> and <b>bookmark navigator</b> create a set of buttons that stays up to date as you add pages or bookmarks.",
+       "zh": "<b>页面导航器</b>和<b>书签导航器</b>会建立一组按钮，新增页面或书签时会自动更新。"
+      },
+      {
+       "en": "In Desktop, Ctrl+click follows a button; in the service a normal click works.",
+       "zh": "在 Desktop 中按 Ctrl+单击才会执行按钮；在服务中直接单击即可。"
+      }
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Drill-through",
+      "zh": "钻取"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Create a detail page and drag a field (for example Product[Name]) into its <b>Drill through</b> well. On any other page, right-click a data point that includes that field → <b>Drill through</b> → the page opens filtered to that product. <b>Keep all filters</b> also passes the source page's other filters. <b>Cross-report drill-through</b> can target a page in another report in the same workspace.",
+      "zh": "建立明细页，把字段（例如 Product[Name]）拖进它的<b>钻取</b>区域。在其他任何页面，右键单击包含该字段的数据点 → <b>钻取</b> → 打开已按该产品筛选的页面。<b>保留所有筛选器</b>还会传递来源页的其他筛选条件。<b>跨报表钻取</b>可以指向同一工作区中另一份报表的页面。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Drill down in hierarchies",
+      "zh": "层次结构中的向下钻取"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Control",
+       "zh": "控件"
+      },
+      {
+       "en": "Effect",
+       "zh": "作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Drill down (↓ arrow on)",
+        "zh": "向下钻取（开启 ↓ 箭头）"
+       },
+       {
+        "en": "Click a bar to go to the next level for that bar only",
+        "zh": "点击某个条形，只针对它进入下一层"
+       }
+      ],
+      [
+       {
+        "en": "Go to the next level (⇊)",
+        "zh": "转至层次结构中的下一级别（⇊）"
+       },
+       {
+        "en": "All data at the next level, without the parent",
+        "zh": "显示下一层的所有数据，不含父级"
+       }
+      ],
+      [
+       {
+        "en": "Expand all down one level (⑂)",
+        "zh": "展开层次结构中的所有下移级别（⑂）"
+       },
+       {
+        "en": "Next level shown with its parent, e.g. 2026 Jan",
+        "zh": "显示下一层并带上父级，例如 2026 Jan"
+       }
+      ],
+      [
+       {
+        "en": "Drill up (↑)",
+        "zh": "向上钻取（↑）"
+       },
+       {
+        "en": "Back one level",
+        "zh": "返回上一层"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Sorting and sync slicers",
+      "zh": "排序与同步切片器"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Sort a visual from its <b>More options (…) → Sort axis</b>; tables sort by clicking a header. Text that should not sort alphabetically needs <b>Sort by column</b> in the model. Under <b>View → Sync slicers</b>, tick per page whether the slicer is <b>synced</b> (filters that page) and <b>visible</b> (appears on it).",
+      "zh": "在视觉对象的<b>更多选项（…）→ 排序轴</b>中排序；表格则点击列标题排序。不应按字母排序的文字，需要在模型中设定<b>按列排序</b>。在<b>视图 → 同步切片器</b>中，按页面勾选切片器是否<b>同步</b>（筛选该页）以及是否<b>可见</b>（在该页显示）。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A Year slicer on the Overview page must also filter the Detail and Trend pages, but appear only on Overview. What do you configure?",
+      "zh": "Overview 页上的 Year 切片器也要筛选 Detail 和 Trend 页，但只在 Overview 页显示。要设定什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Edit interactions",
+        "zh": "编辑交互"
+       },
+       "correct": false,
+       "why": {
+        "en": "Interactions work only within a page.",
+        "zh": "交互只在同一页面内起作用。"
+       }
+      },
+      {
+       "html": {
+        "en": "Copy the slicer to each page and hide it",
+        "zh": "把切片器复制到每一页再隐藏"
+       },
+       "correct": false,
+       "why": {
+        "en": "Copies without sync do not share selections.",
+        "zh": "不同步的副本不会共享选择。"
+       }
+      },
+      {
+       "html": {
+        "en": "Sync slicers: synced on all three pages, visible only on Overview",
+        "zh": "同步切片器：三页都同步，只在 Overview 可见"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A drill-through filter",
+        "zh": "钻取筛选器"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Users should right-click a customer in any visual and open a page with that customer's order history. What do you build?",
+      "zh": "用户在任何视觉对象中右键单击某个客户，就要打开显示该客户订单历史的页面。应该制作什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A hierarchy on Customer",
+        "zh": "在 Customer 上建立层次结构"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A bookmark per customer",
+        "zh": "每个客户一个书签"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A drill-through page with Customer in the Drill through well",
+        "zh": "钻取页，把 Customer 放在「钻取」区域"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A tooltip page",
+        "zh": "工具提示页"
+       },
+       "correct": false,
+       "why": {
+        "en": "Tooltips appear on hover and cannot show a long history comfortably.",
+        "zh": "工具提示在悬停时出现，不适合显示很长的历史。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "export-mobile",
+   "heading": {
+    "en": "Export, mobile layout and accessibility",
+    "zh": "导出、移动布局与无障碍"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-export-data",
+   "takeaways": [
+    {
+     "en": "Report settings control whether users may export summarised data, underlying data, or nothing; the tenant admin sets the upper limit.",
+     "zh": "报表设置控制用户可以导出汇总数据、基础数据，还是什么都不能导出；租户管理员设定上限。"
+    },
+    {
+     "en": "Export options: data from a visual (CSV/Excel), the report to PDF or PowerPoint, Analyze in Excel, and paginated report formats.",
+     "zh": "导出选项：视觉对象中的数据（CSV/Excel）、把报表导出为 PDF 或 PowerPoint、在 Excel 中分析，以及分页报表的格式。"
+    },
+    {
+     "en": "Mobile layout (View → Mobile layout) arranges existing visuals for phones in portrait.",
+     "zh": "移动布局（视图 → 移动布局）为竖屏手机重新排列现有的视觉对象。"
+    }
+   ],
+   "terms": [
+    "analyze-in-excel",
+    "mobile-layout"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Export",
+      "zh": "导出"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Export",
+       "zh": "导出"
+      },
+      {
+       "en": "What you get",
+       "zh": "得到什么"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Visual → More options → Export data",
+        "zh": "视觉对象 → 更多选项 → 导出数据"
+       },
+       {
+        "en": "<b>Summarized data</b> (what the visual shows) or <b>Underlying data</b> (rows behind it), as .xlsx or .csv",
+        "zh": "<b>汇总数据</b>（视觉对象所显示的）或<b>基础数据</b>（背后的行），格式为 .xlsx 或 .csv"
+       }
+      ],
+      [
+       {
+        "en": "Export → PDF / PowerPoint",
+        "zh": "导出 → PDF / PowerPoint"
+       },
+       {
+        "en": "Pages as images (PowerPoint can also embed live pages)",
+        "zh": "页面以图片形式输出（PowerPoint 也可以嵌入实时页面）"
+       }
+      ],
+      [
+       {
+        "en": "Analyze in Excel",
+        "zh": "在 Excel 中分析"
+       },
+       {
+        "en": "A live PivotTable connected to the semantic model (needs Build permission)",
+        "zh": "连接语义模型的实时数据透视表（需要生成权限）"
+       }
+      ],
+      [
+       {
+        "en": "Paginated report export",
+        "zh": "分页报表导出"
+       },
+       {
+        "en": "PDF, Word, Excel, CSV, XML, MHTML and more",
+        "zh": "PDF、Word、Excel、CSV、XML、MHTML 等"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Control it in Desktop: <b>File → Options and settings → Options → Current file → Report settings → Export data</b> (allow summarized and underlying, summarized only, or none), and in the service under the report's settings.",
+      "zh": "在 Desktop 中设定：<b>文件 → 选项和设置 → 选项 → 当前文件 → 报表设置 → 导出数据</b>（允许汇总和基础数据、仅允许汇总数据，或都不允许），在服务中则在报表设置里。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Mobile layout",
+      "zh": "移动布局"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>View → Mobile layout</b> opens a phone-shaped canvas. Drag visuals from the Page visuals pane and resize them. The mobile layout only rearranges visuals of the desktop page; it does not create new ones, and formatting can be adjusted separately for mobile.",
+      "zh": "<b>视图 → 移动布局</b>会打开手机形状的画布。从「页面视觉对象」窗格拖入视觉对象并调整大小。移动布局只重新排列桌面页面中的视觉对象，不会建立新的视觉对象；格式可以针对移动版单独调整。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Accessibility",
+      "zh": "无障碍"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Add <b>alt text</b> to visuals (Format → General → Alt text).",
+       "zh": "为视觉对象加上<b>替代文字</b>（格式 → 常规 → 替代文字）。"
+      },
+      {
+       "en": "Set <b>tab order</b> in the Selection pane; hide decorative shapes from tab order.",
+       "zh": "在选择窗格中设定 <b>Tab 键顺序</b>；把装饰性形状从 Tab 顺序中移除。"
+      },
+      {
+       "en": "Use enough colour contrast and do not rely on colour alone (add labels or markers).",
+       "zh": "使用足够的颜色对比，不要只依靠颜色（加上标签或标记）。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Users may export what a visual shows but must not export the detailed rows behind it. Which setting?",
+      "zh": "用户可以导出视觉对象所显示的内容，但不能导出背后的明细行。用哪个设置？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Export data: allow summarized data only",
+        "zh": "导出数据：仅允许汇总数据"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Hide the visual header",
+        "zh": "隐藏视觉对象标头"
+       },
+       "correct": false,
+       "why": {
+        "en": "Hides the menu but is not a reliable control.",
+        "zh": "只是隐藏菜单，不是可靠的控制。"
+       }
+      },
+      {
+       "html": {
+        "en": "Row-level security",
+        "zh": "行级别安全性"
+       },
+       "correct": false,
+       "why": {
+        "en": "RLS limits which rows a user may see at all, not export.",
+        "zh": "RLS 限制的是用户能看到哪些行，而不是导出。"
+       }
+      },
+      {
+       "html": {
+        "en": "Mark the report as certified",
+        "zh": "把报表标记为已认证"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qna-copilot",
+   "heading": {
+    "en": "Q&A and Copilot in reports",
+    "zh": "报表中的问答与 Copilot"
+   },
+   "min": 8,
+   "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction",
+   "takeaways": [
+    {
+     "en": "The Q&A visual answers questions typed in natural language; synonyms and Q&A setup teach it your terms.",
+     "zh": "问答视觉对象可以回答用自然语言输入的问题；同义词和问答设置能教它认识你的术语。"
+    },
+    {
+     "en": "Copilot can create a narrative visual, suggest and create a new report page, and summarise the semantic model.",
+     "zh": "Copilot 可以建立叙述视觉对象、建议并建立新的报表页面，以及总结语义模型。"
+    },
+    {
+     "en": "Copilot needs a paid Fabric capacity (or Premium) and must be enabled by the tenant admin; always check its output.",
+     "zh": "Copilot 需要付费的 Fabric 容量（或 Premium），并须由租户管理员启用；一定要检查它的输出。"
+    }
+   ],
+   "terms": [
+    "qna",
+    "copilot",
+    "synonyms"
+   ],
+   "blocks": [
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Q&A",
+      "zh": "问答"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Add a <b>Q&amp;A visual</b> (or double-click an empty canvas) and type \"total sales by region last year as a bar chart\". Q&amp;A picks the fields and the visual. You can <b>turn the answer into a standard visual</b>. Improve results with clear table and column names, <b>synonyms</b> in Model view, and <b>Q&amp;A setup</b>, where you review questions users asked and teach terms.",
+      "zh": "加入<b>问答视觉对象</b>（或双击空白画布），输入「total sales by region last year as a bar chart」。问答会选择字段和视觉对象。你可以<b>把答案转换为标准视觉对象</b>。要改进结果，可使用清晰的表名和列名、模型视图中的<b>同义词</b>，以及<b>问答设置</b>——在那里检查用户问过的问题并教它新术语。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Copilot in Power BI",
+      "zh": "Power BI 中的 Copilot"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Exam skill",
+       "zh": "考试技能"
+      },
+      {
+       "en": "Where",
+       "zh": "位置"
+      },
+      {
+       "en": "What it does",
+       "zh": "作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Create a narrative visual with Copilot",
+        "zh": "使用 Copilot 建立叙述视觉对象"
+       },
+       {
+        "en": "Narrative visual → Copilot",
+        "zh": "叙述视觉对象 → Copilot"
+       },
+       {
+        "en": "Writes a text summary of the visuals on the page or report, updated as filters change; you can choose a prompt such as \"Give an executive summary\"",
+        "zh": "为页面或报表上的视觉对象写出文字摘要，并随筛选更新；可以选择「给出管理层摘要」之类的提示"
+       }
+      ],
+      [
+       {
+        "en": "Use Copilot to create a new report page",
+        "zh": "使用 Copilot 建立新的报表页面"
+       },
+       {
+        "en": "Copilot pane → Suggest content / Create a page",
+        "zh": "Copilot 窗格 → 建议内容 / 建立页面"
+       },
+       {
+        "en": "Proposes page outlines from the model, or builds a page from your description",
+        "zh": "根据模型提出页面大纲，或按照你的描述建立页面"
+       }
+      ],
+      [
+       {
+        "en": "Use Copilot to summarize the underlying semantic model",
+        "zh": "使用 Copilot 总结底层语义模型"
+       },
+       {
+        "en": "Copilot pane",
+        "zh": "Copilot 窗格"
+       },
+       {
+        "en": "Describes the tables, measures and what the data covers, and answers questions about it",
+        "zh": "描述表、度量值以及数据涵盖的内容，并回答相关问题"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "caution",
+     "html": {
+      "en": "Copilot output can be wrong. Check every number against the visuals, and give measures and columns clear names and descriptions — Copilot relies on them.",
+      "zh": "Copilot 的输出可能有错。要把每个数字和视觉对象对照检查，并给度量值和列取清楚的名称、写好说明——Copilot 依赖这些信息。"
+     }
+    },
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "en": "Requirements: a workspace on a paid Fabric capacity (F SKU) or Power BI Premium capacity, and Copilot enabled in the tenant settings.",
+       "zh": "要求：工作区位于付费的 Fabric 容量（F SKU）或 Power BI Premium 容量上，并且在租户设置中启用了 Copilot。"
+      },
+      {
+       "en": "Prepare the model for AI: descriptions, synonyms, hide technical columns, and avoid ambiguous names.",
+       "zh": "让模型为 AI 做好准备：写说明、加同义词、隐藏技术性的列，并避免含糊的名称。"
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A manager wants a paragraph on the report page that summarises the key changes shown in the visuals and updates when filters change. What do you add?",
+      "zh": "经理希望报表页上有一段文字，总结视觉对象呈现的主要变化，并在筛选改变时更新。应该加入什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "A narrative visual with Copilot",
+        "zh": "使用 Copilot 的叙述视觉对象"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "A text box",
+        "zh": "文本框"
+       },
+       "correct": false,
+       "why": {
+        "en": "Static text does not update with filters.",
+        "zh": "静态文字不会随筛选更新。"
+       }
+      },
+      {
+       "html": {
+        "en": "A Q&A visual",
+        "zh": "问答视觉对象"
+       },
+       "correct": false,
+       "why": {
+        "en": "Q&A answers a question with a visual, not a summary.",
+        "zh": "问答是用视觉对象回答问题，而不是写摘要。"
+       }
+      },
+      {
+       "html": {
+        "en": "A tooltip page",
+        "zh": "工具提示页"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Q&A does not understand when users type \"revenue\", but the measure is called Sales Amount. What helps?",
+      "zh": "用户输入「revenue」时问答看不懂，但度量值叫 Sales Amount。怎么做有帮助？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Turn on Auto date/time",
+        "zh": "开启「自动日期/时间」"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Add a bookmark",
+        "zh": "加入书签"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Rename the table",
+        "zh": "重命名表"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Add \"revenue\" as a synonym of Sales Amount",
+        "zh": "把「revenue」加为 Sales Amount 的同义词"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

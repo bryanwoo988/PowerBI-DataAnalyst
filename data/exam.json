@@ -1,0 +1,3467 @@
+[
+ {
+  "id": "p01",
+  "domain": 2,
+  "q": {
+   "en": "You connect to a 300-table SQL Server database but need only 4 tables, with only some columns. Where should you remove the rest?",
+   "zh": "你连接到一个有 300 张表的 SQL Server 数据库，但只需要其中 4 张表的部分列。应该在哪里移除其余部分？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Select only the 4 tables in Navigator and remove columns in Power Query",
+     "zh": "在导航器中只选 4 张表，并在 Power Query 中删除列"
+    },
+    "correct": true,
+    "why": {
+     "en": "Removing early folds to the source and keeps the model small.",
+     "zh": "尽早删除可以折叠到数据源，并让模型保持精简。"
+    }
+   },
+   {
+    "html": {
+     "en": "Load everything, then hide the unused tables",
+     "zh": "全部加载，再隐藏没用的表"
+    },
+    "correct": false,
+    "why": {
+     "en": "Hidden tables still use memory and refresh time.",
+     "zh": "隐藏的表仍占用内存和刷新时间。"
+    }
+   },
+   {
+    "html": {
+     "en": "Use a visual-level filter",
+     "zh": "使用视觉对象级筛选器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Delete the tables in Model view after loading",
+     "zh": "加载后在模型视图中删除表"
+    },
+    "correct": false,
+    "why": {
+     "en": "Works, but loads unnecessary data first.",
+     "zh": "可行，但会先加载不必要的数据。"
+    }
+   }
+  ],
+  "ref": "c05/loading"
+ },
+ {
+  "id": "p02",
+  "domain": 2,
+  "q": {
+   "en": "A query combines a Private HR spreadsheet with an Organizational SQL source and fails with Formula.Firewall. What is the cause?",
+   "zh": "某查询合并了一个隐私级别为「私有」的人力资源电子表格和一个「组织」级别的 SQL 数据源，结果出现 Formula.Firewall 错误。原因是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Incompatible privacy levels between the combined sources",
+     "zh": "合并的数据源之间隐私级别不兼容"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The gateway is offline",
+     "zh": "网关离线"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A column type is wrong",
+     "zh": "某列的类型错误"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "RLS blocks the query",
+     "zh": "RLS 阻止了查询"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c02/settings-parameters"
+ },
+ {
+  "id": "p03",
+  "domain": 2,
+  "q": {
+   "en": "Which Power Query feature lets you type the desired output for a few rows and generates the transformation for you?",
+   "zh": "哪个 Power Query 功能让你只需为几行输入想要的结果，就会自动生成转换？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Column from Examples",
+     "zh": "示例中的列"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Conditional column",
+     "zh": "条件列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Invoke custom function",
+     "zh": "调用自定义函数"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Fill down",
+     "zh": "向下填充"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c04/types-columns"
+ },
+ {
+  "id": "p04",
+  "domain": 2,
+  "q": {
+   "en": "Column distribution shows 1,000 distinct and 1,000 unique values for OrderID, but profiling is on the top 1,000 rows. What can you conclude about the 5-million-row table?",
+   "zh": "「列分布」显示 OrderID 有 1,000 个非重复值和 1,000 个唯一值，但分析只基于前 1,000 行。对这张 500 万行的表能得出什么结论？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Nothing certain; profile the entire data set to check uniqueness",
+     "zh": "无法确定；要对整个数据集分析才能检查唯一性"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "OrderID is unique in the whole table",
+     "zh": "OrderID 在整张表中都唯一"
+    },
+    "correct": false,
+    "why": {
+     "en": "Only the first 1,000 rows were checked.",
+     "zh": "只检查了前 1,000 行。"
+    }
+   },
+   {
+    "html": {
+     "en": "OrderID has errors",
+     "zh": "OrderID 有错误"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The table has 1,000 rows",
+     "zh": "这张表有 1,000 行"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c03/profiling"
+ },
+ {
+  "id": "p05",
+  "domain": 2,
+  "q": {
+   "en": "You must keep only rows from the Orders table whose CustomerID exists in the Customers table. Which merge from Orders?",
+   "zh": "你只想保留 Orders 表中 CustomerID 存在于 Customers 表的行。从 Orders 进行合并时，用哪种联接？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Inner join",
+     "zh": "内部联接"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Left anti join",
+     "zh": "左反联接"
+    },
+    "correct": false,
+    "why": {
+     "en": "That keeps orders with no matching customer.",
+     "zh": "那会保留没有匹配客户的订单。"
+    }
+   },
+   {
+    "html": {
+     "en": "Full outer join",
+     "zh": "完全外部联接"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Right anti join",
+     "zh": "右反联接"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c05/merge-append"
+ },
+ {
+  "id": "p06",
+  "domain": 2,
+  "q": {
+   "en": "A Sales table has columns Product, 2024, 2025, 2026 (sales per year). You need columns Product, Year, Sales. What do you do?",
+   "zh": "Sales 表有 Product、2024、2025、2026（每年的销售额）列。你需要的是 Product、Year、Sales 三列。怎么做？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Select Product and Unpivot Other Columns, then rename Attribute to Year and Value to Sales",
+     "zh": "选取 Product 执行「逆透视其他列」，再把 Attribute 改名为 Year、Value 改名为 Sales"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Pivot the Product column",
+     "zh": "透视 Product 列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Transpose the table",
+     "zh": "转置表格"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Group By Product",
+     "zh": "按 Product 分组"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c04/group-pivot"
+ },
+ {
+  "id": "p07",
+  "domain": 2,
+  "q": {
+   "en": "Which storage mode should you choose for a 50 MB Excel workbook used in a monthly report?",
+   "zh": "一份每月报表使用 50 MB 的 Excel 工作簿，应选哪种存储模式？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Import",
+     "zh": "导入"
+    },
+    "correct": true,
+    "why": {
+     "en": "Small, not real-time: Import is fastest and simplest.",
+     "zh": "数据小、不需要实时：导入最快也最简单。"
+    }
+   },
+   {
+    "html": {
+     "en": "DirectQuery",
+     "zh": "DirectQuery"
+    },
+    "correct": false,
+    "why": {
+     "en": "Excel does not support DirectQuery.",
+     "zh": "Excel 不支持 DirectQuery。"
+    }
+   },
+   {
+    "html": {
+     "en": "Direct Lake",
+     "zh": "Direct Lake"
+    },
+    "correct": false,
+    "why": {
+     "en": "Direct Lake needs Delta tables in OneLake.",
+     "zh": "Direct Lake 需要 OneLake 中的 Delta 表。"
+    }
+   },
+   {
+    "html": {
+     "en": "Dual",
+     "zh": "双重"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c02/storage-modes"
+ },
+ {
+  "id": "p08",
+  "domain": 2,
+  "q": {
+   "en": "You want to stop a large helper query from being stored in the model while other queries still use it. What do you change?",
+   "zh": "你希望某个大型辅助查询不被存入模型，但其他查询仍能使用它。要修改什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Clear Enable load on the helper query",
+     "zh": "取消辅助查询的「启用加载」"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Clear Include in report refresh",
+     "zh": "取消「包含在报表刷新中」"
+    },
+    "correct": false,
+    "why": {
+     "en": "The table would still be loaded, just not refreshed.",
+     "zh": "表仍会被加载，只是不刷新。"
+    }
+   },
+   {
+    "html": {
+     "en": "Hide the table in Report view",
+     "zh": "在报表视图中隐藏表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Delete the query",
+     "zh": "删除查询"
+    },
+    "correct": false,
+    "why": {
+     "en": "Other queries depend on it.",
+     "zh": "其他查询依赖它。"
+    }
+   }
+  ],
+  "ref": "c05/loading"
+ },
+ {
+  "id": "p09",
+  "domain": 2,
+  "q": {
+   "en": "Source data has a Date/Time column with seconds, but reports only use the date. What gives the best model size?",
+   "zh": "源数据有一个含秒数的「日期/时间」列，但报表只用到日期。怎样能让模型最小？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Change the column to the Date type in Power Query",
+     "zh": "在 Power Query 中把该列改为「日期」类型"
+    },
+    "correct": true,
+    "why": {
+     "en": "Far fewer distinct values compress far better.",
+     "zh": "非重复值少得多，压缩效果也好得多。"
+    }
+   },
+   {
+    "html": {
+     "en": "Keep Date/Time and format it as a date",
+     "zh": "保留「日期/时间」，只把格式设为日期"
+    },
+    "correct": false,
+    "why": {
+     "en": "Formatting does not change stored values.",
+     "zh": "格式不改变存储的值。"
+    }
+   },
+   {
+    "html": {
+     "en": "Convert it to Text",
+     "zh": "转换为文本"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Add a calculated column with DATEVALUE",
+     "zh": "新增使用 DATEVALUE 的计算列"
+    },
+    "correct": false,
+    "why": {
+     "en": "The original column would still be stored.",
+     "zh": "原本的列仍会被存储。"
+    }
+   }
+  ],
+  "ref": "c09/remove"
+ },
+ {
+  "id": "p10",
+  "domain": 2,
+  "q": {
+   "en": "A team must change which database a published semantic model reads from without opening Power BI Desktop. What should the model use?",
+   "zh": "团队需要在不打开 Power BI Desktop 的情况下，更改已发布语义模型读取的数据库。模型应该使用什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A Power Query parameter for the database name",
+     "zh": "数据库名称的 Power Query 参数"
+    },
+    "correct": true,
+    "why": {
+     "en": "Parameters can be edited in the semantic model settings in the service.",
+     "zh": "参数可在服务中的语义模型设置里编辑。"
+    }
+   },
+   {
+    "html": {
+     "en": "A DAX variable",
+     "zh": "DAX 变量"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A what-if parameter",
+     "zh": "假设参数"
+    },
+    "correct": false,
+    "why": {
+     "en": "What-if parameters create DAX tables for scenarios.",
+     "zh": "假设参数是为情境分析建立的 DAX 表。"
+    }
+   },
+   {
+    "html": {
+     "en": "A bookmark",
+     "zh": "书签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c02/settings-parameters"
+ },
+ {
+  "id": "p11",
+  "domain": 2,
+  "q": {
+   "en": "You combine 24 CSV files from a folder. One file has an extra column. What happens with Combine Files?",
+   "zh": "你从文件夹合并 24 个 CSV 文件，其中一个文件多了一列。使用「合并文件」会怎样？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Columns follow the sample file, so the extra column is ignored unless you change the steps",
+     "zh": "列以示例文件为准，所以除非修改步骤，否则多出的列会被忽略"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Refresh fails",
+     "zh": "刷新失败"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Power BI creates a second table",
+     "zh": "Power BI 建立第二张表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The extra column is appended to every file",
+     "zh": "多出的列会加到每个文件"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c02/sources"
+ },
+ {
+  "id": "p12",
+  "domain": 2,
+  "q": {
+   "en": "You must create Product and Customer dimensions from one denormalised Sales staging query. Which operation removes repeated product rows?",
+   "zh": "你要从一个反规范化的 Sales 暂存查询建立 Product 和 Customer 维度表。哪个操作能去掉重复的产品行？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Keep the product columns, then Remove Duplicates on the key",
+     "zh": "保留产品列，然后对键执行「删除重复项」"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Remove Errors",
+     "zh": "删除错误"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Unpivot Columns",
+     "zh": "逆透视列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Append Queries",
+     "zh": "追加查询"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c05/reference-duplicate"
+ },
+ {
+  "id": "p13",
+  "domain": 2,
+  "q": {
+   "en": "A connection to Salesforce fails in the service a few months after publishing, while it works in Desktop. What is the most likely fix?",
+   "zh": "发布几个月后，与 Salesforce 的连接在服务中失败，但在 Desktop 中正常。最可能的解决办法是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Re-enter (re-authenticate) the data source credentials in the semantic model settings",
+     "zh": "在语义模型设置中重新输入（重新验证）数据源凭据"
+    },
+    "correct": true,
+    "why": {
+     "en": "OAuth tokens expire.",
+     "zh": "OAuth 令牌会过期。"
+    }
+   },
+   {
+    "html": {
+     "en": "Install a gateway",
+     "zh": "安装网关"
+    },
+    "correct": false,
+    "why": {
+     "en": "Salesforce is a cloud source.",
+     "zh": "Salesforce 是云端数据源。"
+    }
+   },
+   {
+    "html": {
+     "en": "Change the privacy level to Public",
+     "zh": "把隐私级别改为公共"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Republish as DirectQuery",
+     "zh": "改用 DirectQuery 重新发布"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c03/import-errors"
+ },
+ {
+  "id": "p14",
+  "domain": 2,
+  "q": {
+   "en": "Which statement about a reference query is true?",
+   "zh": "关于引用查询，哪个说法正确？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "It starts from the output of the original query, so later changes to the original affect it",
+     "zh": "它以原查询的输出为起点，所以原查询之后的修改会影响它"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "It copies all the original's steps and is then independent",
+     "zh": "它复制原查询的所有步骤，之后彼此独立"
+    },
+    "correct": false,
+    "why": {
+     "en": "That is Duplicate.",
+     "zh": "那是「复制」。"
+    }
+   },
+   {
+    "html": {
+     "en": "It caches the original's result so the source is read only once",
+     "zh": "它会缓存原查询的结果，所以数据源只被读取一次"
+    },
+    "correct": false,
+    "why": {
+     "en": "Each referencing query is evaluated separately.",
+     "zh": "每个引用查询都会各自计算。"
+    }
+   },
+   {
+    "html": {
+     "en": "It can only be used with Import mode",
+     "zh": "它只能用于导入模式"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c05/reference-duplicate"
+ },
+ {
+  "id": "p15",
+  "domain": 2,
+  "q": {
+   "en": "Sales lines must relate to a Promotions table whose key is PromoCode + Region. What should you do in Power Query?",
+   "zh": "销售明细要关联到 Promotions 表，而该表的键是 PromoCode + Region。在 Power Query 中该怎么做？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Add a merged column PromoCode|Region in both tables and relate on it",
+     "zh": "在两张表中都新增合并列 PromoCode|Region，并以它建立关系"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Relate on PromoCode only",
+     "zh": "只用 PromoCode 建立关系"
+    },
+    "correct": false,
+    "why": {
+     "en": "PromoCode alone is not unique.",
+     "zh": "单靠 PromoCode 不唯一。"
+    }
+   },
+   {
+    "html": {
+     "en": "Append Promotions to Sales",
+     "zh": "把 Promotions 追加到 Sales"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Transpose Promotions",
+     "zh": "转置 Promotions"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c05/fact-dimension"
+ },
+ {
+  "id": "p16",
+  "domain": 2,
+  "q": {
+   "en": "A JSON API returns orders, each with a nested list of order lines. You need one row per order line. Which step?",
+   "zh": "某 JSON API 返回订单，每个订单都有嵌套的明细列表。你需要每个明细一行。用哪个步骤？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Expand the lines column to new rows",
+     "zh": "把明细列展开为新行"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Extract values with a comma delimiter",
+     "zh": "用逗号分隔符提取值"
+    },
+    "correct": false,
+    "why": {
+     "en": "That makes one text value per order.",
+     "zh": "那会让每个订单变成一个文字值。"
+    }
+   },
+   {
+    "html": {
+     "en": "Pivot the lines column",
+     "zh": "透视明细列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Group By order",
+     "zh": "按订单分组"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c04/semi-structured"
+ },
+ {
+  "id": "p17",
+  "domain": 2,
+  "q": {
+   "en": "You connect to a Power BI semantic model published by the central BI team and need to add a small Excel table of regional targets. What do you do?",
+   "zh": "你连接了中央 BI 团队发布的 Power BI 语义模型，还需要加入一张小型的区域目标 Excel 表。怎么做？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Convert to a composite model (Make changes to this model) and add the Excel table",
+     "zh": "转换为组合模型（对此模型进行更改），再加入 Excel 表"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Add the Excel data as report-level measures",
+     "zh": "把 Excel 数据作为报表级度量值加入"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Ask for Write permission on the central model",
+     "zh": "申请中央模型的写入权限"
+    },
+    "correct": false,
+    "why": {
+     "en": "That changes the shared model for everyone.",
+     "zh": "那会为所有人修改共享模型。"
+    }
+   },
+   {
+    "html": {
+     "en": "It is impossible with a shared model",
+     "zh": "对共享模型来说不可能"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c02/shared-models"
+ },
+ {
+  "id": "m01",
+  "domain": 3,
+  "q": {
+   "en": "A Budget table is at month and product-category level; Sales is at day and product level. How should Budget relate to the model?",
+   "zh": "Budget 表的粒度是月份和产品类别；Sales 的粒度是日和产品。Budget 应如何关联到模型？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Relate Budget to dimension tables at its own grain (e.g. a Category dimension and a month-level date key), not to Sales",
+     "zh": "让 Budget 以自己的粒度关联到维度表（例如 Category 维度和月份级的日期键），而不是关联到 Sales"
+    },
+    "correct": true,
+    "why": {
+     "en": "Fact tables relate to dimensions, never to each other.",
+     "zh": "事实表只与维度表关联，事实表之间不直接关联。"
+    }
+   },
+   {
+    "html": {
+     "en": "Relate Budget directly to Sales",
+     "zh": "让 Budget 直接关联 Sales"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Append Budget to Sales",
+     "zh": "把 Budget 追加到 Sales"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Use a one-to-one relationship with Product",
+     "zh": "与 Product 建立一对一关系"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/star-schema"
+ },
+ {
+  "id": "m02",
+  "domain": 3,
+  "q": {
+   "en": "Total Sales shows the same value for every product in a table visual. What is the most likely cause?",
+   "zh": "在表格视觉对象中，Total Sales 对每个产品都显示相同的值。最可能的原因是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "There is no active relationship between Product and Sales (or it filters the wrong way)",
+     "zh": "Product 和 Sales 之间没有活动关系（或筛选方向错误）"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Total Sales uses SUM",
+     "zh": "Total Sales 使用了 SUM"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The report needs refreshing",
+     "zh": "报表需要刷新"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Auto date/time is off",
+     "zh": "「自动日期/时间」已关闭"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/relationships"
+ },
+ {
+  "id": "m03",
+  "domain": 3,
+  "q": {
+   "en": "Which DAX expression returns the number of customers who bought something in the current filter context?",
+   "zh": "哪个 DAX 表达式返回在当前筛选上下文中有购买行为的客户数量？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "DISTINCTCOUNT(Sales[CustomerID])",
+     "zh": "DISTINCTCOUNT(Sales[CustomerID])"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "COUNTROWS(Customer)",
+     "zh": "COUNTROWS(Customer)"
+    },
+    "correct": false,
+    "why": {
+     "en": "Counts all customers, including those without purchases.",
+     "zh": "会计算所有客户，包括没有购买的。"
+    }
+   },
+   {
+    "html": {
+     "en": "COUNT(Customer[CustomerID])",
+     "zh": "COUNT(Customer[CustomerID])"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "SUM(Sales[CustomerID])",
+     "zh": "SUM(Sales[CustomerID])"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c07/measures"
+ },
+ {
+  "id": "m04",
+  "domain": 3,
+  "q": {
+   "en": "Measure: Sales All Regions = CALCULATE([Total Sales], ALL(Store[Region])). A slicer selects Region = West. What does the measure show?",
+   "zh": "度量值：Sales All Regions = CALCULATE([Total Sales], ALL(Store[Region]))。切片器选择 Region = West。这个度量值显示什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Sales for all regions — ALL removes the slicer's Region filter",
+     "zh": "所有区域的销售额——ALL 移除了切片器的 Region 筛选"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Sales for West",
+     "zh": "West 的销售额"
+    },
+    "correct": false,
+    "why": {
+     "en": "That would need ALLSELECTED or no modifier.",
+     "zh": "那需要用 ALLSELECTED 或不加修饰函数。"
+    }
+   },
+   {
+    "html": {
+     "en": "Blank",
+     "zh": "空白"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "An error",
+     "zh": "错误"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c07/calculate"
+ },
+ {
+  "id": "m05",
+  "domain": 3,
+  "q": {
+   "en": "You need YoY growth % for Total Sales. Which pattern is correct?",
+   "zh": "你需要 Total Sales 的同比增长 %。哪种写法正确？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "DIVIDE([Total Sales] - [Sales PY], [Sales PY]) where Sales PY uses SAMEPERIODLASTYEAR",
+     "zh": "DIVIDE([Total Sales] - [Sales PY], [Sales PY])，其中 Sales PY 使用 SAMEPERIODLASTYEAR"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "[Total Sales] / [Sales PY]",
+     "zh": "[Total Sales] / [Sales PY]"
+    },
+    "correct": false,
+    "why": {
+     "en": "That is the ratio, not growth, and errors on zero.",
+     "zh": "那是比率而不是增长，遇到 0 还会出错。"
+    }
+   },
+   {
+    "html": {
+     "en": "TOTALYTD([Total Sales], 'Date'[Date]) - [Total Sales]",
+     "zh": "TOTALYTD([Total Sales], 'Date'[Date]) - [Total Sales]"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "DATEADD([Total Sales], -1, YEAR)",
+     "zh": "DATEADD([Total Sales], -1, YEAR)"
+    },
+    "correct": false,
+    "why": {
+     "en": "DATEADD takes a date column, not a measure.",
+     "zh": "DATEADD 的参数是日期列，不是度量值。"
+    }
+   }
+  ],
+  "ref": "c08/time-intelligence"
+ },
+ {
+  "id": "m06",
+  "domain": 3,
+  "q": {
+   "en": "Which is a good reason to use a calculated table?",
+   "zh": "以下哪个是使用计算表的好理由？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Creating a date table with CALENDAR when the source has none",
+     "zh": "数据源没有日期表时，用 CALENDAR 建立日期表"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Storing Total Sales for every product",
+     "zh": "为每个产品存储 Total Sales"
+    },
+    "correct": false,
+    "why": {
+     "en": "Use a measure.",
+     "zh": "应该用度量值。"
+    }
+   },
+   {
+    "html": {
+     "en": "Cleaning text values",
+     "zh": "清理文字值"
+    },
+    "correct": false,
+    "why": {
+     "en": "Use Power Query.",
+     "zh": "应该用 Power Query。"
+    }
+   },
+   {
+    "html": {
+     "en": "Hiding columns from users",
+     "zh": "向用户隐藏列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/calculated-columns-tables"
+ },
+ {
+  "id": "m07",
+  "domain": 3,
+  "q": {
+   "en": "A matrix shows Rank by product. When a user filters to Bikes only, every bike shows rank 1. Which measure fixes it?",
+   "zh": "矩阵按产品显示排名。当用户只筛选 Bikes 时，每辆自行车都显示排名 1。哪个度量值能修正？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "RANKX(ALLSELECTED(Product[Name]), [Total Sales])",
+     "zh": "RANKX(ALLSELECTED(Product[Name]), [Total Sales])"
+    },
+    "correct": true,
+    "why": {
+     "en": "Ranks each product among the selected products.",
+     "zh": "在所选产品中为每个产品排名。"
+    }
+   },
+   {
+    "html": {
+     "en": "RANKX(Product, [Total Sales])",
+     "zh": "RANKX(Product, [Total Sales])"
+    },
+    "correct": false,
+    "why": {
+     "en": "Product is filtered to the current row, so each ranks 1.",
+     "zh": "Product 被筛选到当前行，所以每个都是第 1。"
+    }
+   },
+   {
+    "html": {
+     "en": "RANK.EQ([Total Sales])",
+     "zh": "RANK.EQ([Total Sales])"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "TOPN(1, Product, [Total Sales])",
+     "zh": "TOPN(1, Product, [Total Sales])"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c07/iterators"
+ },
+ {
+  "id": "m08",
+  "domain": 3,
+  "q": {
+   "en": "Customers and Products both relate to Sales with single direction. A slicer on Product must reduce the list in a Customer slicer to buyers of that product. What is the recommended approach?",
+   "zh": "Customers 和 Products 都以单向关系关联到 Sales。Product 切片器必须让 Customer 切片器只显示购买该产品的客户。推荐做法是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Add a visual-level filter on the Customer slicer: [Total Sales] is not blank",
+     "zh": "在 Customer 切片器上加视觉对象级筛选：[Total Sales] 不为空"
+    },
+    "correct": true,
+    "why": {
+     "en": "Achieves the effect without a bidirectional relationship.",
+     "zh": "不用双向关系也能达到效果。"
+    }
+   },
+   {
+    "html": {
+     "en": "Make both relationships bidirectional",
+     "zh": "把两个关系都设为双向"
+    },
+    "correct": false,
+    "why": {
+     "en": "Works but adds ambiguity and cost to the whole model.",
+     "zh": "可行，但会给整个模型带来歧义和成本。"
+    }
+   },
+   {
+    "html": {
+     "en": "Merge Customer into Product",
+     "zh": "把 Customer 合并到 Product"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Use a many-to-many relationship between Customer and Product",
+     "zh": "在 Customer 和 Product 之间建立多对多关系"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/relationships"
+ },
+ {
+  "id": "m09",
+  "domain": 3,
+  "q": {
+   "en": "Which function returns the account balance at the end of each month in a matrix by month?",
+   "zh": "在按月份的矩阵中，哪个函数返回每月月底的账户余额？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "CLOSINGBALANCEMONTH",
+     "zh": "CLOSINGBALANCEMONTH"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "TOTALMTD",
+     "zh": "TOTALMTD"
+    },
+    "correct": false,
+    "why": {
+     "en": "That adds up the month, which is wrong for balances.",
+     "zh": "那会把整个月加总，对余额来说是错的。"
+    }
+   },
+   {
+    "html": {
+     "en": "SAMEPERIODLASTYEAR",
+     "zh": "SAMEPERIODLASTYEAR"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "SUMX",
+     "zh": "SUMX"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c08/semi-additive"
+ },
+ {
+  "id": "m10",
+  "domain": 3,
+  "q": {
+   "en": "Your model has its own marked Date table. Model size is larger than expected and there are many hidden LocalDateTable tables. What do you do?",
+   "zh": "你的模型有自己已标记的 Date 表。模型比预期大，还有很多隐藏的 LocalDateTable 表。该怎么做？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Turn off Auto date/time for the file",
+     "zh": "为该文件关闭「自动日期/时间」"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Delete the Date table",
+     "zh": "删除 Date 表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Mark each LocalDateTable as a date table",
+     "zh": "把每张 LocalDateTable 标记为日期表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Switch to DirectQuery",
+     "zh": "切换为 DirectQuery"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c09/remove"
+ },
+ {
+  "id": "m11",
+  "domain": 3,
+  "q": {
+   "en": "You need to count rows in Sales where Amount is greater than 1,000. Which measure is correct?",
+   "zh": "你需要计算 Sales 中 Amount 大于 1,000 的行数。哪个度量值正确？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "CALCULATE(COUNTROWS(Sales), Sales[Amount] > 1000)",
+     "zh": "CALCULATE(COUNTROWS(Sales), Sales[Amount] > 1000)"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "COUNTROWS(Sales[Amount] > 1000)",
+     "zh": "COUNTROWS(Sales[Amount] > 1000)"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "COUNT(Sales[Amount]) > 1000",
+     "zh": "COUNT(Sales[Amount]) > 1000"
+    },
+    "correct": false,
+    "why": {
+     "en": "That returns TRUE/FALSE.",
+     "zh": "那返回的是 TRUE/FALSE。"
+    }
+   },
+   {
+    "html": {
+     "en": "SUM(Sales[Amount] > 1000)",
+     "zh": "SUM(Sales[Amount] > 1000)"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c07/calculate"
+ },
+ {
+  "id": "m12",
+  "domain": 3,
+  "q": {
+   "en": "Performance Analyzer shows a measure takes 9 seconds. It uses FILTER(Sales, [Total Sales] > 0) over a 40-million-row table. What is the best first improvement?",
+   "zh": "性能分析器显示某度量值要 9 秒。它在 4,000 万行的表上使用 FILTER(Sales, [Total Sales] > 0)。最好的第一步改进是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Filter a column or a smaller dimension instead of iterating the whole fact table",
+     "zh": "改为筛选某个列或较小的维度表，而不是遍历整张事实表"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Add more visuals to the page",
+     "zh": "在页面上加更多视觉对象"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Turn on bidirectional filtering",
+     "zh": "开启双向筛选"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Change the measure's format string",
+     "zh": "更改度量值的格式字符串"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c09/performance-analyzer"
+ },
+ {
+  "id": "m13",
+  "domain": 3,
+  "q": {
+   "en": "Which statement about calculation groups is true?",
+   "zh": "关于计算组，哪个说法正确？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "They only apply to explicit measures, so implicit measures are discouraged once one exists",
+     "zh": "它们只作用于显式度量值，所以一旦有计算组就不鼓励使用隐式度量值"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They store results in a table at refresh",
+     "zh": "它们在刷新时把结果存入表中"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They replace relationships",
+     "zh": "它们取代关系"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They can only be created in the service",
+     "zh": "只能在服务中建立"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c08/calculation-groups"
+ },
+ {
+  "id": "m14",
+  "domain": 3,
+  "q": {
+   "en": "In Model view, a relationship line is dashed. What does that mean?",
+   "zh": "在模型视图中，有一条关系线是虚线。这表示什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "The relationship is inactive",
+     "zh": "该关系是非活动的"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "It is bidirectional",
+     "zh": "它是双向的"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "It is many-to-many",
+     "zh": "它是多对多的"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "It has an error",
+     "zh": "它有错误"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/relationships"
+ },
+ {
+  "id": "m15",
+  "domain": 3,
+  "q": {
+   "en": "A measure must return the average of daily sales over the days in the current period. Which DAX?",
+   "zh": "某度量值必须返回当前期间内每日销售额的平均值。用哪个 DAX？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "AVERAGEX(VALUES('Date'[Date]), [Total Sales])",
+     "zh": "AVERAGEX(VALUES('Date'[Date]), [Total Sales])"
+    },
+    "correct": true,
+    "why": {
+     "en": "Iterates days and averages each day's total.",
+     "zh": "遍历每一天，对每天的总额取平均。"
+    }
+   },
+   {
+    "html": {
+     "en": "AVERAGE(Sales[Amount])",
+     "zh": "AVERAGE(Sales[Amount])"
+    },
+    "correct": false,
+    "why": {
+     "en": "That is the average transaction, not the average day.",
+     "zh": "那是每笔交易的平均值，而不是每天的平均值。"
+    }
+   },
+   {
+    "html": {
+     "en": "DIVIDE([Total Sales], COUNTROWS(Sales))",
+     "zh": "DIVIDE([Total Sales], COUNTROWS(Sales))"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "SUMX(Sales, Sales[Amount]) / 365",
+     "zh": "SUMX(Sales, Sales[Amount]) / 365"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c07/iterators"
+ },
+ {
+  "id": "m16",
+  "domain": 3,
+  "q": {
+   "en": "Which column should be hidden from report view in a well-designed model?",
+   "zh": "在设计良好的模型中，哪个列应该在报表视图中隐藏？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Sales[ProductKey], the foreign key to Product",
+     "zh": "Sales[ProductKey]，指向 Product 的外键"
+    },
+    "correct": true,
+    "why": {
+     "en": "Users should slice by Product's columns, not the key in the fact.",
+     "zh": "用户应按 Product 的列切片，而不是用事实表中的键。"
+    }
+   },
+   {
+    "html": {
+     "en": "Product[Category]",
+     "zh": "Product[Category]"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Date[Year]",
+     "zh": "Date[Year]"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Customer[City]",
+     "zh": "Customer[City]"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c06/properties"
+ },
+ {
+  "id": "v01",
+  "domain": 4,
+  "q": {
+   "en": "You need to show the share of revenue for 15 product subcategories grouped under 4 categories. Which visual reads best?",
+   "zh": "你要显示 4 个类别下 15 个产品子类别的收入占比。哪个视觉对象最易读？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Treemap",
+     "zh": "树状图"
+    },
+    "correct": true,
+    "why": {
+     "en": "Shows a hierarchy of parts of a whole with many items.",
+     "zh": "能显示项目众多的部分与整体层次。"
+    }
+   },
+   {
+    "html": {
+     "en": "Pie chart",
+     "zh": "饼图"
+    },
+    "correct": false,
+    "why": {
+     "en": "15 slices are hard to compare.",
+     "zh": "15 个扇区很难比较。"
+    }
+   },
+   {
+    "html": {
+     "en": "Line chart",
+     "zh": "折线图"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Gauge",
+     "zh": "仪表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/choose-visual"
+ },
+ {
+  "id": "v02",
+  "domain": 4,
+  "q": {
+   "en": "A table visual must show a red background when Margin % is below 0, amber up to 10% and green above. Which conditional formatting style fits without writing DAX?",
+   "zh": "表格视觉对象中，利润率 % 低于 0 时背景为红色，0 到 10% 为琥珀色，高于 10% 为绿色。不写 DAX 的话用哪种条件格式？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Rules",
+     "zh": "规则"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Gradient",
+     "zh": "渐变"
+    },
+    "correct": false,
+    "why": {
+     "en": "Gradient blends colours rather than using fixed bands.",
+     "zh": "渐变是颜色过渡，而不是固定区间。"
+    }
+   },
+   {
+    "html": {
+     "en": "Field value",
+     "zh": "字段值"
+    },
+    "correct": false,
+    "why": {
+     "en": "Needs a column or measure that returns colours.",
+     "zh": "需要返回颜色的列或度量值。"
+    }
+   },
+   {
+    "html": {
+     "en": "Data bars",
+     "zh": "数据条"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/conditional-formatting"
+ },
+ {
+  "id": "v03",
+  "domain": 4,
+  "q": {
+   "en": "A report page must show the top 5 customers by sales and update automatically as data changes. What do you use?",
+   "zh": "某报表页必须显示销售额前 5 名的客户，并随数据变化自动更新。用什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A Top N visual-level filter on Customer by Total Sales",
+     "zh": "对 Customer 设置按 Total Sales 的前 N 个视觉对象级筛选"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A basic filter ticking five customers",
+     "zh": "基本筛选，勾选五个客户"
+    },
+    "correct": false,
+    "why": {
+     "en": "Fixed names do not update.",
+     "zh": "固定的名称不会更新。"
+    }
+   },
+   {
+    "html": {
+     "en": "Sort the table and resize it to five rows",
+     "zh": "排序表格并把高度缩到五行"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A bookmark",
+     "zh": "书签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/filter-slicer"
+ },
+ {
+  "id": "v04",
+  "domain": 4,
+  "q": {
+   "en": "Selecting a bar in a chart dims the other bars in a second chart instead of removing them. Users want the second chart filtered. What do you change?",
+   "zh": "在图表中选择一个条形后，第二个图表的其他条形只是变暗，而不是被移除。用户希望第二个图表被筛选。要修改什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Edit interactions: set Filter instead of Highlight on the second chart",
+     "zh": "编辑交互：把第二个图表从「突出显示」改为「筛选」"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Sync slicers",
+     "zh": "同步切片器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Turn on drill mode",
+     "zh": "开启钻取模式"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Lock the filter",
+     "zh": "锁定筛选器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/tooltips-interactions"
+ },
+ {
+  "id": "v05",
+  "domain": 4,
+  "q": {
+   "en": "On hover over a country in a map, users should see a small chart of that country's monthly sales. What do you create?",
+   "zh": "当用户悬停在地图上的某个国家时，应看到该国每月销售额的小图表。应该建立什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A report page tooltip",
+     "zh": "报表页工具提示"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A drill-through page",
+     "zh": "钻取页"
+    },
+    "correct": false,
+    "why": {
+     "en": "Drill-through needs a right-click and opens a full page.",
+     "zh": "钻取需要右键单击，并会打开整页。"
+    }
+   },
+   {
+    "html": {
+     "en": "A bookmark",
+     "zh": "书签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A dashboard tile",
+     "zh": "仪表板磁贴"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/tooltips-interactions"
+ },
+ {
+  "id": "v06",
+  "domain": 4,
+  "q": {
+   "en": "A report has an Overview page and a hidden Details page. Users should click a button on Overview to go to Details. Which button action?",
+   "zh": "报表有一个 Overview 页和一个隐藏的 Details 页。用户应点击 Overview 上的按钮前往 Details。用哪种按钮操作？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Page navigation",
+     "zh": "页面导航"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Q&A",
+     "zh": "问答"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Web URL",
+     "zh": "Web URL"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Back",
+     "zh": "返回"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/navigation-drill"
+ },
+ {
+  "id": "v07",
+  "domain": 4,
+  "q": {
+   "en": "A line chart of monthly sales should show the expected range for the next 6 months. What do you add?",
+   "zh": "每月销售额的折线图应显示未来 6 个月的预期范围。要加入什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A forecast in the Analytics pane, length 6 months",
+     "zh": "在「分析」窗格中加入预测，长度 6 个月"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A trend line",
+     "zh": "趋势线"
+    },
+    "correct": false,
+    "why": {
+     "en": "A trend line does not project ranges into the future.",
+     "zh": "趋势线不会推算未来的范围。"
+    }
+   },
+   {
+    "html": {
+     "en": "Error bars",
+     "zh": "误差线"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A constant line",
+     "zh": "常量线"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c12/analytics-pane"
+ },
+ {
+  "id": "v08",
+  "domain": 4,
+  "q": {
+   "en": "Support wants to know which ticket attributes are most associated with a low satisfaction score. Which visual?",
+   "zh": "客服部想知道哪些工单属性与低满意度分数关联最大。用哪个视觉对象？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Key influencers",
+     "zh": "关键影响因素"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Decomposition tree",
+     "zh": "分解树"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Waterfall chart",
+     "zh": "瀑布图"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Scatter chart with a play axis",
+     "zh": "带播放轴的散点图"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c12/ai-visuals"
+ },
+ {
+  "id": "v09",
+  "domain": 4,
+  "q": {
+   "en": "Executives open reports on phones. A page looks cramped. What do you do in Desktop?",
+   "zh": "高管在手机上打开报表。某个页面显得很拥挤。在 Desktop 中应该做什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Design the page's Mobile layout",
+     "zh": "设计该页面的移动布局"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Change the canvas to 4:3",
+     "zh": "把画布改为 4:3"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Create a paginated report",
+     "zh": "制作分页报表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Turn on Q&A",
+     "zh": "开启问答"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/export-mobile"
+ },
+ {
+  "id": "v10",
+  "domain": 4,
+  "q": {
+   "en": "Two pages each have a Year slicer. Choosing 2026 on one page must set the other to 2026 too, and both slicers stay visible. What do you configure?",
+   "zh": "两个页面各有一个 Year 切片器。在一页选择 2026，另一页也要变成 2026，而且两个切片器都要保持可见。要设定什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Sync slicers with both pages synced and visible",
+     "zh": "同步切片器，两页都同步且可见"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A report-level filter",
+     "zh": "报表级筛选器"
+    },
+    "correct": false,
+    "why": {
+     "en": "Users would not see a slicer on the canvas.",
+     "zh": "画布上看不到切片器。"
+    }
+   },
+   {
+    "html": {
+     "en": "Edit interactions",
+     "zh": "编辑交互"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Bookmarks on each page",
+     "zh": "每页各设书签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/navigation-drill"
+ },
+ {
+  "id": "v11",
+  "domain": 4,
+  "q": {
+   "en": "Which feature should you use to group customers into segments automatically based on two measures in a scatter chart?",
+   "zh": "要根据散点图中的两个度量值自动把客户分成几个群体，应使用哪个功能？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Automatically find clusters",
+     "zh": "自动查找聚类"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Binning",
+     "zh": "装箱"
+    },
+    "correct": false,
+    "why": {
+     "en": "Bins split one column into ranges.",
+     "zh": "装箱是把单一列切成范围。"
+    }
+   },
+   {
+    "html": {
+     "en": "Group (list)",
+     "zh": "分组（列表）"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Error bars",
+     "zh": "误差线"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c12/analyze-group"
+ },
+ {
+  "id": "v12",
+  "domain": 4,
+  "q": {
+   "en": "A report page must be printed as a multi-page document with all 5,000 rows of a table. What is the right tool?",
+   "zh": "某报表页必须打印成多页文件，包含表格中全部 5,000 行。合适的工具是什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A paginated report",
+     "zh": "分页报表"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Export the page to PDF",
+     "zh": "把页面导出为 PDF"
+    },
+    "correct": false,
+    "why": {
+     "en": "Only what fits on the canvas is exported.",
+     "zh": "只会导出画布上显示得下的内容。"
+    }
+   },
+   {
+    "html": {
+     "en": "A dashboard",
+     "zh": "仪表板"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A bookmark navigator",
+     "zh": "书签导航器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/page-paginated"
+ },
+ {
+  "id": "v13",
+  "domain": 4,
+  "q": {
+   "en": "A user clicks a data point and wants Power BI to suggest which categories explain why sales dropped in March. What do you suggest?",
+   "zh": "用户点选一个数据点，希望 Power BI 建议是哪些类别导致三月份销售额下降。你会建议什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Right-click the point → Analyze → Explain the decrease",
+     "zh": "右键单击该点 → 分析 → 解释减少"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Add a forecast",
+     "zh": "加入预测"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Add a trend line",
+     "zh": "加入趋势线"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Drill up",
+     "zh": "向上钻取"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c12/analyze-group"
+ },
+ {
+  "id": "v14",
+  "domain": 4,
+  "q": {
+   "en": "Which statement about visual calculations is true?",
+   "zh": "关于视觉计算，哪个说法正确？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "They are defined on a visual and calculate on that visual's data; they are not reusable in other visuals",
+     "zh": "它们定义在视觉对象上、基于该视觉对象的数据计算；不能在其他视觉对象中重用"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They are stored in the semantic model",
+     "zh": "它们存储在语义模型中"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They are written in M",
+     "zh": "它们用 M 编写"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "They replace measures entirely",
+     "zh": "它们完全取代度量值"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/visual-calcs"
+ },
+ {
+  "id": "v15",
+  "domain": 4,
+  "q": {
+   "en": "You want Copilot to give a short overview of what data a semantic model contains before you build a report. Which Copilot skill is this?",
+   "zh": "在制作报表之前，你想让 Copilot 简短概述某个语义模型包含哪些数据。这属于 Copilot 的哪项技能？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Summarize the underlying semantic model",
+     "zh": "总结底层语义模型"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Create a narrative visual",
+     "zh": "建立叙述视觉对象"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Create a report page",
+     "zh": "建立报表页面"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Quick measure",
+     "zh": "快速度量值"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c11/qna-copilot"
+ },
+ {
+  "id": "v16",
+  "domain": 4,
+  "q": {
+   "en": "A report's theme must change the default colour of all charts, but one specific chart must stay grey. What do you do?",
+   "zh": "报表主题要改变所有图表的默认颜色，但某个特定图表必须保持灰色。怎么做？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Apply the theme, then set the grey colour in that chart's Format pane",
+     "zh": "套用主题，再在该图表的「格式」窗格中设为灰色"
+    },
+    "correct": true,
+    "why": {
+     "en": "Visual-level formatting overrides the theme.",
+     "zh": "视觉对象级格式会覆盖主题。"
+    }
+   },
+   {
+    "html": {
+     "en": "Create a second theme for that chart",
+     "zh": "为该图表建立第二个主题"
+    },
+    "correct": false,
+    "why": {
+     "en": "A report has one theme.",
+     "zh": "一份报表只有一个主题。"
+    }
+   },
+   {
+    "html": {
+     "en": "Use conditional formatting rules",
+     "zh": "使用条件格式规则"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "It is not possible",
+     "zh": "不可能做到"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c10/format-theme"
+ },
+ {
+  "id": "s01",
+  "domain": 5,
+  "q": {
+   "en": "Sales reps must see only their region's data in a report shared through an app. You created roles in Desktop. What else is required?",
+   "zh": "销售代表在通过应用分享的报表中只能看到自己区域的数据。你已在 Desktop 中建立了角色。还需要做什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Add the reps (or their groups) to the roles in the semantic model's Security settings",
+     "zh": "在语义模型的「安全性」设置中，把销售代表（或他们的组）添加到角色"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Give the reps the Member role",
+     "zh": "给销售代表「成员」角色"
+    },
+    "correct": false,
+    "why": {
+     "en": "RLS does not apply to Members.",
+     "zh": "RLS 对成员无效。"
+    }
+   },
+   {
+    "html": {
+     "en": "Apply a sensitivity label",
+     "zh": "套用敏感度标签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Hide the Region column",
+     "zh": "隐藏 Region 列"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c14/rls"
+ },
+ {
+  "id": "s02",
+  "domain": 5,
+  "q": {
+   "en": "You must test what a user in the \"East\" role sees before publishing. Where?",
+   "zh": "发布前你必须测试「East」角色的用户会看到什么。在哪里测试？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Modeling → View as → East in Power BI Desktop",
+     "zh": "Power BI Desktop 中的 建模 → 以角色身份查看 → East"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Performance Analyzer",
+     "zh": "性能分析器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Workspace → Manage access",
+     "zh": "工作区 → 管理访问权限"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Selection pane",
+     "zh": "选择窗格"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c14/rls"
+ },
+ {
+  "id": "s03",
+  "domain": 5,
+  "q": {
+   "en": "A scheduled refresh of a model that imports from an on-premises file share fails with a gateway error. What should you check first?",
+   "zh": "某模型从本地文件共享导入数据，其计划刷新因网关错误而失败。首先应检查什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "That the gateway is online and the semantic model is mapped to a gateway data source with valid credentials",
+     "zh": "网关是否在线，以及语义模型是否对应到凭据有效的网关数据源"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The report theme",
+     "zh": "报表主题"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The RLS roles",
+     "zh": "RLS 角色"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Endorsement",
+     "zh": "认可"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/gateway-refresh"
+ },
+ {
+  "id": "s04",
+  "domain": 5,
+  "q": {
+   "en": "An item should be marked as meeting company data quality standards. Only the BI governance team should be able to do it. What do you use?",
+   "zh": "某个项目要标记为符合公司数据质量标准，而且只有 BI 治理团队能做这件事。用什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Certification, with the governance team set as authorised certifiers by the admin",
+     "zh": "认证，由管理员把治理团队设为授权的认证者"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Promotion",
+     "zh": "提升"
+    },
+    "correct": false,
+    "why": {
+     "en": "Anyone with write permission can promote.",
+     "zh": "任何有写入权限的人都可以提升。"
+    }
+   },
+   {
+    "html": {
+     "en": "A sensitivity label",
+     "zh": "敏感度标签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "An app audience",
+     "zh": "应用受众"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/endorsement"
+ },
+ {
+  "id": "s05",
+  "domain": 5,
+  "q": {
+   "en": "Finance wants a PDF of a report page emailed every Monday at 8:00 to the CFO, who already has access. What do you set up?",
+   "zh": "财务部希望每周一早上 8 点把某报表页的 PDF 邮寄给已有访问权限的财务总监。应该设置什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A subscription",
+     "zh": "订阅"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A data alert",
+     "zh": "数据警报"
+    },
+    "correct": false,
+    "why": {
+     "en": "Alerts fire on a threshold, not a schedule.",
+     "zh": "警报按阈值触发，不按时间表。"
+    }
+   },
+   {
+    "html": {
+     "en": "Publish to web",
+     "zh": "发布到 Web"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A deployment pipeline",
+     "zh": "部署管道"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/dashboards-alerts"
+ },
+ {
+  "id": "s06",
+  "domain": 5,
+  "q": {
+   "en": "Which permission must a user have to use Analyze in Excel on a semantic model?",
+   "zh": "用户要对语义模型使用「在 Excel 中分析」，必须有哪个权限？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Build",
+     "zh": "生成"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Read only",
+     "zh": "仅读取"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Reshare",
+     "zh": "重新分享"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Workspace Admin",
+     "zh": "工作区管理员"
+    },
+    "correct": false,
+    "why": {
+     "en": "Admin includes it, but Build is the specific requirement.",
+     "zh": "管理员包含此权限，但具体要求是「生成」。"
+    }
+   }
+  ],
+  "ref": "c14/item-access"
+ },
+ {
+  "id": "s07",
+  "domain": 5,
+  "q": {
+   "en": "A workspace should be usable by viewers with free licences. What must be true?",
+   "zh": "某工作区要让使用免费授权的读者也能使用。必须满足什么条件？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "The workspace is in a Premium or Fabric F64 (or larger) capacity",
+     "zh": "工作区位于 Premium 或 Fabric F64（或更大）容量中"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The viewers have the Contributor role",
+     "zh": "读者有「参与者」角色"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The report is certified",
+     "zh": "报表已认证"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "The report uses DirectQuery",
+     "zh": "报表使用 DirectQuery"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c01/parts"
+ },
+ {
+  "id": "s08",
+  "domain": 5,
+  "q": {
+   "en": "The marketing department and the sales department must see different reports from the same workspace app. What do you configure?",
+   "zh": "市场部和销售部必须从同一个工作区应用中看到不同的报表。要设定什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "App audiences",
+     "zh": "应用受众"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Two workspaces with copies of the reports",
+     "zh": "两个工作区，各放一份报表副本"
+    },
+    "correct": false,
+    "why": {
+     "en": "Works but duplicates content.",
+     "zh": "可行，但会重复内容。"
+    }
+   },
+   {
+    "html": {
+     "en": "RLS",
+     "zh": "RLS"
+    },
+    "correct": false,
+    "why": {
+     "en": "RLS filters rows, not which reports are visible.",
+     "zh": "RLS 筛选的是行，而不是可见的报表。"
+    }
+   },
+   {
+    "html": {
+     "en": "Bookmarks",
+     "zh": "书签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/apps-distribution"
+ },
+ {
+  "id": "s09",
+  "domain": 5,
+  "q": {
+   "en": "A semantic model needs refreshing every 30 minutes during business hours. The workspace uses Pro licences. What is the issue?",
+   "zh": "某语义模型在工作时间内需要每 30 分钟刷新一次。工作区使用 Pro 授权。问题在哪里？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Pro allows at most 8 scheduled refreshes per day; use Premium/PPU/Fabric capacity (48) or DirectQuery",
+     "zh": "Pro 每天最多只能计划刷新 8 次；应使用 Premium/PPU/Fabric 容量（48 次）或 DirectQuery"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Refresh cannot be scheduled during business hours",
+     "zh": "工作时间内不能计划刷新"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A personal gateway is required",
+     "zh": "需要个人网关"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "No issue",
+     "zh": "没有问题"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/gateway-refresh"
+ },
+ {
+  "id": "s10",
+  "domain": 5,
+  "q": {
+   "en": "Content exported from a Confidential report must remain protected when emailed outside Power BI. Which feature?",
+   "zh": "从「机密」报表导出的内容，在 Power BI 外通过邮件发送时必须保持受保护。用哪个功能？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Sensitivity labels with protection",
+     "zh": "带保护设置的敏感度标签"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Object-level security",
+     "zh": "对象级安全性"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Workspace Viewer role",
+     "zh": "工作区「查看者」角色"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Endorsement",
+     "zh": "认可"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c14/sensitivity"
+ },
+ {
+  "id": "s11",
+  "domain": 5,
+  "q": {
+   "en": "Users in an RLS role must not even see that a Salary column exists. What do you use in addition to RLS?",
+   "zh": "某 RLS 角色的用户必须连 Salary 列存在都看不到。除了 RLS 还要用什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Object-level security (OLS) for that role",
+     "zh": "为该角色设置对象级安全性（OLS）"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Hide the column in Model view",
+     "zh": "在模型视图中隐藏该列"
+    },
+    "correct": false,
+    "why": {
+     "en": "Hidden columns are still reachable by people with Build permission.",
+     "zh": "有生成权限的人仍能访问隐藏的列。"
+    }
+   },
+   {
+    "html": {
+     "en": "A sensitivity label",
+     "zh": "敏感度标签"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "A visual-level filter",
+     "zh": "视觉对象级筛选器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c14/rls"
+ },
+ {
+  "id": "s12",
+  "domain": 5,
+  "q": {
+   "en": "A dashboard must show tiles from three different reports built on three semantic models. Is that possible?",
+   "zh": "某仪表板必须显示来自三份报表、基于三个语义模型的磁贴。这可行吗？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Yes, dashboards can combine tiles from several reports and models",
+     "zh": "可以，仪表板能组合来自多份报表和多个模型的磁贴"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "No, a dashboard is limited to one report",
+     "zh": "不行，仪表板只限一份报表"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Only with DirectQuery",
+     "zh": "只有使用 DirectQuery 才可以"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Only in a paginated report",
+     "zh": "只有在分页报表中才可以"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/dashboards-alerts"
+ },
+ {
+  "id": "s13",
+  "domain": 5,
+  "q": {
+   "en": "You need to move reports from a development workspace to test and then production, comparing differences at each stage. What do you use?",
+   "zh": "你需要把报表从开发工作区移到测试工作区，再到正式工作区，并在每个阶段比较差异。用什么？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "A deployment pipeline",
+     "zh": "部署管道"
+    },
+    "correct": true,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Publish to web",
+     "zh": "发布到 Web"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Subscriptions",
+     "zh": "订阅"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Sync slicers",
+     "zh": "同步切片器"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   }
+  ],
+  "ref": "c13/workspaces"
+ },
+ {
+  "id": "s14",
+  "domain": 5,
+  "q": {
+   "en": "Which workspace role is the minimum that can publish or update the workspace app by default?",
+   "zh": "默认情况下，能发布或更新工作区应用的最低工作区角色是哪个？"
+  },
+  "options": [
+   {
+    "html": {
+     "en": "Member",
+     "zh": "成员"
+    },
+    "correct": true,
+    "why": {
+     "en": "Contributors can only if the workspace setting allows it.",
+     "zh": "参与者只有在工作区设置允许时才可以。"
+    }
+   },
+   {
+    "html": {
+     "en": "Viewer",
+     "zh": "查看者"
+    },
+    "correct": false,
+    "why": {
+     "en": "",
+     "zh": ""
+    }
+   },
+   {
+    "html": {
+     "en": "Contributor",
+     "zh": "参与者"
+    },
+    "correct": false,
+    "why": {
+     "en": "Only when \"allow contributors to update the app\" is on.",
+     "zh": "只有开启「允许参与者更新应用」时才可以。"
+    }
+   },
+   {
+    "html": {
+     "en": "Admin",
+     "zh": "管理员"
+    },
+    "correct": false,
+    "why": {
+     "en": "Admin can, but Member is enough.",
+     "zh": "管理员可以，但成员就够了。"
+    }
+   }
+  ],
+  "ref": "c14/roles"
+ }
+]

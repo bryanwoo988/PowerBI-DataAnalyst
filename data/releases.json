@@ -1,0 +1,8 @@
+[
+ {"v": "1.0.0", "date": "2026-10-18", "notes": [
+  {"en": "First release: a PL-300 Power BI Data Analyst study app in English and Chinese, usable offline — 5 courses, 14 modules and 58 lessons following Microsoft's skills outline.", "zh": "第一版：PL-300 Power BI 数据分析师备考 App，中英双语，可离线使用——按照 Microsoft 技能大纲编排的 5 门课程、14 个单元、58 课。"},
+  {"en": "Quick checks inside the lessons, a recap and module quiz for each module, and an 'I've mastered this' checklist.", "zh": "课程中的随堂小测、每个单元的复习卡和单元测验，以及「我已掌握」进度。"},
+  {"en": "Mock exam: a timed 50-question full exam in the official proportions, practice by skill area and quick quizzes, with a score out of 1000, results by skill area, explained answers, retry of wrong answers and a history of attempts.", "zh": "模拟考试：按官方比例出题、限时的 50 题完整考试，单项技能练习和快速测验；提供 1000 分制分数、各技能领域成绩、答案解释、错题重做和历次成绩记录。"},
+  {"en": "Power BI glossary, flashcards, search in both languages, highlights, notes, bookmarks and a notes backup.", "zh": "Power BI 术语表、闪卡、中英搜索、画线、笔记、书签和笔记备份。"}
+ ]}
+]

@@ -1,0 +1,917 @@
+{
+ "id": "c07",
+ "num": 7,
+ "stage": 3,
+ "title": {
+  "en": "DAX essentials",
+  "zh": "DAX 基础"
+ },
+ "url": "https://learn.microsoft.com/en-us/dax/dax-overview",
+ "sections": [
+  {
+   "id": "measures",
+   "heading": {
+    "en": "Single aggregation measures",
+    "zh": "单一聚合度量值"
+   },
+   "min": 7,
+   "url": "https://learn.microsoft.com/en-us/dax/dax-overview",
+   "takeaways": [
+    {
+     "en": "Write explicit measures (Total Sales = SUM(Sales[Amount])) instead of relying on implicit summarisation of columns.",
+     "zh": "编写显式度量值（Total Sales = SUM(Sales[Amount])），不要依赖列的隐式汇总。"
+    },
+    {
+     "en": "COUNT counts non-blank values in a column; COUNTROWS counts rows of a table; DISTINCTCOUNT counts different values.",
+     "zh": "COUNT 计算列中的非空值；COUNTROWS 计算表的行数；DISTINCTCOUNT 计算不同值的数量。"
+    },
+    {
+     "en": "Build measures on measures: Margin % = DIVIDE([Margin], [Total Sales]).",
+     "zh": "用度量值构建度量值：Margin % = DIVIDE([Margin], [Total Sales])。"
+    }
+   ],
+   "terms": [
+    "measure",
+    "implicit-measure"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Dragging a numeric column into a visual creates an <b>implicit measure</b> (the Σ sum). It works, but you cannot reuse it, it does not work with calculation groups, and other tools (Excel, Copilot) see less meaning. Good models use <b>explicit measures</b> written in DAX and hide the raw numeric columns.",
+      "zh": "把数值列拖进视觉对象会产生<b>隐式度量值</b>（Σ 求和）。它能用，但无法重用、不支持计算组，其他工具（Excel、Copilot）也难以理解。好的模型用 DAX 编写<b>显式度量值</b>，并隐藏原始数值列。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "Total Sales    = SUM ( Sales[Amount] )\nOrder Count    = DISTINCTCOUNT ( Sales[OrderID] )\nSales Lines    = COUNTROWS ( Sales )\nAverage Price  = AVERAGE ( Sales[Unit Price] )\nMargin         = [Total Sales] - [Total Cost]\nMargin %       = DIVIDE ( [Margin], [Total Sales] )"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Function",
+       "zh": "函数"
+      },
+      {
+       "en": "Counts / returns",
+       "zh": "计算 / 返回"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<code>SUM</code>, <code>AVERAGE</code>, <code>MIN</code>, <code>MAX</code>",
+        "zh": "<code>SUM</code>、<code>AVERAGE</code>、<code>MIN</code>、<code>MAX</code>"
+       },
+       {
+        "en": "The usual aggregations of one column",
+        "zh": "单列的常用聚合"
+       }
+      ],
+      [
+       {
+        "en": "<code>COUNT</code>",
+        "zh": "<code>COUNT</code>"
+       },
+       {
+        "en": "Non-blank values in a column",
+        "zh": "列中的非空值数量"
+       }
+      ],
+      [
+       {
+        "en": "<code>COUNTA</code>",
+        "zh": "<code>COUNTA</code>"
+       },
+       {
+        "en": "Non-blank values of any type",
+        "zh": "任何类型的非空值数量"
+       }
+      ],
+      [
+       {
+        "en": "<code>COUNTBLANK</code>",
+        "zh": "<code>COUNTBLANK</code>"
+       },
+       {
+        "en": "Blank values",
+        "zh": "空值数量"
+       }
+      ],
+      [
+       {
+        "en": "<code>COUNTROWS</code>",
+        "zh": "<code>COUNTROWS</code>"
+       },
+       {
+        "en": "Rows in a table (after filters)",
+        "zh": "表的行数（经筛选后）"
+       }
+      ],
+      [
+       {
+        "en": "<code>DISTINCTCOUNT</code>",
+        "zh": "<code>DISTINCTCOUNT</code>"
+       },
+       {
+        "en": "Different values in a column",
+        "zh": "列中不同值的数量"
+       }
+      ],
+      [
+       {
+        "en": "<code>DIVIDE(a, b)</code>",
+        "zh": "<code>DIVIDE(a, b)</code>"
+       },
+       {
+        "en": "a / b, returning BLANK (or a value you give) instead of an error when b is 0",
+        "zh": "a / b；当 b 为 0 时返回 BLANK（或你指定的值），而不是错误"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Basic statistical functions",
+      "zh": "基本统计函数"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "The exam lists \"basic statistical functions\": <code>AVERAGE</code>, <code>MEDIAN</code>, <code>MIN</code>/<code>MAX</code>, <code>STDEV.S</code>/<code>STDEV.P</code> (sample vs population standard deviation), <code>VAR.S</code>/<code>VAR.P</code>, <code>PERCENTILE.INC</code>, and <code>RANKX</code> for ranking. Their X versions (AVERAGEX, MEDIANX…) iterate over a table first.",
+      "zh": "考试列出了「基本统计函数」：<code>AVERAGE</code>、<code>MEDIAN</code>、<code>MIN</code>/<code>MAX</code>、<code>STDEV.S</code>/<code>STDEV.P</code>（样本与总体标准差）、<code>VAR.S</code>/<code>VAR.P</code>、<code>PERCENTILE.INC</code>，以及用于排名的 <code>RANKX</code>。它们的 X 版本（AVERAGEX、MEDIANX……）会先遍历一张表。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Sales has one row per order line. Which measure counts the number of orders?",
+      "zh": "Sales 表每个订单明细一行。哪个度量值能计算订单数量？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "COUNTROWS(Sales)",
+        "zh": "COUNTROWS(Sales)"
+       },
+       "correct": false,
+       "why": {
+        "en": "That counts order lines.",
+        "zh": "这计算的是订单明细行数。"
+       }
+      },
+      {
+       "html": {
+        "en": "COUNT(Sales[OrderID])",
+        "zh": "COUNT(Sales[OrderID])"
+       },
+       "correct": false,
+       "why": {
+        "en": "COUNT counts every non-blank line, duplicates included.",
+        "zh": "COUNT 会计算每一个非空行，包括重复的。"
+       }
+      },
+      {
+       "html": {
+        "en": "DISTINCTCOUNT(Sales[OrderID])",
+        "zh": "DISTINCTCOUNT(Sales[OrderID])"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: each order appears on several lines.",
+        "zh": "对：每个订单会出现在多行明细中。"
+       }
+      },
+      {
+       "html": {
+        "en": "SUM(Sales[OrderID])",
+        "zh": "SUM(Sales[OrderID])"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Why use DIVIDE([A], [B]) instead of [A] / [B]?",
+      "zh": "为什么用 DIVIDE([A], [B]) 而不是 [A] / [B]？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "It is required for percentages",
+        "zh": "百分比必须用它"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "It rounds the result",
+        "zh": "它会四舍五入结果"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "It handles division by zero safely, returning BLANK or an alternate result",
+        "zh": "它能安全地处理除以零，返回 BLANK 或替代结果"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "It ignores filters",
+        "zh": "它会忽略筛选"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "context",
+   "heading": {
+    "en": "Row context and filter context",
+    "zh": "行上下文与筛选上下文"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/dax/dax-overview#context",
+   "takeaways": [
+    {
+     "en": "Filter context is the set of filters on a calculation: slicers, visual axes, filters and RLS.",
+     "zh": "筛选上下文是计算所受的筛选条件：切片器、视觉对象的轴、筛选器和 RLS。"
+    },
+    {
+     "en": "Row context is \"the current row\", which exists in calculated columns and in iterators such as SUMX.",
+     "zh": "行上下文是「当前行」，存在于计算列和 SUMX 等迭代器中。"
+    },
+    {
+     "en": "Row context does not filter by itself; CALCULATE (or calling a measure) turns it into filter context — context transition.",
+     "zh": "行上下文本身不会筛选；CALCULATE（或调用度量值）会把它变成筛选上下文——这叫上下文转换。"
+    }
+   ],
+   "terms": [
+    "filter-context",
+    "row-context",
+    "context-transition"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "Every DAX result depends on its <b>evaluation context</b>. Understanding the two kinds of context is the key to reading any DAX formula.",
+      "zh": "每个 DAX 结果都取决于它的<b>计算上下文</b>。理解两种上下文，是读懂任何 DAX 公式的关键。"
+     }
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "",
+       "zh": ""
+      },
+      {
+       "en": "Filter context",
+       "zh": "筛选上下文"
+      },
+      {
+       "en": "Row context",
+       "zh": "行上下文"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "Comes from",
+        "zh": "来源"
+       },
+       {
+        "en": "Visual rows/columns, slicers, filter pane, cross-filtering, RLS, CALCULATE",
+        "zh": "视觉对象的行/列、切片器、筛选器窗格、交叉筛选、RLS、CALCULATE"
+       },
+       {
+        "en": "Calculated columns; iterators (SUMX, FILTER, ADDCOLUMNS…)",
+        "zh": "计算列；迭代器（SUMX、FILTER、ADDCOLUMNS……）"
+       }
+      ],
+      [
+       {
+        "en": "Means",
+        "zh": "含义"
+       },
+       {
+        "en": "Which rows of each table are visible",
+        "zh": "每张表中哪些行可见"
+       },
+       {
+        "en": "Which single row is being evaluated",
+        "zh": "正在计算的是哪一行"
+       }
+      ],
+      [
+       {
+        "en": "Filters other tables?",
+        "zh": "会筛选其他表吗？"
+       },
+       {
+        "en": "Yes, along relationships",
+        "zh": "会，沿着关系传递"
+       },
+       {
+        "en": "No — use RELATED to read the one side",
+        "zh": "不会——用 RELATED 读取「一」端的值"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "Example: in a matrix with Product[Category] on rows, the cell for \"Bikes\" evaluates <code>[Total Sales]</code> with the filter context Category = Bikes. The same measure in the total row has no Category filter.",
+      "zh": "例子：在行是 Product[Category] 的矩阵中，「Bikes」单元格以筛选上下文 Category = Bikes 计算 <code>[Total Sales]</code>。同一个度量值在总计行就没有 Category 筛选。"
+     }
+    },
+    {
+     "type": "h",
+     "level": 2,
+     "html": {
+      "en": "Context transition",
+      "zh": "上下文转换"
+     }
+    },
+    {
+     "type": "p",
+     "html": {
+      "en": "In a calculated column on Customer, <code>SUM(Sales[Amount])</code> returns the grand total on every row: the row context of Customer does not filter Sales. Wrapping it in CALCULATE, or referencing a measure (which has an implicit CALCULATE), converts the current row into a filter: now each customer gets their own sales.",
+      "zh": "在 Customer 表的计算列中，<code>SUM(Sales[Amount])</code> 在每一行都返回总计：Customer 的行上下文不会筛选 Sales。用 CALCULATE 包起来，或引用一个度量值（度量值自带隐式 CALCULATE），就会把当前行转换成筛选：这样每个客户都得到自己的销售额。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "-- Calculated columns on the Customer table\nWrong     = SUM ( Sales[Amount] )                  -- same grand total on every row\nRight     = CALCULATE ( SUM ( Sales[Amount] ) )    -- this customer's sales\nAlso Right = [Total Sales]                          -- a measure triggers context transition"
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A calculated column on Customer uses SUM(Sales[Amount]) and shows the same value on every row. Why?",
+      "zh": "Customer 表上的计算列使用 SUM(Sales[Amount])，每一行都显示相同的值。为什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "The column needs a data category",
+        "zh": "该列需要数据类别"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "The relationship is inactive",
+        "zh": "关系是非活动的"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "SUM only works in measures",
+        "zh": "SUM 只能用在度量值中"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Row context does not filter related tables without context transition",
+        "zh": "没有上下文转换时，行上下文不会筛选相关的表"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: wrap it in CALCULATE or use a measure.",
+        "zh": "对：用 CALCULATE 包起来，或改用度量值。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "calculate",
+   "heading": {
+    "en": "The CALCULATE function",
+    "zh": "CALCULATE 函数"
+   },
+   "min": 10,
+   "url": "https://learn.microsoft.com/en-us/dax/calculate-function-dax",
+   "takeaways": [
+    {
+     "en": "CALCULATE(expression, filters…) evaluates an expression in a modified filter context.",
+     "zh": "CALCULATE(表达式, 筛选条件…) 在修改后的筛选上下文中计算表达式。"
+    },
+    {
+     "en": "A filter argument on a column replaces the existing filter on that column; KEEPFILTERS intersects instead.",
+     "zh": "对某列的筛选参数会取代该列现有的筛选；KEEPFILTERS 则改为取交集。"
+    },
+    {
+     "en": "ALL / REMOVEFILTERS remove filters (for % of total); ALLEXCEPT keeps only some; ALLSELECTED respects the user's selections.",
+     "zh": "ALL / REMOVEFILTERS 移除筛选（用于占总计百分比）；ALLEXCEPT 只保留部分筛选；ALLSELECTED 会尊重用户的选择。"
+    }
+   ],
+   "terms": [
+    "calculate",
+    "filter-context",
+    "allselected"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "<b>CALCULATE</b> is the most important function in DAX. It is the only way (with CALCULATETABLE) to change the filter context of a calculation.",
+      "zh": "<b>CALCULATE</b> 是 DAX 中最重要的函数。它（以及 CALCULATETABLE）是改变计算的筛选上下文的唯一方法。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "Red Sales        = CALCULATE ( [Total Sales], Product[Colour] = \"Red\" )\nRed Sales (kept) = CALCULATE ( [Total Sales], KEEPFILTERS ( Product[Colour] = \"Red\" ) )\nAll Sales        = CALCULATE ( [Total Sales], REMOVEFILTERS ( Product ) )\n% of All Products = DIVIDE ( [Total Sales], [All Sales] )\n% of Category    = DIVIDE ( [Total Sales],\n                       CALCULATE ( [Total Sales], ALLEXCEPT ( Product, Product[Category] ) ) )\n% of Selection   = DIVIDE ( [Total Sales], CALCULATE ( [Total Sales], ALLSELECTED ( Product ) ) )\nBig Orders       = CALCULATE ( [Total Sales], FILTER ( Sales, Sales[Amount] > 1000 ) )"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Modifier",
+       "zh": "修饰函数"
+      },
+      {
+       "en": "Effect inside CALCULATE",
+       "zh": "在 CALCULATE 中的作用"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<code>Table[Col] = value</code>",
+        "zh": "<code>Table[Col] = value</code>"
+       },
+       {
+        "en": "Replace any filter on that column with this one",
+        "zh": "以此筛选取代该列上的任何筛选"
+       }
+      ],
+      [
+       {
+        "en": "<code>KEEPFILTERS(…)</code>",
+        "zh": "<code>KEEPFILTERS(…)</code>"
+       },
+       {
+        "en": "Add the filter on top of existing ones (intersection)",
+        "zh": "在现有筛选之上再加这个筛选（交集）"
+       }
+      ],
+      [
+       {
+        "en": "<code>ALL(Table or Column)</code> / <code>REMOVEFILTERS(…)</code>",
+        "zh": "<code>ALL(表或列)</code> / <code>REMOVEFILTERS(…)</code>"
+       },
+       {
+        "en": "Remove filters — the grand total denominator",
+        "zh": "移除筛选——总计的分母"
+       }
+      ],
+      [
+       {
+        "en": "<code>ALLEXCEPT(Table, Col…)</code>",
+        "zh": "<code>ALLEXCEPT(表, 列…)</code>"
+       },
+       {
+        "en": "Remove all filters on the table except the listed columns",
+        "zh": "移除表上所有筛选，只保留列出的列"
+       }
+      ],
+      [
+       {
+        "en": "<code>ALLSELECTED(…)</code>",
+        "zh": "<code>ALLSELECTED(…)</code>"
+       },
+       {
+        "en": "Remove filters from the visual but keep slicer and filter-pane selections",
+        "zh": "移除视觉对象内的筛选，但保留切片器和筛选器窗格的选择"
+       }
+      ],
+      [
+       {
+        "en": "<code>USERELATIONSHIP(a, b)</code>",
+        "zh": "<code>USERELATIONSHIP(a, b)</code>"
+       },
+       {
+        "en": "Use an inactive relationship",
+        "zh": "使用非活动关系"
+       }
+      ],
+      [
+       {
+        "en": "<code>CROSSFILTER(a, b, dir)</code>",
+        "zh": "<code>CROSSFILTER(a, b, 方向)</code>"
+       },
+       {
+        "en": "Change filter direction for this calculation",
+        "zh": "为这个计算改变筛选方向"
+       }
+      ],
+      [
+       {
+        "en": "<code>FILTER(Table, condition)</code>",
+        "zh": "<code>FILTER(表, 条件)</code>"
+       },
+       {
+        "en": "Row-by-row filter; needed for conditions on measures or several columns",
+        "zh": "逐行筛选；条件涉及度量值或多个列时需要"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "exam",
+     "html": {
+      "en": "\"% of grand total that does not change when a user selects a slicer\" → ALL/REMOVEFILTERS. \"% of the total of what the user selected\" → ALLSELECTED.",
+      "zh": "「不随用户选择切片器而改变的总计百分比」→ ALL/REMOVEFILTERS。「占用户所选范围合计的百分比」→ ALLSELECTED。"
+     }
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "In a matrix by Product, you need each product's share of sales across all products. Which denominator is right?",
+      "zh": "在按 Product 分行的矩阵中，你需要每个产品占所有产品销售额的比例。哪个分母正确？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], Product[Name] = \"All\")",
+        "zh": "CALCULATE([Total Sales], Product[Name] = \"All\")"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "SUMX(Product, [Total Sales])",
+        "zh": "SUMX(Product, [Total Sales])"
+       },
+       "correct": false,
+       "why": {
+        "en": "Still evaluated within the row's product filter.",
+        "zh": "仍在行的产品筛选范围内计算。"
+       }
+      },
+      {
+       "html": {
+        "en": "CALCULATE([Total Sales], REMOVEFILTERS(Product))",
+        "zh": "CALCULATE([Total Sales], REMOVEFILTERS(Product))"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: the product filter from the row is removed.",
+        "zh": "对：移除了来自行的产品筛选。"
+       }
+      },
+      {
+       "html": {
+        "en": "SUM(Sales[Amount])",
+        "zh": "SUM(Sales[Amount])"
+       },
+       "correct": false,
+       "why": {
+        "en": "That still respects the row's product filter.",
+        "zh": "这仍然受行的产品筛选影响。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A matrix has Colour on rows. Measure: CALCULATE([Total Sales], Product[Colour] = \"Red\"). What does the Blue row show?",
+      "zh": "矩阵的行是 Colour。度量值：CALCULATE([Total Sales], Product[Colour] = \"Red\")。Blue 那一行显示什么？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "Blue sales",
+        "zh": "蓝色的销售额"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Red sales — the filter argument replaces the row's Colour filter",
+        "zh": "红色的销售额——筛选参数取代了行的 Colour 筛选"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: use KEEPFILTERS to get blank for non-red rows.",
+        "zh": "对：若要让非红色行显示空白，使用 KEEPFILTERS。"
+       }
+      },
+      {
+       "html": {
+        "en": "An error",
+        "zh": "错误"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "Blank",
+        "zh": "空白"
+       },
+       "correct": false,
+       "why": {
+        "en": "That is the KEEPFILTERS behaviour.",
+        "zh": "那是 KEEPFILTERS 的行为。"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "iterators",
+   "heading": {
+    "en": "Iterators, variables and handy functions",
+    "zh": "迭代器、变量和常用函数"
+   },
+   "min": 9,
+   "url": "https://learn.microsoft.com/en-us/dax/best-practices/dax-variables",
+   "takeaways": [
+    {
+     "en": "Iterators (SUMX, AVERAGEX, MAXX, RANKX, FILTER) evaluate an expression row by row over a table, then aggregate.",
+     "zh": "迭代器（SUMX、AVERAGEX、MAXX、RANKX、FILTER）逐行遍历一张表计算表达式，然后再聚合。"
+    },
+    {
+     "en": "Variables (VAR … RETURN) make measures readable and avoid calculating the same thing twice.",
+     "zh": "变量（VAR … RETURN）让度量值更易读，并避免重复计算同一个东西。"
+    },
+    {
+     "en": "SELECTEDVALUE, HASONEVALUE, SWITCH(TRUE()) and BLANK handling are everyday tools.",
+     "zh": "SELECTEDVALUE、HASONEVALUE、SWITCH(TRUE()) 和 BLANK 处理是日常工具。"
+    }
+   ],
+   "terms": [
+    "iterator",
+    "variable",
+    "context-transition"
+   ],
+   "blocks": [
+    {
+     "type": "p",
+     "html": {
+      "en": "SUM can only add up a column. When you need to multiply first and add after — quantity × price on each line — use an iterator.",
+      "zh": "SUM 只能加总一列。当你需要先相乘再相加——每一行的数量 × 单价——就要用迭代器。"
+     }
+    },
+    {
+     "type": "code",
+     "text": "Revenue = SUMX ( Sales, Sales[Quantity] * Sales[Unit Price] )\n\nAvg Sales per Customer = AVERAGEX ( VALUES ( Customer[CustomerID] ), [Total Sales] )\n\nProduct Rank = RANKX ( ALL ( Product[Name] ), [Total Sales], , DESC, DENSE )\n\nSales vs Target % =\nVAR Actual = [Total Sales]\nVAR Target = [Sales Target]\nRETURN\n    IF ( NOT ISBLANK ( Target ), DIVIDE ( Actual - Target, Target ) )\n\nSelected Region = SELECTEDVALUE ( Store[Region], \"Several regions\" )\n\nSize Band =\nSWITCH ( TRUE (),\n    [Total Sales] >= 1000000, \"Large\",\n    [Total Sales] >= 100000,  \"Medium\",\n    \"Small\" )"
+    },
+    {
+     "type": "table",
+     "headers": [
+      {
+       "en": "Function",
+       "zh": "函数"
+      },
+      {
+       "en": "Use",
+       "zh": "用途"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "<code>SUMX / AVERAGEX / MINX / MAXX / COUNTX</code>",
+        "zh": "<code>SUMX / AVERAGEX / MINX / MAXX / COUNTX</code>"
+       },
+       {
+        "en": "Row-by-row expression, then aggregate",
+        "zh": "逐行计算表达式，再聚合"
+       }
+      ],
+      [
+       {
+        "en": "<code>RANKX(table, expr)</code>",
+        "zh": "<code>RANKX(表, 表达式)</code>"
+       },
+       {
+        "en": "Rank of the current item; use ALL() so it ranks against every item",
+        "zh": "当前项目的排名；用 ALL() 才会与所有项目比较"
+       }
+      ],
+      [
+       {
+        "en": "<code>VAR … RETURN</code>",
+        "zh": "<code>VAR … RETURN</code>"
+       },
+       {
+        "en": "Store an intermediate result; evaluated once in the context where it is defined",
+        "zh": "保存中间结果；在定义处的上下文中只计算一次"
+       }
+      ],
+      [
+       {
+        "en": "<code>SELECTEDVALUE(col, alt)</code>",
+        "zh": "<code>SELECTEDVALUE(列, 替代值)</code>"
+       },
+       {
+        "en": "The single selected value, or alt if zero or several",
+        "zh": "唯一选中的值；若没有或有多个则返回替代值"
+       }
+      ],
+      [
+       {
+        "en": "<code>HASONEVALUE(col)</code>",
+        "zh": "<code>HASONEVALUE(列)</code>"
+       },
+       {
+        "en": "TRUE when exactly one value is in context — hide totals with it",
+        "zh": "上下文中恰好只有一个值时为 TRUE——可用来隐藏总计"
+       }
+      ],
+      [
+       {
+        "en": "<code>RELATED(col)</code>",
+        "zh": "<code>RELATED(列)</code>"
+       },
+       {
+        "en": "From the many side, read a column on the one side (row context)",
+        "zh": "在「多」端读取「一」端的列（行上下文）"
+       }
+      ],
+      [
+       {
+        "en": "<code>SWITCH(TRUE(), …)</code>",
+        "zh": "<code>SWITCH(TRUE(), …)</code>"
+       },
+       {
+        "en": "Readable multi-branch IF",
+        "zh": "易读的多分支 IF"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "Sales has Quantity and Unit Price but no amount column. Which measure gives total revenue correctly?",
+      "zh": "Sales 有 Quantity 和 Unit Price，但没有金额列。哪个度量值能正确算出总收入？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "AVERAGE(Sales[Unit Price]) * COUNTROWS(Sales)",
+        "zh": "AVERAGE(Sales[Unit Price]) * COUNTROWS(Sales)"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "SUMX(Sales, Sales[Quantity] * Sales[Unit Price])",
+        "zh": "SUMX(Sales, Sales[Quantity] * Sales[Unit Price])"
+       },
+       "correct": true,
+       "why": {
+        "en": "Right: multiply on each row, then sum.",
+        "zh": "对：每行先相乘，再加总。"
+       }
+      },
+      {
+       "html": {
+        "en": "SUM(Sales[Quantity] * Sales[Unit Price])",
+        "zh": "SUM(Sales[Quantity] * Sales[Unit Price])"
+       },
+       "correct": false,
+       "why": {
+        "en": "SUM accepts only a column.",
+        "zh": "SUM 只接受一个列。"
+       }
+      },
+      {
+       "html": {
+        "en": "SUM(Sales[Quantity]) * SUM(Sales[Unit Price])",
+        "zh": "SUM(Sales[Quantity]) * SUM(Sales[Unit Price])"
+       },
+       "correct": false,
+       "why": {
+        "en": "Multiplying two totals is not the sum of the products.",
+        "zh": "两个合计相乘并不等于各行乘积的总和。"
+       }
+      }
+     ]
+    },
+    {
+     "type": "quiz",
+     "q": {
+      "en": "A card must show the selected region's name, or \"All regions\" when none or several are selected. Which function?",
+      "zh": "卡片要显示所选区域的名称；没选或选了多个时显示「All regions」。用哪个函数？"
+     },
+     "options": [
+      {
+       "html": {
+        "en": "VALUES(Store[Region])",
+        "zh": "VALUES(Store[Region])"
+       },
+       "correct": false,
+       "why": {
+        "en": "Returns a table; errors if more than one value in a card.",
+        "zh": "返回的是表；在卡片中有多个值时会出错。"
+       }
+      },
+      {
+       "html": {
+        "en": "SELECTEDVALUE(Store[Region], \"All regions\")",
+        "zh": "SELECTEDVALUE(Store[Region], \"All regions\")"
+       },
+       "correct": true,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "RELATED(Store[Region])",
+        "zh": "RELATED(Store[Region])"
+       },
+       "correct": false,
+       "why": {
+        "en": "",
+        "zh": ""
+       }
+      },
+      {
+       "html": {
+        "en": "FIRSTNONBLANK(Store[Region], 1)",
+        "zh": "FIRSTNONBLANK(Store[Region], 1)"
+       },
+       "correct": false,
+       "why": {
+        "en": "Returns a value even when several are selected.",
+        "zh": "即使选了多个，也会返回一个值。"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
