@@ -1,4 +1,7 @@
 [
+ {"v": "1.1.0", "date": "2026-10-18", "notes": [
+  {"en": "Settings now offers four light themes (Classic, Paper, Mint, Lavender) and four dark themes (Midnight, OLED Black, Slate, Grape). 'Match system' uses your chosen light theme by day and your dark theme at night.", "zh": "设置里新增 4 种浅色主题（经典、纸张、薄荷、薰衣草）和 4 种深色主题（午夜、纯黑 OLED、石板、葡萄）。「跟随系统」时，白天用你选的浅色主题，夜间用你选的深色主题。"}
+ ]},
  {"v": "1.0.0", "date": "2026-10-18", "notes": [
   {"en": "First release: a PL-300 Power BI Data Analyst study app in English and Chinese, usable offline — 5 courses, 14 modules and 58 lessons following Microsoft's skills outline.", "zh": "第一版：PL-300 Power BI 数据分析师备考 App，中英双语，可离线使用——按照 Microsoft 技能大纲编排的 5 门课程、14 个单元、58 课。"},
   {"en": "Quick checks inside the lessons, a recap and module quiz for each module, and an 'I've mastered this' checklist.", "zh": "课程中的随堂小测、每个单元的复习卡和单元测验，以及「我已掌握」进度。"},
