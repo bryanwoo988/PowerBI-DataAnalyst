@@ -275,9 +275,28 @@ html[data-single] .page-chapter { grid-template-columns: minmax(0, 1fr); }
 
 .table-wrap { margin: 1.2em 0; }
 .table-wrap figcaption { font-size: .88rem; color: var(--ink-2); font-weight: 600; margin-bottom: 8px; }
-.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
-table { border-collapse: collapse; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
-th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.table-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  /* Edge shadows appear only where more columns are hidden: the covers scroll
+     with the content, the shadows stay put. */
+  background:
+    linear-gradient(to right, var(--bg) 40%, transparent) left / 28px 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 40%, transparent) right / 28px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .22), transparent) left / 12px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .22), transparent) right / 12px 100% no-repeat scroll;
+}
+table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
+/* Words break only between words here, never "Wei|ght". */
+th, td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); overflow-wrap: normal; word-break: normal; }
+.col-short { white-space: nowrap; }
+.col-mid { min-width: 9em; }
+.col-long { min-width: 15em; }
+th.th-one { white-space: nowrap; }
+/* With three or more columns the first one stays in view while scrolling. */
+.table-scroll.is-wide .has-key :is(th, td):first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: inset -1px 0 0 var(--line); }
+.table-scroll.is-wide .has-key th:first-child { background: var(--surface-2); }
+.table-hint { margin: 6px 2px 0; font-size: .8rem; color: var(--muted); text-align: right; }
 th { background: var(--surface-2); font-weight: 600; color: var(--ink-2); }
 tbody tr:last-child td { border-bottom: 0; }
 

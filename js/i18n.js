@@ -192,6 +192,7 @@ export const UI = {
   themeLight: { en: 'Light', zh: '浅色' },
   themeDark: { en: 'Dark', zh: '深色' },
   lightLooks: { en: 'Light theme', zh: '浅色主题' },
+  swipeTable: { en: 'Swipe the table sideways to see more →', zh: '左右滑动表格查看更多 →' },
   darkLooks: { en: 'Dark theme', zh: '深色主题' },
   look_classic: { en: 'Classic', zh: '经典' },
   look_paper: { en: 'Paper', zh: '纸张' },

@@ -59,13 +59,36 @@ function table(b, ctx) {
   if (b.by) ({ headers, rows } = b.by[L] || b.by.en);
   else { headers = b.headers.map(h => pick(h, L)); rows = b.rows.map(r => r.map(c => pick(c, L))); }
   const cap = pick(b.caption, L);
-  return el('figure', { class: 'table-wrap' },
-    cap ? el('figcaption', { html: cap }) : null,
-    el('div', { class: 'table-scroll', tabindex: '0' },
-      el('table', {},
-        headers?.length ? el('thead', {}, el('tr', {}, headers.map(h => el('th', { scope: 'col', html: h })))) : null,
-        el('tbody', {}, rows.map(r => el('tr', {}, r.map(c => el('td', { html: c }))))))));
+  // Each column gets a width class from its longest cell, so on a phone short
+  // columns ("25–30%") stay on one line and prose columns keep a readable
+  // width; a table wider than the screen then scrolls sideways instead of
+  // squeezing every column.
+  const widths = (headers || rows[0] || []).map((_, i) => colClass(Math.max(0, ...rows.map(r => textWidth(r[i])))));
+  const head = headers?.length ? el('thead', {}, el('tr', {}, headers.map((h, i) =>
+    el('th', { scope: 'col', class: textWidth(h) <= 18 ? `${widths[i]} th-one` : widths[i], html: h })))) : null;
+  const scroll = el('div', { class: 'table-scroll', tabindex: '0' },
+    el('table', { class: headers?.length >= 3 ? 'has-key' : null }, head,
+      el('tbody', {}, rows.map(r => el('tr', {}, r.map((c, i) => el('td', { class: widths[i], html: c })))))));
+  const hint = el('p', { class: 'table-hint', 'aria-hidden': 'true', hidden: true }, t('swipeTable', null, L));
+  // Say "swipe" only when there is something to swipe to.
+  if (typeof ResizeObserver === 'function') {
+    new ResizeObserver(() => {
+      const wide = scroll.scrollWidth > scroll.clientWidth + 2;
+      hint.hidden = !wide;
+      scroll.classList.toggle('is-wide', wide);
+    }).observe(scroll);
+  }
+  return el('figure', { class: 'table-wrap' }, cap ? el('figcaption', { html: cap }) : null, scroll, hint);
 }
+
+// Rough display width of a cell: tags removed, CJK characters count double.
+function textWidth(html) {
+  const s = String(html ?? '').replace(/<[^>]*>/g, '').replace(/&[a-z#0-9]+;/gi, 'x').trim();
+  let w = 0;
+  for (const ch of s) w += /[\u2e80-\u9fff\uff00-\uffef]/.test(ch) ? 2 : 1;
+  return w;
+}
+const colClass = w => (w <= 14 ? 'col-short' : w <= 40 ? 'col-mid' : 'col-long');
 
 /* Quick check: tap an option, see whether it was right and
    why; every option's explanation opens once one is chosen. The choice is
