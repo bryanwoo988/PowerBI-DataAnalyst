@@ -245,7 +245,7 @@ export async function examResult(L, { n = 0, go }) {
         if (exam.current() && !confirm(t('examReplace', null, L))) return;
         exam.start(exam.createAttempt({ mode: 'retry', keys: wrongKeys, pool }));
         go('#/exam/run');
-      } }, skipped ? t('examRetryMixedN', { n: wrongKeys.length, wrong: wrongKeys.length - skipped, skip: skipped }, L) : t('examRetryWrongN', { n: wrongKeys.length }, L)) : null,
+      } }, skipped === wrongKeys.length ? t('examRetrySkippedN', { n: skipped }, L) : skipped ? t('examRetryMixedN', { n: wrongKeys.length, wrong: wrongKeys.length - skipped, skip: skipped }, L) : t('examRetryWrongN', { n: wrongKeys.length }, L)) : null,
       el('a', { class: 'button button-quiet', href: '#/exam' }, t('examNew', null, L))),
     el('h2', { class: 'lib-h' }, t('examAnswers', null, L)),
     onlyWrong,
