@@ -77,6 +77,33 @@
   --c1: #8dc4ff; --c2: #ff8a93; --c3: #f5c84c; --c4: #6fdc8f; --c5: #b39cf0;
 }
 
+/* ===== Theme looks =====
+   data-theme (light|dark) sets the base above; data-palette picks the look.
+   Classic and Midnight are the base itself. Course colours stay the same. */
+:root[data-palette="paper"] {
+  --bg: #f6f1e7; --surface: #fffdf8; --surface-2: #efe7d8; --ink: #2b2620; --ink-2: #4a4136; --muted: #6e6455; --line: #e3d9c6;
+  --accent: #a8571a; --accent-strong: #7d3f10; --focus: #a8571a66;
+}
+:root[data-palette="mint"] {
+  --bg: #eef7f3; --surface: #ffffff; --surface-2: #e0f1ea; --ink: #15302a; --ink-2: #2c4a42; --muted: #557069; --line: #cde4da;
+  --accent: #0b7f62; --accent-strong: #075c47; --focus: #0b7f6266;
+}
+:root[data-palette="lavender"] {
+  --bg: #f5f3fc; --surface: #ffffff; --surface-2: #ebe7f8; --ink: #231f3a; --ink-2: #3d3760; --muted: #625c80; --line: #dcd6f0;
+  --accent: #5b45c4; --accent-strong: #41309a; --focus: #5b45c466;
+}
+:root[data-theme="dark"][data-palette="oled"] {
+  --bg: #000000; --surface: #0d0d0d; --surface-2: #1a1a1a; --ink: #ededed; --ink-2: #cfcfcf; --muted: #9b9b9b; --line: #262626;
+}
+:root[data-theme="dark"][data-palette="slate"] {
+  --bg: #23272f; --surface: #2c313b; --surface-2: #363c48; --ink: #e2e6ec; --ink-2: #c6ccd6; --muted: #a0aab6; --line: #404857;
+  --accent: #8cbcea; --focus: #8cbcea66;
+}
+:root[data-theme="dark"][data-palette="grape"] {
+  --bg: #17121f; --surface: #221a2e; --surface-2: #2d243c; --ink: #ede7f8; --ink-2: #d2c8e6; --muted: #ab9fc2; --line: #3a2f4d;
+  --accent: #b89dff; --accent-strong: #d6c6ff; --focus: #b89dff66;
+}
+
 /* ===== Base ===== */
 *, *::before, *::after { box-sizing: border-box; }
 html {
@@ -248,9 +275,28 @@ html[data-single] .page-chapter { grid-template-columns: minmax(0, 1fr); }
 
 .table-wrap { margin: 1.2em 0; }
 .table-wrap figcaption { font-size: .88rem; color: var(--ink-2); font-weight: 600; margin-bottom: 8px; }
-.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
-table { border-collapse: collapse; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
-th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.table-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  /* Edge shadows appear only where more columns are hidden: the covers scroll
+     with the content, the shadows stay put. */
+  background:
+    linear-gradient(to right, var(--bg) 40%, transparent) left / 28px 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 40%, transparent) right / 28px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .22), transparent) left / 12px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .22), transparent) right / 12px 100% no-repeat scroll;
+}
+table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
+/* Words break only between words here, never "Wei|ght". */
+th, td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); overflow-wrap: normal; word-break: normal; }
+.col-short { white-space: nowrap; }
+.col-mid { min-width: 9em; }
+.col-long { min-width: 15em; }
+th.th-one { white-space: nowrap; }
+/* With three or more columns the first one stays in view while scrolling. */
+.table-scroll.is-wide .has-key :is(th, td):first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: inset -1px 0 0 var(--line); }
+.table-scroll.is-wide .has-key th:first-child { background: var(--surface-2); }
+.table-hint { margin: 6px 2px 0; font-size: .8rem; color: var(--muted); text-align: right; }
 th { background: var(--surface-2); font-weight: 600; color: var(--ink-2); }
 tbody tr:last-child td { border-bottom: 0; }
 
@@ -664,3 +710,14 @@ pre code { background: none; padding: 0; }
 .term-lessons { margin: 10px 0 0; padding-left: 1.2em; font-size: .92rem; }
 .exam-blueprint li span:last-child { white-space: nowrap; }
 .exam-review-item.is-skip { border-left-color: var(--muted); }
+
+/* Theme look picker (Settings) */
+.looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.look { display: flex; flex-direction: column; gap: 5px; padding: 5px; border: 2px solid transparent; border-radius: 14px; background: none; color: var(--ink); font: inherit; font-size: .8rem; font-weight: 600; cursor: pointer; }
+.look.on { border-color: var(--accent); }
+.look:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+.look-prev { display: block; height: 52px; padding: 8px; border-radius: 10px; border: 1px solid rgba(127, 127, 127, .28); }
+.look-card { display: flex; flex-direction: column; gap: 5px; height: 100%; padding: 6px; border-radius: 6px; }
+.look-card i { display: block; width: 45%; height: 6px; border-radius: 3px; }
+.look-card b { display: block; width: 75%; height: 5px; border-radius: 3px; background: rgba(127, 127, 127, .35); }
+.look-name { text-align: center; line-height: 1.25; }
