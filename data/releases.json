@@ -1,4 +1,7 @@
 [
+ {"v": "1.0.1", "date": "2026-10-20", "notes": [
+  {"en": "Mock exam: questions you did not answer no longer show their answers on the result page, so handing in early does not give away the answers for next time. Retry them to see the answer and explanation.", "zh": "模拟考试：没有作答的题目，在成绩页面不再显示答案，提早交卷不会泄露下次考试的答案。重做这些题后就能看到答案和解释。"}
+ ]},
  {"v": "1.0.0", "date": "2026-10-18", "notes": [
   {"en": "First release: a PL-300 Power BI Data Analyst study app in English and Chinese, usable offline — 5 courses, 14 modules and 58 lessons following Microsoft's skills outline.", "zh": "第一版：PL-300 Power BI 数据分析师备考 App，中英双语，可离线使用——按照 Microsoft 技能大纲编排的 5 门课程、14 个单元、58 课。"},
   {"en": "Quick checks inside the lessons, a recap and module quiz for each module, and an 'I've mastered this' checklist.", "zh": "课程中的随堂小测、每个单元的复习卡和单元测验，以及「我已掌握」进度。"},

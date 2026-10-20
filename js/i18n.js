@@ -121,6 +121,8 @@ export const UI = {
   examOnlyWrong: { en: 'Show only questions I got wrong', zh: '只显示答错的题目' },
   examYourAnswer: { en: 'your answer', zh: '你的答案' },
   examSkipped: { en: 'Not answered', zh: '未作答' },
+  examSkippedHidden: { en: 'You did not answer this one, so its answer stays hidden. Try it with the retry button above, then you will see the answer and the explanation.', zh: '这题你没有作答，所以答案不显示。用上面的重做按钮先作答，之后就能看到答案和解释。' },
+  examRetryMixedN: { en: 'Retry {n}: {wrong} wrong, {skip} not answered', zh: '重做 {n} 题：答错 {wrong} 题、未作答 {skip} 题' },
   examStudyLesson: { en: 'Study this lesson', zh: '学习这一课' },
   examHistory: { en: 'Past attempts', zh: '历次成绩' },
   examClear: { en: 'Clear history', zh: '清除历史' },

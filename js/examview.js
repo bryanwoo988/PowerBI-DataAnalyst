@@ -188,6 +188,8 @@ export async function examResult(L, { n = 0, go }) {
   if (!h) return examHome(L, { go });
   const doms = Object.keys(h.perDomain).map(Number).sort();
   const wrongKeys = h.items.filter((it, i) => !byKey.get(it.key)?.options[h.answers[i]]?.correct).map(it => it.key).filter(k => byKey.has(k));
+  const skipped = h.items.filter((it, i) => h.answers[i] == null && byKey.has(it.key)).length;
+  const answered = h.items.length - h.items.filter((_, i) => h.answers[i] == null).length;
   const weakest = doms.length > 1 ? doms.reduce((w, d) => (pct(h.perDomain[d].right, h.perDomain[d].total) < pct(h.perDomain[w].right, h.perDomain[w].total) ? d : w)) : null;
 
   const review = el('ol', { class: 'exam-review' }, h.items.map((it, i) => {
@@ -196,6 +198,15 @@ export async function examResult(L, { n = 0, go }) {
     const mine = h.answers[i];
     const ok = mine != null && q.options[mine]?.correct;
     const [chId, secId] = q.ref ? q.ref.split('/') : [];
+    // A question left blank keeps its answer hidden: handing in early must
+    // not turn the exam into an answer sheet for the next attempt. Retry
+    // shows it once the question has been tried.
+    if (mine == null) {
+      return el('li', { class: 'exam-review-item is-no is-skip' },
+        el('p', { class: 'kicker' }, `${i + 1} · ${domainName(q.domain, L)} · — ${t('examSkipped', null, L)}`),
+        el('div', { class: 'quiz-text', html: pick(q.q, L) }),
+        el('p', { class: 'muted small' }, t('examSkippedHidden', null, L)));
+    }
     return el('li', { class: `exam-review-item ${ok ? 'is-ok' : 'is-no'}`, 'data-ok': ok ? '1' : '0' },
       el('p', { class: 'kicker' }, `${i + 1} · ${domainName(q.domain, L)} · `, ok ? `✓ ${t('correct', null, L)}` : `✗ ${t(mine == null ? 'examSkipped' : 'notQuite', null, L)}`),
       el('div', { class: 'quiz-text', html: pick(q.q, L) }),
@@ -219,7 +230,9 @@ export async function examResult(L, { n = 0, go }) {
     el('div', { class: `card exam-score ${h.pass ? 'is-pass' : 'is-fail'}` },
       el('div', { class: 'exam-points' }, el('span', { class: 'exam-points-n' }, String(h.points)), el('span', { class: 'muted' }, ' / 1000')),
       el('p', { class: 'exam-verdict' }, h.pass ? t('examPass', { n: exam.PASS }, L) : t('examFail', { n: exam.PASS }, L)),
-      el('p', { class: 'muted' }, `${t('recapScore', { done: h.right, total: h.total }, L)} · ${pct(h.right, h.total)}% · ${t('examTime', { t: clock(h.seconds) }, L)} · ${when(h.at, L)}`)),
+      el('p', { class: 'muted' }, [t('recapScore', { done: h.right, total: h.total }, L), `${pct(h.right, h.total)}%`,
+        answered < h.items.length ? t('examAnsweredOf', { done: answered, total: h.items.length }, L) : null,
+        t('examTime', { t: clock(h.seconds) }, L), when(h.at, L)].filter(Boolean).join(' · '))),
     doms.length ? el('div', { class: 'card exam-domains-result' },
       el('h2', {}, t('examByDomain', null, L)),
       doms.map(d => el('div', { class: 'exam-dom-row' },
@@ -232,7 +245,7 @@ export async function examResult(L, { n = 0, go }) {
         if (exam.current() && !confirm(t('examReplace', null, L))) return;
         exam.start(exam.createAttempt({ mode: 'retry', keys: wrongKeys, pool }));
         go('#/exam/run');
-      } }, t('examRetryWrongN', { n: wrongKeys.length }, L)) : null,
+      } }, skipped ? t('examRetryMixedN', { n: wrongKeys.length, wrong: wrongKeys.length - skipped, skip: skipped }, L) : t('examRetryWrongN', { n: wrongKeys.length }, L)) : null,
       el('a', { class: 'button button-quiet', href: '#/exam' }, t('examNew', null, L))),
     el('h2', { class: 'lib-h' }, t('examAnswers', null, L)),
     onlyWrong,
